@@ -31,8 +31,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.dgvTable = new System.Windows.Forms.DataGridView();
+            this.cmbTables = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -49,7 +49,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTable)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -82,24 +82,26 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "label3";
             // 
-            // dataGridView1
+            // dgvTable
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(447, 64);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(469, 405);
-            this.dataGridView1.TabIndex = 3;
+            this.dgvTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTable.Location = new System.Drawing.Point(447, 64);
+            this.dgvTable.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvTable.Name = "dgvTable";
+            this.dgvTable.RowTemplate.Height = 25;
+            this.dgvTable.Size = new System.Drawing.Size(469, 405);
+            this.dgvTable.TabIndex = 3;
             // 
-            // comboBox1
+            // cmbTables
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(658, 18);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(154, 29);
-            this.comboBox1.TabIndex = 4;
+            this.cmbTables.FormattingEnabled = true;
+            this.cmbTables.Items.AddRange(new object[] {
+            "Products"});
+            this.cmbTables.Location = new System.Drawing.Point(658, 18);
+            this.cmbTables.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbTables.Name = "cmbTables";
+            this.cmbTables.Size = new System.Drawing.Size(154, 29);
+            this.cmbTables.TabIndex = 4;
             // 
             // label4
             // 
@@ -269,8 +271,8 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.cmbTables);
+            this.Controls.Add(this.dgvTable);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -279,7 +281,7 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTable)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -290,8 +292,8 @@
         private Label label1;
         private Label label2;
         private Label label3;
-        private DataGridView dataGridView1;
-        private ComboBox comboBox1;
+        private DataGridView dgvTable;
+        private ComboBox cmbTables;
         private Label label4;
         private Label label5;
         private Label label6;
