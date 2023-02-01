@@ -44,6 +44,13 @@
             this.txtPkgDesc = new System.Windows.Forms.TextBox();
             this.txtPkgEnd = new System.Windows.Forms.TextBox();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.dgvProducts = new System.Windows.Forms.DataGridView();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtProducts = new System.Windows.Forms.TextBox();
+            this.btnAddProduct = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -126,7 +133,7 @@
             // 
             // btnAccept
             // 
-            this.btnAccept.Location = new System.Drawing.Point(160, 467);
+            this.btnAccept.Location = new System.Drawing.Point(420, 445);
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.Size = new System.Drawing.Size(75, 35);
             this.btnAccept.TabIndex = 8;
@@ -177,18 +184,80 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(315, 467);
+            this.btnCancel.Location = new System.Drawing.Point(604, 445);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 35);
             this.btnCancel.TabIndex = 16;
             this.btnCancel.Text = "&Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(840, 66);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(74, 21);
+            this.label8.TabIndex = 17;
+            this.label8.Text = "Products:";
+            // 
+            // dgvProducts
+            // 
+            this.dgvProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProducts.Location = new System.Drawing.Point(920, 66);
+            this.dgvProducts.Name = "dgvProducts";
+            this.dgvProducts.RowTemplate.Height = 25;
+            this.dgvProducts.Size = new System.Drawing.Size(416, 310);
+            this.dgvProducts.TabIndex = 18;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(92, 355);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(74, 21);
+            this.label9.TabIndex = 19;
+            this.label9.Text = "Products:";
+            // 
+            // txtProducts
+            // 
+            this.txtProducts.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.txtProducts.Location = new System.Drawing.Point(342, 347);
+            this.txtProducts.Name = "txtProducts";
+            this.txtProducts.ReadOnly = true;
+            this.txtProducts.Size = new System.Drawing.Size(417, 29);
+            this.txtProducts.TabIndex = 20;
+            // 
+            // btnAddProduct
+            // 
+            this.btnAddProduct.Location = new System.Drawing.Point(970, 406);
+            this.btnAddProduct.Name = "btnAddProduct";
+            this.btnAddProduct.Size = new System.Drawing.Size(113, 74);
+            this.btnAddProduct.TabIndex = 21;
+            this.btnAddProduct.Text = "Add Product to Package";
+            this.btnAddProduct.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1169, 406);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(113, 74);
+            this.button1.TabIndex = 22;
+            this.button1.Text = "Remove Product from Package";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // frmAddEditPackages
             // 
+            this.AcceptButton = this.btnAccept;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(844, 525);
+            this.CancelButton = this.btnCancel;
+            this.ClientSize = new System.Drawing.Size(1447, 554);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnAddProduct);
+            this.Controls.Add(this.txtProducts);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.dgvProducts);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.txtPkgEnd);
             this.Controls.Add(this.txtPkgDesc);
@@ -206,10 +275,12 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmAddEditPackages";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAddEditPackages";
+            this.Load += new System.EventHandler(this.frmAddEditPackages_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -233,5 +304,11 @@
         private TextBox txtPkgDesc;
         private TextBox txtPkgEnd;
         private Button btnCancel;
+        private Label label8;
+        private DataGridView dgvProducts;
+        private Label label9;
+        private TextBox txtProducts;
+        private Button btnAddProduct;
+        private Button button1;
     }
 }
