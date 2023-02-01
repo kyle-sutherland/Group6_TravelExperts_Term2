@@ -139,6 +139,7 @@
             this.btnAccept.TabIndex = 8;
             this.btnAccept.Text = "&Accept";
             this.btnAccept.UseVisualStyleBackColor = true;
+            this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
             // 
             // txtPkgName
             // 

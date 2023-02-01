@@ -47,3 +47,14 @@ C:\Users\Xavier\Desktop\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\
 C:\Users\Xavier\Desktop\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.pdb
 C:\Users\Xavier\Desktop\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.genruntimeconfig.cache
 C:\Users\Xavier\Desktop\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\ref\TravelExpertsGUI.dll
+C:\Users\Xavier\Documents\SAIT\CPRG 212\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.csproj.AssemblyReference.cache
+C:\Users\Xavier\Documents\SAIT\CPRG 212\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.Form1.resources
+C:\Users\Xavier\Documents\SAIT\CPRG 212\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.frmAddEditPackages.resources
+C:\Users\Xavier\Documents\SAIT\CPRG 212\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.csproj.GenerateResource.cache
+C:\Users\Xavier\Documents\SAIT\CPRG 212\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Xavier\Documents\SAIT\CPRG 212\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.AssemblyInfoInputs.cache
+C:\Users\Xavier\Documents\SAIT\CPRG 212\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.AssemblyInfo.cs
+C:\Users\Xavier\Documents\SAIT\CPRG 212\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.csproj.CoreCompileInputs.cache
+C:\Users\Xavier\Documents\SAIT\CPRG 212\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.dll
+C:\Users\Xavier\Documents\SAIT\CPRG 212\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\refint\TravelExpertsGUI.dll
+C:\Users\Xavier\Documents\SAIT\CPRG 212\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.pdb

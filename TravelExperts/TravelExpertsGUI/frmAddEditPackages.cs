@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Drawing;
 using System.IO.Packaging;
@@ -11,6 +12,8 @@ using System.Windows.Forms;
 using System.Xml.Linq;
 using TravelExpertsData;
 using static System.Windows.Forms.AxHost;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 
 namespace TravelExpertsGUI
 {
@@ -69,7 +72,35 @@ namespace TravelExpertsGUI
             }
         }
 
+        private void btnAccept_Click(object sender, EventArgs e)
+        {
+            if (Validator.IsProvided(txtPkgName) //&&
+                //Validator.IsProvided(txtPkg) &&
+                //Validator.IsProvided(txtPkg) &&
+                //Validator.IsSelected(txtPkg) &&
+                //Validator.IsProvided(txtPkg)
+              )
+            {
+                if (isAdd)
+                {
+                    package = new TravelExpertsData.Package();
+                }
+                
+                if (package != null)
+                {
+                    package.PackageId =  Convert.ToInt32(txtPkgID.Text);
+                    package.PkgName = txtPkgName.Text;
+                    package.PkgStartDate = Convert.ToDateTime(txtPkgStart.Text);
+                    package.PkgEndDate = Convert.ToDateTime(txtPkgEnd.Text);
+                    package.PkgDesc = txtPkgDesc.Text;
+                    package.PkgBasePrice = Convert.ToDecimal(txtPkgPrice.Text);
+                    package.PkgAgencyCommission = Convert.ToDecimal(txtPkgCommision.Text);
+                }
+                this.DialogResult = DialogResult.OK;
+            }
+        }
 
-        // btnCancel is set as Cancel button on this form
+
+        // btnCancel is set as the Cancel button on this form and will close it automatically
     }
 }
