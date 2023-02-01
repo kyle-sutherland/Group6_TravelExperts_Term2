@@ -192,7 +192,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(201, 48);
+            this.label8.Location = new System.Drawing.Point(201, 26);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(52, 21);
             this.label8.TabIndex = 15;
@@ -201,7 +201,7 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.button1.Location = new System.Drawing.Point(201, 491);
+            this.button1.Location = new System.Drawing.Point(126, 355);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(83, 37);
             this.button1.TabIndex = 16;
@@ -211,7 +211,7 @@
             // button2
             // 
             this.button2.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.button2.Location = new System.Drawing.Point(87, 355);
+            this.button2.Location = new System.Drawing.Point(263, 355);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(83, 37);
             this.button2.TabIndex = 17;
@@ -221,7 +221,7 @@
             // button3
             // 
             this.button3.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.button3.Location = new System.Drawing.Point(201, 355);
+            this.button3.Location = new System.Drawing.Point(126, 432);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(83, 37);
             this.button3.TabIndex = 18;
@@ -241,7 +241,7 @@
             // button5
             // 
             this.button5.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.button5.Location = new System.Drawing.Point(318, 355);
+            this.button5.Location = new System.Drawing.Point(263, 432);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(83, 37);
             this.button5.TabIndex = 20;
