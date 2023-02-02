@@ -50,6 +50,8 @@
             this.txtProducts = new System.Windows.Forms.TextBox();
             this.btnAddProduct = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.cboProduct = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
             this.SuspendLayout();
             // 
@@ -195,19 +197,19 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(840, 66);
+            this.label8.Location = new System.Drawing.Point(824, 66);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(74, 21);
+            this.label8.Size = new System.Drawing.Size(141, 21);
             this.label8.TabIndex = 17;
-            this.label8.Text = "Products:";
+            this.label8.Text = "Available products:";
             // 
             // dgvProducts
             // 
             this.dgvProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProducts.Location = new System.Drawing.Point(920, 66);
+            this.dgvProducts.Location = new System.Drawing.Point(981, 66);
             this.dgvProducts.Name = "dgvProducts";
             this.dgvProducts.RowTemplate.Height = 25;
-            this.dgvProducts.Size = new System.Drawing.Size(416, 310);
+            this.dgvProducts.Size = new System.Drawing.Size(397, 262);
             this.dgvProducts.TabIndex = 18;
             // 
             // label9
@@ -230,21 +232,40 @@
             // 
             // btnAddProduct
             // 
-            this.btnAddProduct.Location = new System.Drawing.Point(970, 406);
+            this.btnAddProduct.Location = new System.Drawing.Point(1265, 347);
             this.btnAddProduct.Name = "btnAddProduct";
             this.btnAddProduct.Size = new System.Drawing.Size(113, 74);
             this.btnAddProduct.TabIndex = 21;
             this.btnAddProduct.Text = "Add Product to Package";
             this.btnAddProduct.UseVisualStyleBackColor = true;
+            this.btnAddProduct.Click += new System.EventHandler(this.btnAddProduct_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(1169, 406);
+            this.button1.Location = new System.Drawing.Point(1265, 427);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(113, 74);
             this.button1.TabIndex = 22;
             this.button1.Text = "Remove Product from Package";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // cboProduct
+            // 
+            this.cboProduct.FormattingEnabled = true;
+            this.cboProduct.Location = new System.Drawing.Point(981, 371);
+            this.cboProduct.Name = "cboProduct";
+            this.cboProduct.Size = new System.Drawing.Size(247, 29);
+            this.cboProduct.TabIndex = 23;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(824, 379);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(124, 21);
+            this.label10.TabIndex = 24;
+            this.label10.Text = "Select a product:";
             // 
             // frmAddEditPackages
             // 
@@ -253,6 +274,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(1447, 554);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.cboProduct);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnAddProduct);
             this.Controls.Add(this.txtProducts);
@@ -311,5 +334,7 @@
         private TextBox txtProducts;
         private Button btnAddProduct;
         private Button button1;
+        private ComboBox cboProduct;
+        private Label label10;
     }
 }

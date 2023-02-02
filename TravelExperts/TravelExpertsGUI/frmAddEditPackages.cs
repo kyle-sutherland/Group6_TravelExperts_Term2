@@ -22,6 +22,7 @@ namespace TravelExpertsGUI
         // form variables
         public bool isAdd;
         public TravelExpertsData.Package? package;
+        public TravelExpertsData.Product? selectedProduct;
 
         public frmAddEditPackages()
         {
@@ -37,17 +38,22 @@ namespace TravelExpertsGUI
                     // list of products for the data grid view
                     List<Product> products = db.Products.OrderBy(p => p.ProdName).ToList();
                     dgvProducts.DataSource = products;
+                    cboProduct.DataSource = products;
                 }
 
                 if (isAdd) 
                 {
                     
                     this.Text = "Add Package";
+                    DisplayProducts();
+                    DisplayCBOProduct();
                 }
                 else 
                 {
                     this.Text = "Edit Package";
                     DisplayPackage();
+                    DisplayProducts();
+                    DisplayCBOProduct();
 
                 }
             }
@@ -69,6 +75,41 @@ namespace TravelExpertsGUI
                 txtPkgDesc.Text = package.PkgDesc;
                 txtPkgPrice.Text = Convert.ToString(package.PkgBasePrice);
                 txtPkgCommision.Text = Convert.ToString(package.PkgAgencyCommission);
+            }
+        }
+
+        private void DisplayProducts()
+        {
+
+            using (TravelExpertsContext db = new TravelExpertsContext())
+            {
+                dgvProducts.DataSource = db.Products.Select(p => new{ p.ProductId, p.ProdName }).ToList();
+                // format the grid view
+                dgvProducts.Columns[0].HeaderText = "Product ID";
+                dgvProducts.Columns[0].Width = 50;
+                dgvProducts.Columns[1].HeaderText = "Product Name";
+                dgvProducts.Columns[1].Width = 200;
+            }
+        }
+
+        private void DisplayCBOProduct()
+        {
+            try
+            {
+                using (TravelExpertsContext db = new TravelExpertsContext())
+                {
+
+                    List<Product> products = db.Products.ToList();
+                    cboProduct.DataSource = products;
+                    cboProduct.DisplayMember = "ProdName";
+                    cboProduct.ValueMember = "ProductId";
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error when retrieving Product: " + ex.Message,
+                                ex.GetType().ToString());
             }
         }
 
@@ -100,6 +141,45 @@ namespace TravelExpertsGUI
             }
         }
 
+        private void btnAddProduct_Click(object sender, EventArgs e)
+        {
+            string selectedProduct = Convert.ToString(cboProduct.SelectedValue);
+            try
+            {
+                using (TravelExpertsContext db = new TravelExpertsContext())
+                {
+                    if (selectedProduct != null)
+                    {
+                        db.Products.Add(selectedProduct);
+                        db.SaveChanges();
+                    }
+                    DisplayCBOProduct();
+                    DisplayProducts();
+                }
+            }
+            catch (DbUpdateException ex)
+            {
+                string errorMessage = "";
+                var sqlException = (SqlException)ex.InnerException;
+                foreach (SqlError error in sqlException.Errors)
+                {
+                    errorMessage += "ERROR CODE:  " + error.Number +
+                                    " " + error.Message + "\n";
+                }
+                MessageBox.Show(errorMessage);
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error while adding product:" + ex.Message,
+                    ex.GetType().ToString());
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
 
         // btnCancel is set as the Cancel button on this form and will close it automatically
     }
