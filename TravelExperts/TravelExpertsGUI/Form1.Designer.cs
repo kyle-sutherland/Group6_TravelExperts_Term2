@@ -96,7 +96,7 @@
             // 
             this.cmbTables.FormattingEnabled = true;
             this.cmbTables.Items.AddRange(new object[] {
-            "Products"});
+            "frmProducts"});
             this.cmbTables.Location = new System.Drawing.Point(658, 18);
             this.cmbTables.Margin = new System.Windows.Forms.Padding(4);
             this.cmbTables.Name = "cmbTables";

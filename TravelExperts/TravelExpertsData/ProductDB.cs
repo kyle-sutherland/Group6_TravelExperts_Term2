@@ -6,15 +6,16 @@ using System.Threading.Tasks;
 
 namespace TravelExpertsData
 {
-    internal class ProductDB
+    public class ProductDB
     {
-        public static void GetAllProducts()
+        public static List<Product> GetAllProducts()
         {
             var products = new List<Product>();
             using (TravelExpertsContext db = new TravelExpertsContext())
             {
                 products.AddRange(db.Products);
             }
+            return products;
         }
     }
 }
