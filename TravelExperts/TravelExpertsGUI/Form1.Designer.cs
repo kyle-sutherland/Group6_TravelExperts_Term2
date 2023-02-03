@@ -44,7 +44,7 @@
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -94,6 +94,7 @@
             // 
             // cmbTables
             // 
+<<<<<<< HEAD
             this.cmbTables.FormattingEnabled = true;
             this.cmbTables.Items.AddRange(new object[] {
             "frmProducts"});
@@ -102,6 +103,15 @@
             this.cmbTables.Name = "cmbTables";
             this.cmbTables.Size = new System.Drawing.Size(154, 29);
             this.cmbTables.TabIndex = 4;
+=======
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(658, 18);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(154, 29);
+            this.comboBox1.TabIndex = 4;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+>>>>>>> Xaviers-branch
             // 
             // label4
             // 
@@ -194,26 +204,27 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(201, 48);
+            this.label8.Location = new System.Drawing.Point(201, 26);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(52, 21);
             this.label8.TabIndex = 15;
             this.label8.Text = "label8";
             // 
-            // button1
+            // btnAdd
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.button1.Location = new System.Drawing.Point(201, 491);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(83, 37);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "Add";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnAdd.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btnAdd.Location = new System.Drawing.Point(126, 355);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(83, 37);
+            this.btnAdd.TabIndex = 16;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.button2.Location = new System.Drawing.Point(87, 355);
+            this.button2.Location = new System.Drawing.Point(263, 355);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(83, 37);
             this.button2.TabIndex = 17;
@@ -223,7 +234,7 @@
             // button3
             // 
             this.button3.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.button3.Location = new System.Drawing.Point(201, 355);
+            this.button3.Location = new System.Drawing.Point(126, 432);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(83, 37);
             this.button3.TabIndex = 18;
@@ -243,7 +254,7 @@
             // button5
             // 
             this.button5.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.button5.Location = new System.Drawing.Point(318, 355);
+            this.button5.Location = new System.Drawing.Point(263, 432);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(83, 37);
             this.button5.TabIndex = 20;
@@ -259,7 +270,7 @@
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.textBox5);
@@ -281,7 +292,12 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+<<<<<<< HEAD
             ((System.ComponentModel.ISupportInitialize)(this.dgvTable)).EndInit();
+=======
+            this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+>>>>>>> Xaviers-branch
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -305,7 +321,7 @@
         private TextBox textBox5;
         private TextBox textBox6;
         private Label label8;
-        private Button button1;
+        private Button btnAdd;
         private Button button2;
         private Button button3;
         private Button button4;
