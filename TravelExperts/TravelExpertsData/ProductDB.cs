@@ -13,7 +13,8 @@ namespace TravelExpertsData
             var products = new List<Product>();
             using (TravelExpertsContext db = new TravelExpertsContext())
             {
-                products.AddRange(db.Products);
+                //products.AddRange(db.Products); //what intellicode came up with... going to try my version
+
             }
             return products;
         }

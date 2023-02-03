@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Microsoft.EntityFrameworkCore;
 using System.Configuration;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace TravelExpertsData
 {
@@ -38,12 +35,7 @@ namespace TravelExpertsData
         public virtual DbSet<TripType> TripTypes { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-                optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["TravelExperts"].ConnectionString);
-            }
-        }
+            => optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["TravelExperts"].ConnectionString);
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
