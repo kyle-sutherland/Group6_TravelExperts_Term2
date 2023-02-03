@@ -84,7 +84,6 @@ namespace TravelExpertsGUI
             using (TravelExpertsContext db = new TravelExpertsContext())
             {
                 dgvProducts.DataSource = db.Products.Select(p => new{ p.ProductId, p.ProdName }).ToList();
-                // format the grid view
                 dgvProducts.Columns[0].HeaderText = "Product ID";
                 dgvProducts.Columns[0].Width = 50;
                 dgvProducts.Columns[1].HeaderText = "Product Name";
@@ -141,13 +140,19 @@ namespace TravelExpertsGUI
             }
         }
 
+        private void cboProduct_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void btnAddProduct_Click(object sender, EventArgs e)
         {
-            string selectedProduct = Convert.ToString(cboProduct.SelectedValue);
+            int productID = Convert.ToInt32(cboProduct.SelectedValue);
             try
             {
                 using (TravelExpertsContext db = new TravelExpertsContext())
                 {
+                    selectedProduct = db.Products.Find(productID);
                     if (selectedProduct != null)
                     {
                         db.Products.Add(selectedProduct);
@@ -176,7 +181,7 @@ namespace TravelExpertsGUI
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnRemoveProduct_Click(object sender, EventArgs e)
         {
 
         }

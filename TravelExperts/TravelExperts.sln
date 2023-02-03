@@ -5,7 +5,7 @@ VisualStudioVersion = 17.4.33122.133
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TravelExpertsGUI", "TravelExpertsGUI\TravelExpertsGUI.csproj", "{2D1F7BD9-3E51-484E-9011-2985F547B973}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelExpertsData", "TravelExpertsData\TravelExpertsData.csproj", "{6B31247E-B406-4F92-8CA3-F5CD50B8D615}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TravelExpertsData", "TravelExpertsData\TravelExpertsData.csproj", "{6B31247E-B406-4F92-8CA3-F5CD50B8D615}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

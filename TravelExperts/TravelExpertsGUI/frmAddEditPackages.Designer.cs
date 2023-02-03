@@ -49,7 +49,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.txtProducts = new System.Windows.Forms.TextBox();
             this.btnAddProduct = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnRemoveProduct = new System.Windows.Forms.Button();
             this.cboProduct = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
@@ -240,15 +240,15 @@
             this.btnAddProduct.UseVisualStyleBackColor = true;
             this.btnAddProduct.Click += new System.EventHandler(this.btnAddProduct_Click);
             // 
-            // button1
+            // btnRemoveProduct
             // 
-            this.button1.Location = new System.Drawing.Point(1265, 427);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(113, 74);
-            this.button1.TabIndex = 22;
-            this.button1.Text = "Remove Product from Package";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnRemoveProduct.Location = new System.Drawing.Point(1265, 427);
+            this.btnRemoveProduct.Name = "btnRemoveProduct";
+            this.btnRemoveProduct.Size = new System.Drawing.Size(113, 74);
+            this.btnRemoveProduct.TabIndex = 22;
+            this.btnRemoveProduct.Text = "Remove Product from Package";
+            this.btnRemoveProduct.UseVisualStyleBackColor = true;
+            this.btnRemoveProduct.Click += new System.EventHandler(this.btnRemoveProduct_Click);
             // 
             // cboProduct
             // 
@@ -257,6 +257,7 @@
             this.cboProduct.Name = "cboProduct";
             this.cboProduct.Size = new System.Drawing.Size(247, 29);
             this.cboProduct.TabIndex = 23;
+            this.cboProduct.SelectedIndexChanged += new System.EventHandler(this.cboProduct_SelectedIndexChanged);
             // 
             // label10
             // 
@@ -276,7 +277,7 @@
             this.ClientSize = new System.Drawing.Size(1447, 554);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.cboProduct);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnRemoveProduct);
             this.Controls.Add(this.btnAddProduct);
             this.Controls.Add(this.txtProducts);
             this.Controls.Add(this.label9);
@@ -333,7 +334,7 @@
         private Label label9;
         private TextBox txtProducts;
         private Button btnAddProduct;
-        private Button button1;
+        private Button btnRemoveProduct;
         private ComboBox cboProduct;
         private Label label10;
     }
