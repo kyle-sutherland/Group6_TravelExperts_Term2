@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\TravelExperts"
+    "\\TravelExperts",
+    "\\TravelExperts\\TravelExpertsData"
   ],
-  "SelectedNode": "\\TravelExperts\\TravelExperts.sln",
+  "SelectedNode": "\\TravelExperts\\TravelExpertsData\\TravelExpertsData.csproj",
   "PreviewInSolutionExplorer": false
 }
