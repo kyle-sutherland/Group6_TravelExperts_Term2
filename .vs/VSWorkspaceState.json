@@ -4,6 +4,10 @@
     "\\TravelExperts",
     "\\TravelExperts\\TravelExpertsData"
   ],
+<<<<<<< Updated upstream
   "SelectedNode": "\\TravelExperts\\TravelExpertsData\\TravelExpertsData.csproj",
+=======
+  "SelectedNode": "\\TravelExperts\\TravelExperts.sln",
+>>>>>>> Stashed changes
   "PreviewInSolutionExplorer": false
 }
