@@ -23,6 +23,7 @@ namespace TravelExpertsGUI
         public bool isAdd;
         public TravelExpertsData.Package? package;
         public TravelExpertsData.Product? selectedProduct;
+        public TravelExpertsData.ProductsSupplier? selectedProdSupp;
 
         public frmAddEditPackages()
         {
@@ -183,7 +184,38 @@ namespace TravelExpertsGUI
 
         private void btnRemoveProduct_Click(object sender, EventArgs e)
         {
+            int productID = Convert.ToInt32(cboProduct.SelectedValue);
+            try
+            {
+                using (TravelExpertsContext db = new TravelExpertsContext())
+                {
+                    selectedProduct = db.Products.Find(productID);
+                    if (selectedProduct != null)
+                    {
+                        db.Products.Remove(selectedProduct);
+                        db.SaveChanges();
+                    }
+                    DisplayCBOProduct();
+                    DisplayProducts();
+                }
+            }
+            catch (DbUpdateException ex)
+            {
+                string errorMessage = "";
+                var sqlException = (SqlException)ex.InnerException;
+                foreach (SqlError error in sqlException.Errors)
+                {
+                    errorMessage += "ERROR CODE:  " + error.Number +
+                                    " " + error.Message + "\n";
+                }
+                MessageBox.Show(errorMessage);
+            }
 
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error while adding product:" + ex.Message,
+                    ex.GetType().ToString());
+            }
         }
 
         // btnCancel is set as the Cancel button on this form and will close it automatically
