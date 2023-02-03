@@ -154,8 +154,6 @@ namespace TravelExpertsGUI
                 using(TravelExpertsContext db = new TravelExpertsContext())
                 {
                     selectedProdSupp = prodSuppFrm.prodSupp;
-                    selectedSupplier = prodSuppFrm.supplier;
-                    selectedProduct = prodSuppFrm.product;
                     db.SaveChanges();
                     DisplayData();
                 }
