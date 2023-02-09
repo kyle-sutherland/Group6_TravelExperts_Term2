@@ -2019,39 +2019,23 @@
     ]
   },
   "packageFolders": {
-<<<<<<< HEAD
-    "C:\\Users\\mynam\\.nuget\\packages\\": {},
-=======
-    "C:\\Users\\Xavier\\.nuget\\packages\\": {},
->>>>>>> Xaviers-branch
+    "C:\\Users\\timhu\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
-      "projectUniqueName": "C:\\Users\\mynam\\Source\\Repos\\velveteen-rever\\Group6_TravelExperts_Term2\\TravelExperts\\TravelExpertsData\\TravelExpertsData.csproj",
+      "projectUniqueName": "C:\\Users\\timhu\\OneDrive\\Documents\\GitHub\\Group6_TravelExperts_Term2\\TravelExperts\\TravelExpertsData\\TravelExpertsData.csproj",
       "projectName": "TravelExpertsData",
-      "projectPath": "C:\\Users\\mynam\\Source\\Repos\\velveteen-rever\\Group6_TravelExperts_Term2\\TravelExperts\\TravelExpertsData\\TravelExpertsData.csproj",
-      "packagesPath": "C:\\Users\\mynam\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mynam\\Source\\Repos\\velveteen-rever\\Group6_TravelExperts_Term2\\TravelExperts\\TravelExpertsData\\obj\\",
-=======
-      "projectUniqueName": "C:\\Users\\Xavier\\Documents\\SAIT\\CPRG 212\\Group6_TravelExperts_Term2\\TravelExperts\\TravelExpertsData\\TravelExpertsData.csproj",
-      "projectName": "TravelExpertsData",
-      "projectPath": "C:\\Users\\Xavier\\Documents\\SAIT\\CPRG 212\\Group6_TravelExperts_Term2\\TravelExperts\\TravelExpertsData\\TravelExpertsData.csproj",
-      "packagesPath": "C:\\Users\\Xavier\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Xavier\\Documents\\SAIT\\CPRG 212\\Group6_TravelExperts_Term2\\TravelExperts\\TravelExpertsData\\obj\\",
->>>>>>> Xaviers-branch
+      "projectPath": "C:\\Users\\timhu\\OneDrive\\Documents\\GitHub\\Group6_TravelExperts_Term2\\TravelExperts\\TravelExpertsData\\TravelExpertsData.csproj",
+      "packagesPath": "C:\\Users\\timhu\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\timhu\\OneDrive\\Documents\\GitHub\\Group6_TravelExperts_Term2\\TravelExperts\\TravelExpertsData\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-<<<<<<< HEAD
-        "C:\\Users\\mynam\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-        "C:\\Users\\Xavier\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> Xaviers-branch
+        "C:\\Users\\timhu\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -2060,7 +2044,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -2110,16 +2093,8 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\timhu\\OneDrive\\Documents\\GitHub\\Group6_TravelExperts_Term2\\TravelExperts\\TravelExpertsData\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }

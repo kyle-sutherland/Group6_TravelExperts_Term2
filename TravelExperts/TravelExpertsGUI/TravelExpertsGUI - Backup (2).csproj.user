@@ -5,16 +5,11 @@
     <Compile Update="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="frmAddEditPackages.cs">
-      <SubType>Form</SubType>
-    </Compile>
+<<<<<<< HEAD
     <Compile Update="frmProducts.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Product_suppliersFrm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Prod_SuppAddModifyFrm.cs">
+=======
+    <Compile Update="frmAddEditPackages.cs">
+>>>>>>> Xaviers-branch
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

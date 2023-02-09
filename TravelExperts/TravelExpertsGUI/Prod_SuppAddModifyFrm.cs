@@ -30,7 +30,9 @@ namespace TravelExpertsGUI
                 // initialize the prodSupp property with new prodSupp object
                 this.prodSupp = new ProductsSupplier();
             }
-            this.LoadProdSuppData();
+
+            prodSupp.SupplierId = Convert.ToInt32(cbSuppliers.SelectedValue);
+            prodSupp.ProductId = Convert.ToInt32(cbProducts.SelectedValue);
             this.DialogResult= DialogResult.OK;
         }
 
@@ -89,9 +91,9 @@ namespace TravelExpertsGUI
         private void LoadProdSuppData()
         {
             prodSupp.SupplierId = Convert.ToInt32(cbSuppliers.SelectedValue);
-            MessageBox.Show(prodSupp.SupplierId.ToString());
+            //MessageBox.Show(prodSupp.SupplierId.ToString());
             prodSupp.ProductId = Convert.ToInt32(cbProducts.SelectedValue);
-            MessageBox.Show(prodSupp.ProductId.ToString());
+            //MessageBox.Show(prodSupp.ProductId.ToString());
         }
 
     }

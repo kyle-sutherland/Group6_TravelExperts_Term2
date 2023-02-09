@@ -1935,39 +1935,23 @@
     ]
   },
   "packageFolders": {
-<<<<<<< HEAD
-    "C:\\Users\\mynam\\.nuget\\packages\\": {},
-=======
-    "C:\\Users\\Xavier\\.nuget\\packages\\": {},
->>>>>>> Xaviers-branch
+    "C:\\Users\\timhu\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
-      "projectUniqueName": "C:\\Users\\mynam\\Source\\Repos\\velveteen-rever\\Group6_TravelExperts_Term2\\TravelExperts\\TravelExpertsGUI\\TravelExpertsGUI.csproj",
+      "projectUniqueName": "C:\\Users\\timhu\\OneDrive\\Documents\\GitHub\\Group6_TravelExperts_Term2\\TravelExperts\\TravelExpertsGUI\\TravelExpertsGUI.csproj",
       "projectName": "TravelExpertsGUI",
-      "projectPath": "C:\\Users\\mynam\\Source\\Repos\\velveteen-rever\\Group6_TravelExperts_Term2\\TravelExperts\\TravelExpertsGUI\\TravelExpertsGUI.csproj",
-      "packagesPath": "C:\\Users\\mynam\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mynam\\Source\\Repos\\velveteen-rever\\Group6_TravelExperts_Term2\\TravelExperts\\TravelExpertsGUI\\obj\\",
-=======
-      "projectUniqueName": "C:\\Users\\Xavier\\Documents\\SAIT\\CPRG 212\\Group6_TravelExperts_Term2\\TravelExperts\\TravelExpertsGUI\\TravelExpertsGUI.csproj",
-      "projectName": "TravelExpertsGUI",
-      "projectPath": "C:\\Users\\Xavier\\Documents\\SAIT\\CPRG 212\\Group6_TravelExperts_Term2\\TravelExperts\\TravelExpertsGUI\\TravelExpertsGUI.csproj",
-      "packagesPath": "C:\\Users\\Xavier\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Xavier\\Documents\\SAIT\\CPRG 212\\Group6_TravelExperts_Term2\\TravelExperts\\TravelExpertsGUI\\obj\\",
->>>>>>> Xaviers-branch
+      "projectPath": "C:\\Users\\timhu\\OneDrive\\Documents\\GitHub\\Group6_TravelExperts_Term2\\TravelExperts\\TravelExpertsGUI\\TravelExpertsGUI.csproj",
+      "packagesPath": "C:\\Users\\timhu\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\timhu\\OneDrive\\Documents\\GitHub\\Group6_TravelExperts_Term2\\TravelExperts\\TravelExpertsGUI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-<<<<<<< HEAD
-        "C:\\Users\\mynam\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-        "C:\\Users\\Xavier\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> Xaviers-branch
+        "C:\\Users\\timhu\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -1976,20 +1960,14 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
-<<<<<<< HEAD
-            "C:\\Users\\mynam\\Source\\Repos\\velveteen-rever\\Group6_TravelExperts_Term2\\TravelExperts\\TravelExpertsData\\TravelExpertsData.csproj": {
-              "projectPath": "C:\\Users\\mynam\\Source\\Repos\\velveteen-rever\\Group6_TravelExperts_Term2\\TravelExperts\\TravelExpertsData\\TravelExpertsData.csproj"
-=======
-            "C:\\Users\\Xavier\\Documents\\SAIT\\CPRG 212\\Group6_TravelExperts_Term2\\TravelExperts\\TravelExpertsData\\TravelExpertsData.csproj": {
-              "projectPath": "C:\\Users\\Xavier\\Documents\\SAIT\\CPRG 212\\Group6_TravelExperts_Term2\\TravelExperts\\TravelExpertsData\\TravelExpertsData.csproj"
->>>>>>> Xaviers-branch
+            "C:\\Users\\timhu\\OneDrive\\Documents\\GitHub\\Group6_TravelExperts_Term2\\TravelExperts\\TravelExpertsData\\TravelExpertsData.csproj": {
+              "projectPath": "C:\\Users\\timhu\\OneDrive\\Documents\\GitHub\\Group6_TravelExperts_Term2\\TravelExperts\\TravelExpertsData\\TravelExpertsData.csproj"
             }
           }
         }
@@ -2022,16 +2000,8 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\timhu\\OneDrive\\Documents\\GitHub\\Group6_TravelExperts_Term2\\TravelExperts\\TravelExpertsGUI\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }
