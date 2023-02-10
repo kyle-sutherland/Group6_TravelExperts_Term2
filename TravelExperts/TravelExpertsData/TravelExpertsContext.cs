@@ -1,5 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System.Configuration;
+﻿using System;
+using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace TravelExpertsData
 {
@@ -26,6 +28,7 @@ namespace TravelExpertsData
         public virtual DbSet<Employee> Employees { get; set; } = null!;
         public virtual DbSet<Fee> Fees { get; set; } = null!;
         public virtual DbSet<Package> Packages { get; set; } = null!;
+        public virtual DbSet<PackagesProductsSupplier> PackagesProductsSuppliers { get; set; } = null!;
         public virtual DbSet<Product> Products { get; set; } = null!;
         public virtual DbSet<ProductsSupplier> ProductsSuppliers { get; set; } = null!;
         public virtual DbSet<Region> Regions { get; set; } = null!;
@@ -35,7 +38,13 @@ namespace TravelExpertsData
         public virtual DbSet<TripType> TripTypes { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-            => optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["TravelExperts"].ConnectionString);
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+                optionsBuilder.UseSqlServer("Data Source=localhost\\sqlexpress;Initial Catalog=TravelExperts;Integrated Security=True");
+            }
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -179,25 +188,24 @@ namespace TravelExpertsData
                     .IsClustered(false);
 
                 entity.Property(e => e.PkgAgencyCommission).HasDefaultValueSql("((0))");
+            });
 
-                entity.HasMany(d => d.ProductSuppliers)
-                    .WithMany(p => p.Packages)
-                    .UsingEntity<Dictionary<string, object>>(
-                        "PackagesProductsSupplier",
-                        l => l.HasOne<ProductsSupplier>().WithMany().HasForeignKey("ProductSupplierId").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("Packages_Products_Supplie_FK01"),
-                        r => r.HasOne<Package>().WithMany().HasForeignKey("PackageId").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("Packages_Products_Supplie_FK00"),
-                        j =>
-                        {
-                            j.HasKey("PackageId", "ProductSupplierId").HasName("aaaaaPackages_Products_Suppliers_PK").IsClustered(false);
+            modelBuilder.Entity<PackagesProductsSupplier>(entity =>
+            {
+                entity.HasKey(e => e.PackageProductSupplierId)
+                    .HasName("PK__Packages__53E8ED9985CFCE72");
 
-                            j.ToTable("Packages_Products_Suppliers");
+                entity.HasOne(d => d.Package)
+                    .WithMany(p => p.PackagesProductsSuppliers)
+                    .HasForeignKey(d => d.PackageId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("Packages_Products_Supplie_FK00");
 
-                            j.HasIndex(new[] { "PackageId" }, "PackagesPackages_Products_Suppliers");
-
-                            j.HasIndex(new[] { "ProductSupplierId" }, "ProductSupplierId");
-
-                            j.HasIndex(new[] { "ProductSupplierId" }, "Products_SuppliersPackages_Products_Suppliers");
-                        });
+                entity.HasOne(d => d.ProductSupplier)
+                    .WithMany(p => p.PackagesProductsSuppliers)
+                    .HasForeignKey(d => d.ProductSupplierId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("Packages_Products_Supplie_FK01");
             });
 
             modelBuilder.Entity<Product>(entity =>
