@@ -87,13 +87,5 @@ namespace TravelExpertsGUI
                 }
             }
         }
-
-        private void LoadProdSuppData()
-        {
-            prodSupp.SupplierId = Convert.ToInt32(cbSuppliers.SelectedValue);
-            //MessageBox.Show(prodSupp.SupplierId.ToString());
-            prodSupp.ProductId = Convert.ToInt32(cbProducts.SelectedValue);
-            //MessageBox.Show(prodSupp.ProductId.ToString());
-        }
     }
 }
