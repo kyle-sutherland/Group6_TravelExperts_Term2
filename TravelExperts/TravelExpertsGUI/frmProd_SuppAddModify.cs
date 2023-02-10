@@ -11,14 +11,14 @@ using TravelExpertsData;
 
 namespace TravelExpertsGUI
 {
-    public partial class Prod_SuppAddModifyFrm : Form
+    public partial class frmProd_SuppAddModify : Form
     {
         public bool isAdd; // to differientiate the second form to either add or modify
         public ProductsSupplier? prodSupp;
         public Product? product;
         public Supplier? supplier;
 
-        public Prod_SuppAddModifyFrm()
+        public frmProd_SuppAddModify()
         {
             InitializeComponent();
         }

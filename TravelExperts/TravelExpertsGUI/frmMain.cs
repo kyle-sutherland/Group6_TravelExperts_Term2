@@ -4,11 +4,11 @@ using TravelExpertsData;
 
 namespace TravelExpertsGUI
 {
-    public partial class Form1 : Form
+    public partial class frmMain : Form
     {
         private Package? selectedPackage = null;
 
-        public Form1()
+        public frmMain()
         {
             InitializeComponent();
         }

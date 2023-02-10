@@ -12,14 +12,14 @@ using TravelExpertsData;
 
 namespace TravelExpertsGUI
 {
-    public partial class Product_suppliersFrm : Form
+    public partial class frmProduct_Suppliers : Form
     {
         // form-level data
         private ProductsSupplier? selectedProdSupp;
         private Product? selectedProduct;
         private Supplier? selectedSupplier;
 
-        public Product_suppliersFrm()
+        public frmProduct_Suppliers()
         {
             InitializeComponent();
         }
@@ -84,7 +84,7 @@ namespace TravelExpertsGUI
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            Prod_SuppAddModifyFrm secondForm = new Prod_SuppAddModifyFrm();
+            frmProd_SuppAddModify secondForm = new frmProd_SuppAddModify();
             secondForm.isAdd = true;
             secondForm.prodSupp = selectedProdSupp;
             secondForm.product = selectedProduct;
@@ -141,7 +141,7 @@ namespace TravelExpertsGUI
 
         private void ModifyProdSupp()
         {
-            var prodSuppFrm = new Prod_SuppAddModifyFrm()
+            var prodSuppFrm = new frmProd_SuppAddModify()
             {
                 isAdd = false,
                 prodSupp = selectedProdSupp,
