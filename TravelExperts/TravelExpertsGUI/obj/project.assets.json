@@ -1941,11 +1941,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mynam\\source\\repos\\velveteen-rever\\Group6_TravelExperts_Term2\\TravelExperts\\TravelExpertsGUI\\TravelExpertsGUI.csproj",
+      "projectUniqueName": "C:\\Users\\mynam\\Source\\Repos\\velveteen-rever\\Group6_TravelExperts_Term2\\TravelExperts\\TravelExpertsGUI\\TravelExpertsGUI.csproj",
       "projectName": "TravelExpertsGUI",
-      "projectPath": "C:\\Users\\mynam\\source\\repos\\velveteen-rever\\Group6_TravelExperts_Term2\\TravelExperts\\TravelExpertsGUI\\TravelExpertsGUI.csproj",
+      "projectPath": "C:\\Users\\mynam\\Source\\Repos\\velveteen-rever\\Group6_TravelExperts_Term2\\TravelExperts\\TravelExpertsGUI\\TravelExpertsGUI.csproj",
       "packagesPath": "C:\\Users\\mynam\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mynam\\source\\repos\\velveteen-rever\\Group6_TravelExperts_Term2\\TravelExperts\\TravelExpertsGUI\\obj\\",
+      "outputPath": "C:\\Users\\mynam\\Source\\Repos\\velveteen-rever\\Group6_TravelExperts_Term2\\TravelExperts\\TravelExpertsGUI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -1967,8 +1967,8 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
-            "C:\\Users\\mynam\\source\\repos\\velveteen-rever\\Group6_TravelExperts_Term2\\TravelExperts\\TravelExpertsData\\TravelExpertsData.csproj": {
-              "projectPath": "C:\\Users\\mynam\\source\\repos\\velveteen-rever\\Group6_TravelExperts_Term2\\TravelExperts\\TravelExpertsData\\TravelExpertsData.csproj"
+            "C:\\Users\\mynam\\Source\\Repos\\velveteen-rever\\Group6_TravelExperts_Term2\\TravelExperts\\TravelExpertsData\\TravelExpertsData.csproj": {
+              "projectPath": "C:\\Users\\mynam\\Source\\Repos\\velveteen-rever\\Group6_TravelExperts_Term2\\TravelExperts\\TravelExpertsData\\TravelExpertsData.csproj"
             }
           }
         }

@@ -162,3 +162,7 @@ C:\Users\Xavier\Documents\SAIT\CPRG 212\Group6_TravelExperts_Term2\TravelExperts
 C:\Users\Xavier\Documents\SAIT\CPRG 212\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.genruntimeconfig.cache
 C:\Users\Xavier\Documents\SAIT\CPRG 212\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\ref\TravelExpertsGUI.dll
 >>>>>>> Xaviers-branch
+C:\Users\mynam\source\repos\velveteen-rever\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.frmAddEditPackages.resources
+C:\Users\mynam\source\repos\velveteen-rever\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.frmMain.resources
+C:\Users\mynam\source\repos\velveteen-rever\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.frmProduct_Suppliers.resources
+C:\Users\mynam\source\repos\velveteen-rever\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.frmProd_SuppAddModify.resources

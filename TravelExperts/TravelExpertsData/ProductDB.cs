@@ -36,13 +36,13 @@ namespace TravelExpertsData
         //</summary>
         //<param name = "productcode" > the product code taked from user input</param>
         //<returns>Returns object of type Product</returns>
-        public static Product GetProduct(string productCode)
+        public static Product GetProduct(int productId)
         {
             try
             {
                 using (TravelExpertsContext db = new TravelExpertsContext())
                 {
-                    var p = db.Products.Where(x => x.ProductId == productCode).FirstOrDefault();
+                    var p = db.Products.Where(x => x.ProductId == productId).FirstOrDefault();
                     return p;
                 }
             }
