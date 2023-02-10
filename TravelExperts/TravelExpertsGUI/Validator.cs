@@ -27,37 +27,54 @@ namespace TravelExpertsGUI
         }
 
         /// <summary>
-        /// tests if text box has input in it (assumes that is has Tag property that states meaning)
+        /// tests if text box 
         /// </summary>
-        /// <param name="inputBox"> text box to validate </param>
+        /// <param name="inputBox1"> text box containing lesser number </param>
+        /// <param name="inputBox2"> text box containing greater number </param>
         /// <returns>true is valid and false if not</returns>
-        public static bool IsCommission(TextBox inputBox)
+        public static bool IsLessThanOrEqual(TextBox inputBox1, TextBox inputBox2)
         {
-            bool isValid = true; // valid unless proven otherwise
+            bool isValid = true; 
+            decimal input1 = Convert.ToDecimal(inputBox1);
+            decimal input2 = Convert.ToDecimal(inputBox2);
 
-            if (inputBox.Text == "")// bad!
+            if (input1 > input2)
             {
                 isValid = false;
-                MessageBox.Show(inputBox.Tag.ToString() + " is required");
-                inputBox.Focus();
+                MessageBox.Show(inputBox1.Tag.ToString() + " must be greater than " + inputBox2.Tag.ToString());
+                inputBox1.Focus();
             }
             return isValid;
         }
 
         /// <summary>
-        /// tests if text box has input in it (assumes that is has Tag property that states meaning)
+        /// tests if one text box contains a valid date that is earlier than the valid date of another text box
         /// </summary>
-        /// <param name="inputBox"> text box to validate </param>
+        /// <param name="inputBox1"> text box with start date </param>
+        /// <param name="inputBox2"> text box with end date </param>
         /// <returns>true is valid and false if not</returns>
-        public static bool IsDate(TextBox inputBox)
+        public static bool IsDate(TextBox inputBox1, TextBox inputBox2)
         {
             bool isValid = true; // valid unless proven otherwise
+            DateTime startDate=Convert.ToDateTime(inputBox1.Text);
+            DateTime endDate=Convert.ToDateTime(inputBox2.Text);
 
-            if (inputBox.Text == "")// bad!
+            string startDateText = Convert.ToString(inputBox1);
+            string endDateText = Convert.ToString(inputBox2);
+
+            bool validStartDate = DateTime.TryParse(startDateText, out startDate);
+            bool validEndDate = DateTime.TryParse(endDateText, out endDate);
+
+            if (!validStartDate || !validEndDate)
             {
                 isValid = false;
-                MessageBox.Show(inputBox.Tag.ToString() + " is required");
-                inputBox.Focus();
+            }
+
+            if (startDate >= endDate)
+            {
+                isValid = false;
+                MessageBox.Show(inputBox1.Tag.ToString() + " must be earlier than " + inputBox2.Tag.ToString());
+                inputBox1.Focus();
             }
             return isValid;
         }
