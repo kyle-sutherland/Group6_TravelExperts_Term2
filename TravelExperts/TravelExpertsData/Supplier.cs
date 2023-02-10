@@ -24,11 +24,5 @@ namespace TravelExpertsData
         public virtual ICollection<ProductsSupplier> ProductsSuppliers { get; set; }
         [InverseProperty("Supplier")]
         public virtual ICollection<SupplierContact> SupplierContacts { get; set; }
-
-        // overriding the ToString() method to display the supplier info
-        public override string ToString()
-        {
-            return $"{SupplierId} - {SupName}";
-        }
     }
 }

@@ -13,14 +13,14 @@ using TravelExpertsData;
 
 namespace TravelExpertsGUI
 {
-    public partial class Product_suppliersFrm : Form
+    public partial class frmProduct_Suppliers : Form
     {
         // form-level data
         private ProductsSupplier? selectedProdSupp;
         private Product? selectedProduct;
         private Supplier? selectedSupplier;
 
-        public Product_suppliersFrm()
+        public frmProduct_Suppliers()
         {
             InitializeComponent();
         }
@@ -38,19 +38,19 @@ namespace TravelExpertsGUI
                 // grab data from db
                 dgvProdSupData.Columns.Clear();
                 var data = (from products in db.Products
-                           join prodSupp in db.ProductsSuppliers
-                           on products.ProductId equals prodSupp.ProductId
-                           join suppliers in db.Suppliers
-                           on prodSupp.SupplierId equals suppliers.SupplierId
-                           orderby suppliers.SupName
-                           select new
-                           {
-                               prodSupp.ProductSupplierId,
-                               suppliers.SupplierId,
-                               suppliers.SupName,
-                               products.ProductId,
-                               products.ProdName
-                           }).ToList();
+                            join prodSupp in db.ProductsSuppliers
+                            on products.ProductId equals prodSupp.ProductId
+                            join suppliers in db.Suppliers
+                            on prodSupp.SupplierId equals suppliers.SupplierId
+                            orderby suppliers.SupName
+                            select new
+                            {
+                                prodSupp.ProductSupplierId,
+                                suppliers.SupplierId,
+                                suppliers.SupName,
+                                products.ProductId,
+                                products.ProdName
+                            }).ToList();
 
                 dgvProdSupData.DataSource = data; // display
 
@@ -73,7 +73,7 @@ namespace TravelExpertsGUI
 
                 // format odd numbered rows
                 dgvProdSupData.AlternatingRowsDefaultCellStyle.BackColor = Color.PaleGoldenrod;
-                
+
                 dgvProdSupData.Columns[0].Width = 132; // format ProdSupID column
                 dgvProdSupData.Columns[2].HeaderText = "Supplier Name";
                 dgvProdSupData.Columns[2].Width = 255; // format Supname column
@@ -85,21 +85,21 @@ namespace TravelExpertsGUI
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            Prod_SuppAddModifyFrm secondForm = new Prod_SuppAddModifyFrm();
+            frmProd_SuppAddModify secondForm = new frmProd_SuppAddModify();
             secondForm.isAdd = true;
             secondForm.prodSupp = selectedProdSupp;
             secondForm.product = selectedProduct;
             secondForm.supplier = selectedSupplier;
 
             DialogResult result = secondForm.ShowDialog(); // display second form modal
-            if(result == DialogResult.OK)
+            if (result == DialogResult.OK)
             {
                 // take data from second form
                 selectedProdSupp = secondForm.prodSupp;
                 selectedSupplier = secondForm.supplier;
                 selectedProduct = secondForm.product;
 
-                using(TravelExpertsContext db = new TravelExpertsContext())
+                using (TravelExpertsContext db = new TravelExpertsContext())
                 {
                     // add to the database
                     db.ProductsSuppliers.Add(selectedProdSupp);
@@ -139,12 +139,12 @@ namespace TravelExpertsGUI
 
                 if (e.ColumnIndex == ModifyIndex) ModifyProdSupp(prodSuppCode);
                 if (e.ColumnIndex == DeleteIndex) DeleteProdSupp();
-            }           
+            }
         }
 
         private void ModifyProdSupp(int prodSuppCode)
         {
-            var secondFrm = new Prod_SuppAddModifyFrm()
+            var secondFrm = new frmProd_SuppAddModify()
             {
                 isAdd = false,
                 prodSupp = selectedProdSupp,
@@ -154,8 +154,8 @@ namespace TravelExpertsGUI
             DialogResult result = secondFrm.ShowDialog();
             if (result == DialogResult.OK)
             {
-                
-                using(TravelExpertsContext db = new TravelExpertsContext())
+
+                using (TravelExpertsContext db = new TravelExpertsContext())
                 {
                     selectedProdSupp = db.ProductsSuppliers.Find(prodSuppCode);
 
@@ -165,7 +165,7 @@ namespace TravelExpertsGUI
                         selectedProdSupp.ProductId = secondFrm.prodSupp.ProductId;
 
                         db.SaveChanges();
-                        DisplayData(); 
+                        DisplayData();
                     }
                 }
             }
@@ -173,13 +173,13 @@ namespace TravelExpertsGUI
 
         private void DeleteProdSupp()
         {
-            if(selectedProdSupp != null )
+            if (selectedProdSupp != null)
             {
                 // get confirmation from the user
                 DialogResult answer = MessageBox.Show($"Do you want to delete Product Supplier ID: " +
                     $"{selectedProdSupp.ProductSupplierId.ToString().Trim()}?",
                     "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if(answer== DialogResult.Yes)
+                if (answer== DialogResult.Yes)
                 {
                     try
                     {

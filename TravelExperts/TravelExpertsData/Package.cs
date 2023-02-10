@@ -11,7 +11,7 @@ namespace TravelExpertsData
         public Package()
         {
             Bookings = new HashSet<Booking>();
-            ProductSuppliers = new HashSet<ProductsSupplier>();
+            PackagesProductsSuppliers = new HashSet<PackagesProductsSupplier>();
         }
 
         [Key]
@@ -31,9 +31,7 @@ namespace TravelExpertsData
 
         [InverseProperty("Package")]
         public virtual ICollection<Booking> Bookings { get; set; }
-
-        [ForeignKey("PackageId")]
-        [InverseProperty("Packages")]
-        public virtual ICollection<ProductsSupplier> ProductSuppliers { get; set; }
+        [InverseProperty("Package")]
+        public virtual ICollection<PackagesProductsSupplier> PackagesProductsSuppliers { get; set; }
     }
 }

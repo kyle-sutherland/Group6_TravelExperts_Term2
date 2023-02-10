@@ -21,10 +21,5 @@ namespace TravelExpertsData
 
         [InverseProperty("Product")]
         public virtual ICollection<ProductsSupplier> ProductsSuppliers { get; set; }
-
-        public override string ToString()
-        {
-            return $"{ProductId} - {ProdName}";
-        }
     }
 }
