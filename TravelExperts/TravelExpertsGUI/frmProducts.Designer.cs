@@ -35,18 +35,21 @@
             // dgvProducts
             // 
             this.dgvProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProducts.Location = new System.Drawing.Point(235, 72);
+            this.dgvProducts.Location = new System.Drawing.Point(12, 13);
+            this.dgvProducts.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvProducts.Name = "dgvProducts";
+            this.dgvProducts.RowHeadersWidth = 51;
             this.dgvProducts.RowTemplate.Height = 25;
-            this.dgvProducts.Size = new System.Drawing.Size(240, 150);
+            this.dgvProducts.Size = new System.Drawing.Size(625, 574);
             this.dgvProducts.TabIndex = 0;
             // 
             // frmProducts
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(914, 600);
             this.Controls.Add(this.dgvProducts);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmProducts";
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.frmProducts_Load);
