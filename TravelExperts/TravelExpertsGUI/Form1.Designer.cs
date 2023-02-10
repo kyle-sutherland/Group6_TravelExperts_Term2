@@ -94,7 +94,6 @@
             // 
             // cmbTables
             // 
-//<<<<<<< HEAD
             this.cmbTables.FormattingEnabled = true;
             this.cmbTables.Items.AddRange(new object[] {
             "frmProducts"});
@@ -103,15 +102,6 @@
             this.cmbTables.Name = "cmbTables";
             this.cmbTables.Size = new System.Drawing.Size(154, 29);
             this.cmbTables.TabIndex = 4;
-//=======
-//            this.comboBox1.FormattingEnabled = true;
-//            this.comboBox1.Location = new System.Drawing.Point(658, 18);
-//            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
-//            this.comboBox1.Name = "comboBox1";
-//            this.comboBox1.Size = new System.Drawing.Size(154, 29);
-//            this.comboBox1.TabIndex = 4;
-//            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-//>>>>>>> Xaviers-branch
             // 
             // label4
             // 
@@ -292,12 +282,9 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
-//<<<<<<< HEAD
+
             ((System.ComponentModel.ISupportInitialize)(this.dgvTable)).EndInit();
-//=======
-//            this.Load += new System.EventHandler(this.Form1_Load);
-//            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-//>>>>>>> Xaviers-branch
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

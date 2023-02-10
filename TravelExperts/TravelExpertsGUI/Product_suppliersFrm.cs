@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -110,7 +111,8 @@ namespace TravelExpertsGUI
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-
+            //for now exit app
+            Application.Exit();
         }
 
         private void dgvProdSupData_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -122,9 +124,10 @@ namespace TravelExpertsGUI
             //grab prodSuppID, prodID, and suppID
             if (e.ColumnIndex == ModifyIndex || e.ColumnIndex == DeleteIndex)
             {
+                int prodSuppCode = 0;
                 using (TravelExpertsContext db = new TravelExpertsContext())
                 {
-                    int prodSuppCode = Convert.ToInt32(dgvProdSupData.Rows[e.RowIndex].Cells[0].Value);
+                    prodSuppCode = Convert.ToInt32(dgvProdSupData.Rows[e.RowIndex].Cells[0].Value);
                     selectedProdSupp = db.ProductsSuppliers.Find(prodSuppCode);
 
                     int suppCode = Convert.ToInt32(dgvProdSupData.Rows[e.RowIndex].Cells[1].Value);
@@ -133,37 +136,79 @@ namespace TravelExpertsGUI
                     int productCode = Convert.ToInt32(dgvProdSupData.Rows[e.RowIndex].Cells[3].Value);
                     selectedProduct = db.Products.Find(productCode);
                 }
-            }
 
-            if (e.ColumnIndex == ModifyIndex) ModifyProdSupp();
-            if (e.ColumnIndex == DeleteIndex) DeleteProdSupp();
+                if (e.ColumnIndex == ModifyIndex) ModifyProdSupp(prodSuppCode);
+                if (e.ColumnIndex == DeleteIndex) DeleteProdSupp();
+            }           
         }
 
-        private void ModifyProdSupp()
+        private void ModifyProdSupp(int prodSuppCode)
         {
-            var prodSuppFrm = new Prod_SuppAddModifyFrm()
+            var secondFrm = new Prod_SuppAddModifyFrm()
             {
                 isAdd = false,
                 prodSupp = selectedProdSupp,
                 product = selectedProduct,
                 supplier = selectedSupplier
             };
-            DialogResult result = prodSuppFrm.ShowDialog();
+            DialogResult result = secondFrm.ShowDialog();
             if (result == DialogResult.OK)
             {
+                
                 using(TravelExpertsContext db = new TravelExpertsContext())
                 {
-                    selectedProdSupp = prodSuppFrm.prodSupp;
-                    db.SaveChanges();
-                    DisplayData();
+                    selectedProdSupp = db.ProductsSuppliers.Find(prodSuppCode);
+
+                    if (selectedProdSupp != null)
+                    {
+                        selectedProdSupp.SupplierId = secondFrm.prodSupp.SupplierId;
+                        selectedProdSupp.ProductId = secondFrm.prodSupp.ProductId;
+
+                        db.SaveChanges();
+                        DisplayData(); 
+                    }
                 }
             }
         }
+
         private void DeleteProdSupp()
         {
-
+            if(selectedProdSupp != null )
+            {
+                // get confirmation from the user
+                DialogResult answer = MessageBox.Show($"Do you want to delete Product Supplier ID: " +
+                    $"{selectedProdSupp.ProductSupplierId.ToString().Trim()}?",
+                    "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if(answer== DialogResult.Yes)
+                {
+                    try
+                    {
+                        using (TravelExpertsContext db = new TravelExpertsContext())
+                        {
+                            // find what the user has selected from the list and db
+                            db.ProductsSuppliers.Remove(selectedProdSupp);
+                            db.SaveChanges(true);
+                            DisplayData();
+                        }
+                    }
+                    catch (DbUpdateException ex)
+                    {
+                        string errorMessage = "";
+                        var sqlException = (SqlException)ex.InnerException;
+                        foreach (SqlError error in sqlException.Errors)
+                        {
+                            errorMessage += "ERROR CODE:  " + error.Number + " " +
+                                            error.Message + "\n";
+                        }
+                        MessageBox.Show(errorMessage);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, ex.GetType().ToString());
+                    }
+                }
+            }
         }
-
 
     }
 }
