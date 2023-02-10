@@ -15,9 +15,9 @@ namespace TravelExpertsGUI
         /// <returns>true is valid and false if not</returns>
         public static bool IsProvided(TextBox inputBox)
         {
-            bool isValid = true; // valid unless proven otherwise
+            bool isValid = true;
 
-            if(inputBox.Text == "")// bad!
+            if(inputBox.Text == "")
             {
                 isValid = false;
                 MessageBox.Show(inputBox.Tag.ToString() + " is required" );
@@ -53,28 +53,39 @@ namespace TravelExpertsGUI
         /// <param name="inputBox1"> text box with start date </param>
         /// <param name="inputBox2"> text box with end date </param>
         /// <returns>true is valid and false if not</returns>
-        public static bool IsDate(TextBox inputBox1, TextBox inputBox2)
+        public static bool IsStartBeforeEndDate(TextBox inputBox1, TextBox inputBox2)
         {
             bool isValid = true; // valid unless proven otherwise
             DateTime startDate=Convert.ToDateTime(inputBox1.Text);
             DateTime endDate=Convert.ToDateTime(inputBox2.Text);
-
-            string startDateText = Convert.ToString(inputBox1);
-            string endDateText = Convert.ToString(inputBox2);
-
-            bool validStartDate = DateTime.TryParse(startDateText, out startDate);
-            bool validEndDate = DateTime.TryParse(endDateText, out endDate);
-
-            if (!validStartDate || !validEndDate)
-            {
-                isValid = false;
-            }
 
             if (startDate >= endDate)
             {
                 isValid = false;
                 MessageBox.Show(inputBox1.Tag.ToString() + " must be earlier than " + inputBox2.Tag.ToString());
                 inputBox1.Focus();
+            }
+            return isValid;
+        }
+
+        /// <summary>
+        /// tests if a text box contains a valid date
+        /// </summary>
+        /// <param name="inputBox1"> text box with date </param>
+         /// <returns>true is valid and false if not</returns>
+        public static bool IsValidDate(TextBox inputBox)
+        {
+            bool isValid = true;
+            DateTime date;
+            string DateText = Convert.ToString(inputBox);
+
+            bool validDate = DateTime.TryParse(DateText, out date);
+
+            if (!validDate)
+            {
+                isValid = false;
+                MessageBox.Show(inputBox.Tag.ToString() + " must be a valid date");
+                inputBox.Focus();
             }
             return isValid;
         }

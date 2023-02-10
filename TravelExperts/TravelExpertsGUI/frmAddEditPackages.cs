@@ -117,7 +117,9 @@ namespace TravelExpertsGUI
         {
             if (Validator.IsProvided(txtPkgName) &&
                 Validator.IsProvided(txtPkgDesc) &&
-                Validator.IsDate(txtPkgStart, txtPkgEnd) &&
+                Validator.IsValidDate(txtPkgStart) &&
+                Validator.IsValidDate(txtPkgEnd) &&
+                Validator.IsStartBeforeEndDate(txtPkgStart, txtPkgEnd) &&
                 Validator.IsLessThanOrEqual(txtPkgCommision, txtPkgPrice) //&&
                 //Validator.IsSelected(txtPkg) &&
                 //Validator.IsProvided(txtPkg)
