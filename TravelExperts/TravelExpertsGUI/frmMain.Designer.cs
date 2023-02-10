@@ -1,6 +1,6 @@
 ﻿namespace TravelExpertsGUI
 {
-    partial class Form1
+    partial class frmMain
     {
         /// <summary>
         ///  Required designer variable.
@@ -251,7 +251,7 @@
             this.button5.Text = "Refresh";
             this.button5.UseVisualStyleBackColor = false;
             // 
-            // Form1
+            // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -279,9 +279,9 @@
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "Form1";
+            this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "frmMain";
 
             ((System.ComponentModel.ISupportInitialize)(this.dgvTable)).EndInit();
             this.Load += new System.EventHandler(this.Form1_Load);
