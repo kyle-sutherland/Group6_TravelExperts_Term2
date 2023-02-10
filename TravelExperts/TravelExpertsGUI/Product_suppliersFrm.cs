@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -110,7 +111,8 @@ namespace TravelExpertsGUI
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-
+            //for now exit app
+            Application.Exit();
         }
 
         private void dgvProdSupData_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -171,9 +173,42 @@ namespace TravelExpertsGUI
 
         private void DeleteProdSupp()
         {
-
+            if(selectedProdSupp != null )
+            {
+                // get confirmation from the user
+                DialogResult answer = MessageBox.Show($"Do you want to delete Product Supplier ID: " +
+                    $"{selectedProdSupp.ProductSupplierId.ToString().Trim()}?",
+                    "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if(answer== DialogResult.Yes)
+                {
+                    try
+                    {
+                        using (TravelExpertsContext db = new TravelExpertsContext())
+                        {
+                            // find what the user has selected from the list and db
+                            db.ProductsSuppliers.Remove(selectedProdSupp);
+                            db.SaveChanges(true);
+                            DisplayData();
+                        }
+                    }
+                    catch (DbUpdateException ex)
+                    {
+                        string errorMessage = "";
+                        var sqlException = (SqlException)ex.InnerException;
+                        foreach (SqlError error in sqlException.Errors)
+                        {
+                            errorMessage += "ERROR CODE:  " + error.Number + " " +
+                                            error.Message + "\n";
+                        }
+                        MessageBox.Show(errorMessage);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, ex.GetType().ToString());
+                    }
+                }
+            }
         }
-
 
     }
 }

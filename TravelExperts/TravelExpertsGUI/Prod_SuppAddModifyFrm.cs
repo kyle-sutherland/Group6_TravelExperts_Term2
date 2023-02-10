@@ -41,17 +41,12 @@ namespace TravelExpertsGUI
             if (isAdd) // add
             {
                 this.Text = "Add a Product from Supplier";
-
-                using (TravelExpertsContext db = new TravelExpertsContext())
-                {
-                    // load all available suppliers and products
-                }
             }
             else // modify
             {
                 this.Text = "Modify a Product from Supplier";
-                this.DisplayProdSuppInfo();
             }
+            this.DisplayProdSuppInfo();
         }
 
         // load and display info that was selected to modify
@@ -59,31 +54,36 @@ namespace TravelExpertsGUI
         {
             using(TravelExpertsContext db = new TravelExpertsContext())
             {
-                // display all suppliers
+                // list all suppliers to dropdownlist
                 cbSuppliers.Items.Clear();
-                List<Supplier> s = db.Suppliers.ToList();
+                List<Supplier> s = db.Suppliers.OrderBy(s=>s.SupName).ToList();
                 cbSuppliers.DataSource = s;
                 cbSuppliers.DisplayMember = "SupName";
                 cbSuppliers.ValueMember = "SupplierId";
 
-                // display supplier that was selected on first form
-                for (int i = 0; i < s.Count; i++)
-                {
-                    // find right id and display it on combobox
-                    if (supplier.SupplierId == s[i].SupplierId) cbSuppliers.SelectedIndex = i;
-                }
-                // display products
+                // list all products to dropdownlist
                 cbProducts.Items.Clear();
-                List<Product> p= db.Products.ToList();
+                List<Product> p= db.Products.OrderBy(p=>p.ProdName).ToList();
                 cbProducts.DataSource = p;
                 cbProducts.DisplayMember = "ProdName";
                 cbProducts.ValueMember = "ProductId";
 
-                // display product that was selected on first firm
-                for (int i = 0; i < p.Count; i++)
+                
+                if (!isAdd)
                 {
-                    // find right prod id and display it on combobox
-                    if(product.ProductId == p[i].ProductId) cbProducts.SelectedIndex = i;
+                    // display supplier that was selected on first form
+                    for (int i = 0; i < s.Count; i++)
+                    {
+                        // find right id and display it on combobox
+                        if (supplier.SupplierId == s[i].SupplierId) cbSuppliers.SelectedIndex = i;
+                    }
+
+                    // display product that was selected on first firm
+                    for (int i = 0; i < p.Count; i++)
+                    {
+                        // find right prod id and display it on combobox
+                        if (product.ProductId == p[i].ProductId) cbProducts.SelectedIndex = i;
+                    }
                 }
             }
         }
@@ -95,6 +95,5 @@ namespace TravelExpertsGUI
             prodSupp.ProductId = Convert.ToInt32(cbProducts.SelectedValue);
             //MessageBox.Show(prodSupp.ProductId.ToString());
         }
-
     }
 }
