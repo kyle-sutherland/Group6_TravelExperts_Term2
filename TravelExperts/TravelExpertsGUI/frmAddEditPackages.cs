@@ -115,9 +115,12 @@ namespace TravelExpertsGUI
 
         private void btnAccept_Click(object sender, EventArgs e)
         {
-            if (Validator.IsProvided(txtPkgName) //&&
-                //Validator.IsProvided(txtPkg) &&
-                //Validator.IsProvided(txtPkg) &&
+            if (Validator.IsProvided(txtPkgName) &&
+                Validator.IsProvided(txtPkgDesc) &&
+                Validator.IsValidDate(txtPkgStart) &&
+                Validator.IsValidDate(txtPkgEnd) &&
+                Validator.IsStartBeforeEndDate(txtPkgStart, txtPkgEnd) &&
+                Validator.IsLessThanOrEqual(txtPkgCommision, txtPkgPrice) //&&
                 //Validator.IsSelected(txtPkg) &&
                 //Validator.IsProvided(txtPkg)
               )
