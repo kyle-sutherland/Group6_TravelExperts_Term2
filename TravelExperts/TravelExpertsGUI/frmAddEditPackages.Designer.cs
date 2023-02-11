@@ -52,6 +52,8 @@
             this.btnRemoveProduct = new System.Windows.Forms.Button();
             this.cboProduct = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.cboSupplier = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
             this.SuspendLayout();
             // 
@@ -209,7 +211,7 @@
             this.dgvProducts.Location = new System.Drawing.Point(981, 66);
             this.dgvProducts.Name = "dgvProducts";
             this.dgvProducts.RowTemplate.Height = 25;
-            this.dgvProducts.Size = new System.Drawing.Size(397, 262);
+            this.dgvProducts.Size = new System.Drawing.Size(667, 262);
             this.dgvProducts.TabIndex = 18;
             // 
             // label9
@@ -232,7 +234,7 @@
             // 
             // btnAddProduct
             // 
-            this.btnAddProduct.Location = new System.Drawing.Point(1265, 347);
+            this.btnAddProduct.Location = new System.Drawing.Point(1167, 476);
             this.btnAddProduct.Name = "btnAddProduct";
             this.btnAddProduct.Size = new System.Drawing.Size(113, 74);
             this.btnAddProduct.TabIndex = 21;
@@ -242,7 +244,7 @@
             // 
             // btnRemoveProduct
             // 
-            this.btnRemoveProduct.Location = new System.Drawing.Point(1265, 427);
+            this.btnRemoveProduct.Location = new System.Drawing.Point(1320, 476);
             this.btnRemoveProduct.Name = "btnRemoveProduct";
             this.btnRemoveProduct.Size = new System.Drawing.Size(113, 74);
             this.btnRemoveProduct.TabIndex = 22;
@@ -253,20 +255,37 @@
             // cboProduct
             // 
             this.cboProduct.FormattingEnabled = true;
-            this.cboProduct.Location = new System.Drawing.Point(981, 371);
+            this.cboProduct.Location = new System.Drawing.Point(1320, 362);
             this.cboProduct.Name = "cboProduct";
             this.cboProduct.Size = new System.Drawing.Size(247, 29);
             this.cboProduct.TabIndex = 23;
-            this.cboProduct.SelectedIndexChanged += new System.EventHandler(this.cboProduct_SelectedIndexChanged);
+            this.cboProduct.SelectionChangeCommitted += new System.EventHandler(this.cboProduct_SelectionChangeCommitted);
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(824, 379);
+            this.label10.Location = new System.Drawing.Point(1156, 370);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(124, 21);
             this.label10.TabIndex = 24;
             this.label10.Text = "Select a product:";
+            // 
+            // cboSupplier
+            // 
+            this.cboSupplier.FormattingEnabled = true;
+            this.cboSupplier.Location = new System.Drawing.Point(1320, 423);
+            this.cboSupplier.Name = "cboSupplier";
+            this.cboSupplier.Size = new System.Drawing.Size(247, 29);
+            this.cboSupplier.TabIndex = 25;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(1041, 431);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(239, 21);
+            this.label11.TabIndex = 26;
+            this.label11.Text = "Select a supplier for that product:";
             // 
             // frmAddEditPackages
             // 
@@ -274,7 +293,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(1447, 554);
+            this.ClientSize = new System.Drawing.Size(1687, 603);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.cboSupplier);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.cboProduct);
             this.Controls.Add(this.btnRemoveProduct);
@@ -337,5 +358,7 @@
         private Button btnRemoveProduct;
         private ComboBox cboProduct;
         private Label label10;
+        private ComboBox cboSupplier;
+        private Label label11;
     }
 }

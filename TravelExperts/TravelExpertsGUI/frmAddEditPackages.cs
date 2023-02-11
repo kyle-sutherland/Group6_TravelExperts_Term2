@@ -14,6 +14,7 @@ using TravelExpertsData;
 using static System.Windows.Forms.AxHost;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
 
 namespace TravelExpertsGUI
 {
@@ -38,8 +39,10 @@ namespace TravelExpertsGUI
                 {
                     // list of products for the data grid view
                     List<Product> products = db.Products.OrderBy(p => p.ProdName).ToList();
+                    //List<Supplier> suppliers = db.Suppliers.OrderBy(s => s.SupName).ToList();
                     dgvProducts.DataSource = products;
-                    cboProduct.DataSource = products;
+                    //cboProduct.DataSource = products;
+                    //cboSupplier.DataSource = suppliers;
                 }
 
                 if (isAdd) 
@@ -48,6 +51,7 @@ namespace TravelExpertsGUI
                     this.Text = "Add Package";
                     DisplayProducts();
                     DisplayCBOProduct();
+                    DisplayCBOSupplier();
                 }
                 else 
                 {
@@ -55,6 +59,7 @@ namespace TravelExpertsGUI
                     DisplayPackage();
                     DisplayProducts();
                     DisplayCBOProduct();
+                    DisplayCBOSupplier();
 
                 }
             }
@@ -84,11 +89,31 @@ namespace TravelExpertsGUI
 
             using (TravelExpertsContext db = new TravelExpertsContext())
             {
-                dgvProducts.DataSource = db.Products.Select(p => new{ p.ProductId, p.ProdName }).ToList();
-                dgvProducts.Columns[0].HeaderText = "Product ID";
-                dgvProducts.Columns[0].Width = 50;
-                dgvProducts.Columns[1].HeaderText = "Product Name";
-                dgvProducts.Columns[1].Width = 200;
+                dgvProducts.Columns.Clear();
+                var data = (from products in db.Products
+                            join prodSupp in db.ProductsSuppliers
+                            on products.ProductId equals prodSupp.ProductId
+                            join suppliers in db.Suppliers
+                            on prodSupp.SupplierId equals suppliers.SupplierId
+                            orderby suppliers.SupName
+                            select new
+                            {
+                                products.ProdName,
+                                suppliers.SupName,
+                                prodSupp.ProductSupplierId
+
+
+                            }).ToList();
+
+                dgvProducts.DataSource = data;
+
+                //dgvProducts.DataSource = db.Products.Select(p => new{ p.ProductId, p.ProdName }).ToList();
+                dgvProducts.Columns[0].HeaderText = "Product Name";
+                dgvProducts.Columns[0].Width = 200;
+                dgvProducts.Columns[1].HeaderText = "Supplier Name";
+                dgvProducts.Columns[1].Width = 250;
+                dgvProducts.Columns[2].HeaderText = "Product-Supplier ID";
+                dgvProducts.Columns[2].Width = 200;
             }
         }
 
@@ -103,6 +128,7 @@ namespace TravelExpertsGUI
                     cboProduct.DataSource = products;
                     cboProduct.DisplayMember = "ProdName";
                     cboProduct.ValueMember = "ProductId";
+                    cboProduct.SelectedIndex = -1;
                 }
 
             }
@@ -111,6 +137,67 @@ namespace TravelExpertsGUI
                 MessageBox.Show("Error when retrieving Product: " + ex.Message,
                                 ex.GetType().ToString());
             }
+        }
+
+        private void DisplayCBOSupplier()
+        {
+            if (selectedProduct!= null)
+            {
+                try
+                {
+                    using (TravelExpertsContext db = new TravelExpertsContext())
+                    {
+                        //int prod = Convert.ToInt32(selectedProduct);
+                        //List<Supplier> suppliers = db.Suppliers.ToList();
+                        //var data = (from products in db.Products
+                        //            join prodSupp in db.ProductsSuppliers
+                        //            on products.ProductId equals prodSupp.ProductId
+                        //            join suppliers in db.Suppliers
+                        //            on prodSupp.SupplierId equals suppliers.SupplierId
+                        //            where products.ProductId = prod
+                        //            orderby suppliers.SupName
+                        //            select new
+                        //            {
+                        //                products.ProdName,
+                        //                suppliers.SupName,
+                        //                prodSupp.ProductSupplierId
+
+
+                        //            }).ToList();
+                        var data = db.Products.Join(db.ProductsSuppliers,
+                            products => products.ProductId,
+                            prodSupp => prodSupp.ProductId,
+                            (products, prodSupp) => new { products, prodSupp })
+                            .Join(db.Suppliers,
+                            prodSupp => prodSupp.SupplierId,
+                            suppliers => suppliers.SupplierId,
+                            (prodSupp, suppliers) => new { prodSupp, suppliers })
+                            .Where(x => x.prodSupp.products.ProductId == selectedProduct)
+                            .OrderBy(x => x.suppliers.SupName)
+                            .Select(x => new
+                            {
+                                ProdName = x.prodSupp.products.ProdName,
+                                SupName = x.suppliers.SupName,
+                                ProductSupplierId = x.prodSupp.ProductSupplierId
+                            })
+                            .ToList();
+
+
+
+                        cboSupplier.DataSource = data;
+                        cboSupplier.DisplayMember = "SupName";
+                        cboSupplier.ValueMember = "SupplierId";
+                        cboSupplier.SelectedIndex = -1;
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error when retrieving Supplier: " + ex.Message,
+                                    ex.GetType().ToString());
+                }
+            }
+            else cboSupplier.Text = "Choose a product";
         }
 
         private void btnAccept_Click(object sender, EventArgs e)
@@ -144,9 +231,23 @@ namespace TravelExpertsGUI
             }
         }
 
-        private void cboProduct_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
+        private void cboProduct_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            int productCode = Convert.ToInt32(cboProduct.SelectedValue);
+            try
+            {
+                using (TravelExpertsContext db = new TravelExpertsContext())
+                {
+                    selectedProduct = db.Products.Find(productCode);
+                    DisplayCBOSupplier();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error when getting product data: " + ex.Message,
+                                ex.GetType().ToString());
+            }
         }
 
         private void btnAddProduct_Click(object sender, EventArgs e)
@@ -220,6 +321,8 @@ namespace TravelExpertsGUI
                     ex.GetType().ToString());
             }
         }
+
+
 
         // btnCancel is set as the Cancel button on this form and will close it automatically
     }
