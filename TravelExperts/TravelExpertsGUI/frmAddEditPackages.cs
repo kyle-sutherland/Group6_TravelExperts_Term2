@@ -164,27 +164,33 @@ namespace TravelExpertsGUI
 
 
                         //            }).ToList();
-                        var data = db.Products.Join(db.ProductsSuppliers,
-                            products => products.ProductId,
-                            prodSupp => prodSupp.ProductId,
-                            (products, prodSupp) => new { products, prodSupp })
-                            .Join(db.Suppliers,
-                            prodSupp => prodSupp.SupplierId,
-                            suppliers => suppliers.SupplierId,
-                            (prodSupp, suppliers) => new { prodSupp, suppliers })
-                            .Where(x => x.prodSupp.products.ProductId == selectedProduct)
-                            .OrderBy(x => x.suppliers.SupName)
-                            .Select(x => new
-                            {
-                                ProdName = x.prodSupp.products.ProdName,
-                                SupName = x.suppliers.SupName,
-                                ProductSupplierId = x.prodSupp.ProductSupplierId
-                            })
-                            .ToList();
+                        ////var data = db.Products.Join(db.ProductsSuppliers,
+                        ////    products => products.ProductId,
+                        ////    prodSupp => prodSupp.ProductId,
+                        ////    (products, prodSupp) => new { products, prodSupp })
+                        ////    .Join(db.Suppliers,
+                        ////    prodSupp => prodSupp.SupplierId,
+                        ////    suppliers => suppliers.SupplierId,
+                        ////    (prodSupp, suppliers) => new { prodSupp, suppliers })
+                        ////    .Where(x => x.prodSupp.products.ProductId == selectedProduct)
+                        ////    .OrderBy(x => x.suppliers.SupName)
+                        ////    .Select(x => new
+                        ////    {
+                        ////        ProdName = x.prodSupp.products.ProdName,
+                        ////        SupName = x.suppliers.SupName,
+                        ////        ProductSupplierId = x.prodSupp.ProductSupplierId
+                        ////    })
+                        ////    .ToList();
+                        int prod = Convert.ToInt32(selectedProduct);
 
+                        List<ProductsSupplier> prodsupp = db.ProductsSuppliers.
+                            Where(x => x.Product.ProductId == prod).
+                            Include(x => x.Product).
+                            Include(x => x.Supplier).
+                            OrderBy(x => x.ProductId).
+                            ToList();
 
-
-                        cboSupplier.DataSource = data;
+                        cboSupplier.DataSource = prodsupp;
                         cboSupplier.DisplayMember = "SupName";
                         cboSupplier.ValueMember = "SupplierId";
                         cboSupplier.SelectedIndex = -1;
