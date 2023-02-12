@@ -1,6 +1,7 @@
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using TravelExpertsData;
+using static TravelExpertsData.DB_Utils;
 
 namespace TravelExpertsGUI
 {
@@ -74,22 +75,29 @@ namespace TravelExpertsGUI
 
         private void cmbTables_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string selection = cmbTables.SelectedItem.ToString();
-            switch (selection)
+            while (cmbTables.SelectedItem.ToString()!=null)
             {
-                case "Products":
-                    Form _frmProducts = new frmProducts();
-                    _frmProducts.Show();
-                    break;
-                case "Packages":
-                    Form _frmAddEditPackages = new frmAddEditPackages();
-                    _frmAddEditPackages.Show();
-                    break;
-                case "Products-Suppliers":
-                    Form _frmProduct_Suppliers = new frmProduct_Suppliers();
-                    _frmProduct_Suppliers.Show();
-                    break;
+                string selection = cmbTables.SelectedItem.ToString();
+                switch (selection)
+                {
+                    case "Products":
+                        dgvMain.DataSource = GetAllProducts();
+                        break;
+                    case "Packages":
+                        
+                        break;
+                    case "Products-Suppliers":
+                        dgvMain.DataSource = GetAllProductsSupplier();
+                        break;
+                }
+                break;
             }
+            dgvMain.Refresh();
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

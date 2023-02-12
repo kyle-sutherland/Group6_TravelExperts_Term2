@@ -32,7 +32,6 @@ namespace TravelExpertsGUI
 
         private void DisplayData()
         {
-
             using (TravelExpertsContext db = new TravelExpertsContext())
             {
                 // grab data from db
