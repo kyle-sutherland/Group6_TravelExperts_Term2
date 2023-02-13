@@ -20,45 +20,64 @@ namespace TravelExpertsGUI
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            frmAddEditPackages secondForm = new frmAddEditPackages();
-            frmAddEditPackages.isAdd = true;
-            frmAddEditPackages.package = null;
-
-            DialogResult result = secondForm.ShowDialog(); // display second form modal
-
-            if (result == DialogResult.OK) // second form accepted new data
+            if (selectedTable == "Packages")
             {
-                // take customer from the second form and add to the database
-                selectedPackage = frmAddEditPackages.package;
-                try
-                {
-                    using (TravelExpertsContext db = new TravelExpertsContext())
-                    {
-                        if (selectedPackage != null)
-                        {
-                            db.Packages.Add(selectedPackage);
-                            db.SaveChanges();
-                        }
-                        DisplayPackage(); // display added package
-                    }
-                }
-                catch (DbUpdateException ex)
-                {
-                    string errorMessage = "";
-                    var sqlException = (SqlException)ex.InnerException;
-                    foreach (SqlError error in sqlException.Errors)
-                    {
-                        errorMessage += "ERROR CODE:  " + error.Number +
-                                        " " + error.Message + "\n";
-                    }
-                    MessageBox.Show(errorMessage);
-                }
+                frmAddEditPackages secondForm = new frmAddEditPackages();
+                frmAddEditPackages.isAdd = true;
+                frmAddEditPackages.package = null;
 
-                catch (Exception ex)
+                DialogResult result = secondForm.ShowDialog(); // display second form modal
+
+                if (result == DialogResult.OK) // second form accepted new data
                 {
-                    MessageBox.Show("Error while adding package" + ex.Message,
-                        ex.GetType().ToString());
-                }
+                    // take customer from the second form and add to the database
+                    selectedPackage = frmAddEditPackages.package;
+                    try
+                    {
+                        using (TravelExpertsContext db = new TravelExpertsContext())
+                        {
+                            if (selectedPackage != null)
+                            {
+                                db.Packages.Add(selectedPackage);
+                                db.SaveChanges();
+                            }
+                            DisplayPackage(); // display added package
+                        }
+                    }
+                    catch (DbUpdateException ex)
+                    {
+                        string errorMessage = "";
+                        var sqlException = (SqlException)ex.InnerException;
+                        foreach (SqlError error in sqlException.Errors)
+                        {
+                            errorMessage += "ERROR CODE:  " + error.Number +
+                                            " " + error.Message + "\n";
+                        }
+                        MessageBox.Show(errorMessage);
+                    }
+
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error while adding package" + ex.Message,
+                            ex.GetType().ToString());
+                    }
+                } 
+            }
+            else if (selectedTable == "Products-Suppliers")
+            {
+                frmProd_SuppAddModify.isAdd = true;
+                frmProd_SuppAddModify form = new frmProd_SuppAddModify();
+                form.ShowDialog();
+            }
+            else if (selectedTable == "Products")
+            {
+                frmAddEditProduct.isAdd = true;
+                frmAddEditProduct form = new frmAddEditProduct();
+                form.ShowDialog();
+            }
+            else if (selectedTable == "Suppliers")
+            {
+                //Do supplier stuff
             }
         }
 
@@ -86,14 +105,17 @@ namespace TravelExpertsGUI
                 switch (selection)
                 {
                     case "Products":
-                        dgvMain.DataSource = GetSuppliersByProduct();
+                        dgvMain.DataSource = GetAllProducts();
                         break;
                     case "Packages":
-                        
+                        dgvMain.DataSource = GetAllPackages();
                         break;
                     case "Products-Suppliers":
                         dgvMain.DataSource = GetAllProductsSupplier();
                         ProductsSupplierFormat();
+                        break;
+                    case "Suppliers":
+                        dgvMain.DataSource = GetAllSuppliers();
                         break;
                 }
                 break;
@@ -120,10 +142,22 @@ namespace TravelExpertsGUI
                 frmAddEditPackages.isAdd = false;
                 frmAddEditPackages form = new frmAddEditPackages();
                 form.ShowDialog();
-            } 
+            }
             else if (selectedTable == "Products-Suppliers")
             {
-               //
+                frmProd_SuppAddModify.isAdd = false;
+                frmProd_SuppAddModify form = new frmProd_SuppAddModify();
+                form.ShowDialog();
+            }
+            else if (selectedTable == "Products")
+            {
+                frmAddEditProduct.isAdd = false;
+                frmAddEditProduct form = new frmAddEditProduct();
+                form.ShowDialog();
+            }
+            else if (selectedTable == "Suppliers")
+            {
+                
             }
         }
     }

@@ -70,6 +70,7 @@
             this.cmbTables.Items.AddRange(new object[] {
             "Products",
             "Packages",
+            "Suppliers",
             "Products-Suppliers"});
             this.cmbTables.Location = new System.Drawing.Point(515, 31);
             this.cmbTables.Margin = new System.Windows.Forms.Padding(4);

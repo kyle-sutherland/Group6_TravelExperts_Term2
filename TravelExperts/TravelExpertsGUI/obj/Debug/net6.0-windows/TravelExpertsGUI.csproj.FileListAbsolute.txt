@@ -193,3 +193,4 @@ C:\Users\mynam\source\repos\velveteen-rever\Group6_TravelExperts_Term2\TravelExp
 C:\Users\mynam\source\repos\velveteen-rever\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.csproj.CopyComplete
 C:\Users\mynam\source\repos\velveteen-rever\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.genruntimeconfig.cache
 C:\Users\mynam\source\repos\velveteen-rever\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\ref\TravelExpertsGUI.dll
+C:\Users\mynam\source\repos\velveteen-rever\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.frmAddEditProduct.resources
