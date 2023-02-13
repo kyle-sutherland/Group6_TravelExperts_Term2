@@ -25,6 +25,8 @@ namespace TravelExpertsGUI
         public TravelExpertsData.Package? package;
         public TravelExpertsData.Product? selectedProduct;
         public TravelExpertsData.ProductsSupplier? selectedProdSupp;
+        public TravelExpertsData.PackagesProductsSupplier? selectedPackProdSupp;
+        public TravelExpertsData.Supplier? selectedSupplier;
 
         public frmAddEditPackages()
         {
@@ -49,17 +51,17 @@ namespace TravelExpertsGUI
                 {
                     
                     this.Text = "Add Package";
-                    DisplayProducts();
-                    DisplayCBOProduct();
-                    DisplayCBOSupplier();
+                    //DisplayProducts();
+                    //DisplayCBOProduct();
+                    //DisplayCBOSupplier();
                 }
                 else 
                 {
                     this.Text = "Edit Package";
                     DisplayPackage();
                     DisplayProducts();
-                    DisplayCBOProduct();
-                    DisplayCBOSupplier();
+                    //DisplayCBOProduct();
+                    //DisplayCBOSupplier();
 
                 }
             }
@@ -90,121 +92,31 @@ namespace TravelExpertsGUI
             using (TravelExpertsContext db = new TravelExpertsContext())
             {
                 dgvProducts.Columns.Clear();
-                var data = (from products in db.Products
+
+                var data = (from packProdSupp in db.PackagesProductsSuppliers
                             join prodSupp in db.ProductsSuppliers
-                            on products.ProductId equals prodSupp.ProductId
-                            join suppliers in db.Suppliers
-                            on prodSupp.SupplierId equals suppliers.SupplierId
-                            orderby suppliers.SupName
+                            on packProdSupp.ProductSupplierId equals prodSupp.ProductSupplierId
+                            join product in db.Products
+                            on prodSupp.ProductId equals product.ProductId
+                            where packProdSupp.PackageId == package.PackageId
                             select new
                             {
-                                products.ProdName,
-                                suppliers.SupName,
-                                prodSupp.ProductSupplierId
-
-
+                                packProdSupp.ProductSupplierId,
+                                product.ProdName,
                             }).ToList();
+
 
                 dgvProducts.DataSource = data;
 
                 //dgvProducts.DataSource = db.Products.Select(p => new{ p.ProductId, p.ProdName }).ToList();
-                dgvProducts.Columns[0].HeaderText = "Product Name";
+                dgvProducts.Columns[0].HeaderText = "Product Supplier ID";
                 dgvProducts.Columns[0].Width = 200;
-                dgvProducts.Columns[1].HeaderText = "Supplier Name";
-                dgvProducts.Columns[1].Width = 250;
-                dgvProducts.Columns[2].HeaderText = "Product-Supplier ID";
-                dgvProducts.Columns[2].Width = 200;
+                dgvProducts.Columns[1].HeaderText = "Product Name";
+                dgvProducts.Columns[1].Width = 200;
             }
         }
 
-        private void DisplayCBOProduct()
-        {
-            try
-            {
-                using (TravelExpertsContext db = new TravelExpertsContext())
-                {
-
-                    List<Product> products = db.Products.ToList();
-                    cboProduct.DataSource = products;
-                    cboProduct.DisplayMember = "ProdName";
-                    cboProduct.ValueMember = "ProductId";
-                    cboProduct.SelectedIndex = -1;
-                }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error when retrieving Product: " + ex.Message,
-                                ex.GetType().ToString());
-            }
-        }
-
-        private void DisplayCBOSupplier()
-        {
-            if (selectedProduct!= null)
-            {
-                try
-                {
-                    using (TravelExpertsContext db = new TravelExpertsContext())
-                    {
-                        //int prod = Convert.ToInt32(selectedProduct);
-                        //List<Supplier> suppliers = db.Suppliers.ToList();
-                        //var data = (from products in db.Products
-                        //            join prodSupp in db.ProductsSuppliers
-                        //            on products.ProductId equals prodSupp.ProductId
-                        //            join suppliers in db.Suppliers
-                        //            on prodSupp.SupplierId equals suppliers.SupplierId
-                        //            where products.ProductId = prod
-                        //            orderby suppliers.SupName
-                        //            select new
-                        //            {
-                        //                products.ProdName,
-                        //                suppliers.SupName,
-                        //                prodSupp.ProductSupplierId
-
-
-                        //            }).ToList();
-                        ////var data = db.Products.Join(db.ProductsSuppliers,
-                        ////    products => products.ProductId,
-                        ////    prodSupp => prodSupp.ProductId,
-                        ////    (products, prodSupp) => new { products, prodSupp })
-                        ////    .Join(db.Suppliers,
-                        ////    prodSupp => prodSupp.SupplierId,
-                        ////    suppliers => suppliers.SupplierId,
-                        ////    (prodSupp, suppliers) => new { prodSupp, suppliers })
-                        ////    .Where(x => x.prodSupp.products.ProductId == selectedProduct)
-                        ////    .OrderBy(x => x.suppliers.SupName)
-                        ////    .Select(x => new
-                        ////    {
-                        ////        ProdName = x.prodSupp.products.ProdName,
-                        ////        SupName = x.suppliers.SupName,
-                        ////        ProductSupplierId = x.prodSupp.ProductSupplierId
-                        ////    })
-                        ////    .ToList();
-                        int prod = Convert.ToInt32(selectedProduct);
-
-                        List<ProductsSupplier> prodsupp = db.ProductsSuppliers.
-                            Where(x => x.Product.ProductId == prod).
-                            Include(x => x.Product).
-                            Include(x => x.Supplier).
-                            OrderBy(x => x.ProductId).
-                            ToList();
-
-                        cboSupplier.DataSource = prodsupp;
-                        cboSupplier.DisplayMember = "SupName";
-                        cboSupplier.ValueMember = "SupplierId";
-                        cboSupplier.SelectedIndex = -1;
-                    }
-
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error when retrieving Supplier: " + ex.Message,
-                                    ex.GetType().ToString());
-                }
-            }
-            else cboSupplier.Text = "Choose a product";
-        }
+        
 
         private void btnAccept_Click(object sender, EventArgs e)
         {
@@ -238,93 +150,31 @@ namespace TravelExpertsGUI
         }
 
 
-        private void cboProduct_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-            int productCode = Convert.ToInt32(cboProduct.SelectedValue);
-            try
-            {
-                using (TravelExpertsContext db = new TravelExpertsContext())
-                {
-                    selectedProduct = db.Products.Find(productCode);
-                    DisplayCBOSupplier();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error when getting product data: " + ex.Message,
-                                ex.GetType().ToString());
-            }
-        }
 
         private void btnAddProduct_Click(object sender, EventArgs e)
         {
-            int productID = Convert.ToInt32(cboProduct.SelectedValue);
-            try
+            frmPack_Prod_SuppAddDelete secondForm = new frmPack_Prod_SuppAddDelete();
+            secondForm.isAddP = true;
+            secondForm.prodSupp = selectedProdSupp;
+            secondForm.product = selectedProduct;
+            secondForm.supplier = selectedSupplier;
+            secondForm.package = package;
+
+            DialogResult result = secondForm.ShowDialog(); // display second form modal
+            if (result == DialogResult.OK)
             {
+                // take data from second form
+                selectedProdSupp = secondForm.prodSupp;
+                selectedSupplier = secondForm.supplier;
+                selectedProduct = secondForm.product;
+
                 using (TravelExpertsContext db = new TravelExpertsContext())
                 {
-                    selectedProduct = db.Products.Find(productID);
-                    if (selectedProduct != null)
-                    {
-                        db.Products.Add(selectedProduct);
-                        db.SaveChanges();
-                    }
-                    DisplayCBOProduct();
-                    DisplayProducts();
+                    // add to the database
+                    db.PackagesProductsSuppliers.Add(selectedPackProdSupp);
+                    db.SaveChanges();
                 }
-            }
-            catch (DbUpdateException ex)
-            {
-                string errorMessage = "";
-                var sqlException = (SqlException)ex.InnerException;
-                foreach (SqlError error in sqlException.Errors)
-                {
-                    errorMessage += "ERROR CODE:  " + error.Number +
-                                    " " + error.Message + "\n";
-                }
-                MessageBox.Show(errorMessage);
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error while adding product:" + ex.Message,
-                    ex.GetType().ToString());
-            }
-        }
-
-        private void btnRemoveProduct_Click(object sender, EventArgs e)
-        {
-            int productID = Convert.ToInt32(cboProduct.SelectedValue);
-            try
-            {
-                using (TravelExpertsContext db = new TravelExpertsContext())
-                {
-                    selectedProduct = db.Products.Find(productID);
-                    if (selectedProduct != null)
-                    {
-                        db.Products.Remove(selectedProduct);
-                        db.SaveChanges();
-                    }
-                    DisplayCBOProduct();
-                    DisplayProducts();
-                }
-            }
-            catch (DbUpdateException ex)
-            {
-                string errorMessage = "";
-                var sqlException = (SqlException)ex.InnerException;
-                foreach (SqlError error in sqlException.Errors)
-                {
-                    errorMessage += "ERROR CODE:  " + error.Number +
-                                    " " + error.Message + "\n";
-                }
-                MessageBox.Show(errorMessage);
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error while adding product:" + ex.Message,
-                    ex.GetType().ToString());
+                DisplayProducts();
             }
         }
 
