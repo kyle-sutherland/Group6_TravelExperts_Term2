@@ -20,8 +20,8 @@ namespace TravelExpertsGUI
     public partial class frmAddEditPackages : Form
     {
         // form variables
-        public bool isAdd;
-        public TravelExpertsData.Package? package;
+        public static bool isAdd;
+        public static TravelExpertsData.Package? package;
         public TravelExpertsData.Product? selectedProduct;
         public TravelExpertsData.ProductsSupplier? selectedProdSupp;
 

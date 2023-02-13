@@ -12,7 +12,7 @@ namespace TravelExpertsData
     public class DB_Utils
     {
         //Function to get data for all Products. Returns object List of type Product
-        public static List<ProductInfo> GetSuppliersByProducts()
+        public static List<ProductInfo> GetSuppliersByProduct()
         {
             try
             {
@@ -39,7 +39,29 @@ namespace TravelExpertsData
             }
         }
 
-        
+        //Function accessed database via dbcontext. Returns object List of type Product
+        public static List<Product> GetAllProducts()
+        {
+            List<Product> products = new List<Product>();
+            products.Clear();
+            try
+            {
+                using (TravelExpertsContext db = new TravelExpertsContext())
+                {
+                    var ps = db.Products;
+                    foreach (Product p in ps)
+                    {
+                        products.Add(p);
+                    }
+                    return products;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error Querying Database" + ex.Message);
+                throw;
+            }
+        }
 
         /// <summary>
         /// Function to get data from joined table Product-Suppliers
@@ -66,7 +88,7 @@ namespace TravelExpertsData
                                        ProdName = p.ProdName,
                                        SupplierId = s.SupplierId,
                                        SupName = s.SupName
-                                   }).ToList();
+                                   }).Distinct().ToList();
                     return ps_query;
                 }
             }
