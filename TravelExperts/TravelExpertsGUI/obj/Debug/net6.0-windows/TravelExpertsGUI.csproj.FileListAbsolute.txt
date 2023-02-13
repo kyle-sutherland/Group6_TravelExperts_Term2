@@ -1,95 +1,3 @@
-C:\Users\timhu\OneDrive\Documents\GitHub\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\bin\Debug\net6.0-windows\TravelExpertsGUI.exe
-C:\Users\timhu\OneDrive\Documents\GitHub\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\bin\Debug\net6.0-windows\TravelExpertsGUI.dll.config
-C:\Users\timhu\OneDrive\Documents\GitHub\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\bin\Debug\net6.0-windows\TravelExpertsGUI.deps.json
-C:\Users\timhu\OneDrive\Documents\GitHub\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\bin\Debug\net6.0-windows\TravelExpertsGUI.runtimeconfig.json
-C:\Users\timhu\OneDrive\Documents\GitHub\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\bin\Debug\net6.0-windows\TravelExpertsGUI.dll
-C:\Users\timhu\OneDrive\Documents\GitHub\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\bin\Debug\net6.0-windows\TravelExpertsGUI.pdb
-C:\Users\timhu\OneDrive\Documents\GitHub\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\bin\Debug\net6.0-windows\Microsoft.Data.SqlClient.dll
-C:\Users\timhu\OneDrive\Documents\GitHub\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\bin\Debug\net6.0-windows\Microsoft.EntityFrameworkCore.dll
-C:\Users\timhu\OneDrive\Documents\GitHub\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\bin\Debug\net6.0-windows\Microsoft.EntityFrameworkCore.Abstractions.dll
-C:\Users\timhu\OneDrive\Documents\GitHub\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\bin\Debug\net6.0-windows\Microsoft.EntityFrameworkCore.Relational.dll
-C:\Users\timhu\OneDrive\Documents\GitHub\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\bin\Debug\net6.0-windows\Microsoft.EntityFrameworkCore.SqlServer.dll
-C:\Users\timhu\OneDrive\Documents\GitHub\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\bin\Debug\net6.0-windows\Microsoft.Extensions.Caching.Abstractions.dll
-C:\Users\timhu\OneDrive\Documents\GitHub\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\bin\Debug\net6.0-windows\Microsoft.Extensions.Caching.Memory.dll
-C:\Users\timhu\OneDrive\Documents\GitHub\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\bin\Debug\net6.0-windows\Microsoft.Extensions.Configuration.Abstractions.dll
-C:\Users\timhu\OneDrive\Documents\GitHub\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\bin\Debug\net6.0-windows\Microsoft.Extensions.DependencyInjection.dll
-C:\Users\timhu\OneDrive\Documents\GitHub\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\bin\Debug\net6.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
-C:\Users\timhu\OneDrive\Documents\GitHub\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\bin\Debug\net6.0-windows\Microsoft.Extensions.Logging.dll
-C:\Users\timhu\OneDrive\Documents\GitHub\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\bin\Debug\net6.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
-C:\Users\timhu\OneDrive\Documents\GitHub\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\bin\Debug\net6.0-windows\Microsoft.Extensions.Options.dll
-C:\Users\timhu\OneDrive\Documents\GitHub\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\bin\Debug\net6.0-windows\Microsoft.Extensions.Primitives.dll
-C:\Users\timhu\OneDrive\Documents\GitHub\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\bin\Debug\net6.0-windows\Microsoft.Identity.Client.dll
-C:\Users\timhu\OneDrive\Documents\GitHub\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\bin\Debug\net6.0-windows\Microsoft.IdentityModel.JsonWebTokens.dll
-C:\Users\timhu\OneDrive\Documents\GitHub\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\bin\Debug\net6.0-windows\Microsoft.IdentityModel.Logging.dll
-C:\Users\timhu\OneDrive\Documents\GitHub\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\bin\Debug\net6.0-windows\Microsoft.IdentityModel.Protocols.dll
-C:\Users\timhu\OneDrive\Documents\GitHub\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\bin\Debug\net6.0-windows\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-C:\Users\timhu\OneDrive\Documents\GitHub\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\bin\Debug\net6.0-windows\Microsoft.IdentityModel.Tokens.dll
-C:\Users\timhu\OneDrive\Documents\GitHub\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\bin\Debug\net6.0-windows\Microsoft.Win32.SystemEvents.dll
-C:\Users\timhu\OneDrive\Documents\GitHub\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\bin\Debug\net6.0-windows\System.Configuration.ConfigurationManager.dll
-C:\Users\timhu\OneDrive\Documents\GitHub\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\bin\Debug\net6.0-windows\System.Drawing.Common.dll
-C:\Users\timhu\OneDrive\Documents\GitHub\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\bin\Debug\net6.0-windows\System.IdentityModel.Tokens.Jwt.dll
-C:\Users\timhu\OneDrive\Documents\GitHub\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\bin\Debug\net6.0-windows\System.Runtime.Caching.dll
-C:\Users\timhu\OneDrive\Documents\GitHub\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\bin\Debug\net6.0-windows\System.Security.Cryptography.ProtectedData.dll
-C:\Users\timhu\OneDrive\Documents\GitHub\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\bin\Debug\net6.0-windows\System.Security.Permissions.dll
-C:\Users\timhu\OneDrive\Documents\GitHub\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\bin\Debug\net6.0-windows\System.Windows.Extensions.dll
-C:\Users\timhu\OneDrive\Documents\GitHub\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
-C:\Users\timhu\OneDrive\Documents\GitHub\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
-C:\Users\timhu\OneDrive\Documents\GitHub\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\bin\Debug\net6.0-windows\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\timhu\OneDrive\Documents\GitHub\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\bin\Debug\net6.0-windows\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\timhu\OneDrive\Documents\GitHub\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\bin\Debug\net6.0-windows\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\timhu\OneDrive\Documents\GitHub\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\bin\Debug\net6.0-windows\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\timhu\OneDrive\Documents\GitHub\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
-C:\Users\timhu\OneDrive\Documents\GitHub\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Drawing.Common.dll
-C:\Users\timhu\OneDrive\Documents\GitHub\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\bin\Debug\net6.0-windows\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
-C:\Users\timhu\OneDrive\Documents\GitHub\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\timhu\OneDrive\Documents\GitHub\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
-C:\Users\timhu\OneDrive\Documents\GitHub\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\bin\Debug\net6.0-windows\TravelExpertsData.dll
-C:\Users\timhu\OneDrive\Documents\GitHub\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\bin\Debug\net6.0-windows\TravelExpertsData.pdb
-C:\Users\timhu\OneDrive\Documents\GitHub\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\bin\Debug\net6.0-windows\TravelExpertsData.dll.config
-C:\Users\timhu\OneDrive\Documents\GitHub\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.csproj.AssemblyReference.cache
-C:\Users\timhu\OneDrive\Documents\GitHub\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.Form1.resources
-C:\Users\timhu\OneDrive\Documents\GitHub\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.frmAddEditPackages.resources
-C:\Users\timhu\OneDrive\Documents\GitHub\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.frmProducts.resources
-C:\Users\timhu\OneDrive\Documents\GitHub\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.Product_suppliersFrm.resources
-C:\Users\timhu\OneDrive\Documents\GitHub\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.Prod_SuppAddModifyFrm.resources
-C:\Users\timhu\OneDrive\Documents\GitHub\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.csproj.GenerateResource.cache
-C:\Users\timhu\OneDrive\Documents\GitHub\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\timhu\OneDrive\Documents\GitHub\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.AssemblyInfoInputs.cache
-C:\Users\timhu\OneDrive\Documents\GitHub\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.AssemblyInfo.cs
-C:\Users\timhu\OneDrive\Documents\GitHub\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.csproj.CoreCompileInputs.cache
-C:\Users\timhu\OneDrive\Documents\GitHub\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.csproj.CopyComplete
-C:\Users\timhu\OneDrive\Documents\GitHub\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.dll
-C:\Users\timhu\OneDrive\Documents\GitHub\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\refint\TravelExpertsGUI.dll
-C:\Users\timhu\OneDrive\Documents\GitHub\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.pdb
-C:\Users\timhu\OneDrive\Documents\GitHub\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.genruntimeconfig.cache
-C:\Users\timhu\OneDrive\Documents\GitHub\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\ref\TravelExpertsGUI.dll
-C:\Users\mynam\Source\Repos\velveteen-rever\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.csproj.AssemblyReference.cache
-C:\Users\mynam\Source\Repos\velveteen-rever\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.frmAddEditPackages.resources
-C:\Users\mynam\Source\Repos\velveteen-rever\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.frmMain.resources
-C:\Users\mynam\Source\Repos\velveteen-rever\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.frmProducts.resources
-C:\Users\mynam\Source\Repos\velveteen-rever\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.Product_suppliersFrm.resources
-C:\Users\mynam\Source\Repos\velveteen-rever\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.frmProd_SuppAddModify.resources
-C:\Users\mynam\Source\Repos\velveteen-rever\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.csproj.GenerateResource.cache
-C:\Users\mynam\Source\Repos\velveteen-rever\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\mynam\Source\Repos\velveteen-rever\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.AssemblyInfoInputs.cache
-C:\Users\mynam\Source\Repos\velveteen-rever\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.AssemblyInfo.cs
-C:\Users\mynam\Source\Repos\velveteen-rever\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.csproj.CoreCompileInputs.cache
-C:\Users\mynam\Source\Repos\velveteen-rever\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.dll
-C:\Users\mynam\Source\Repos\velveteen-rever\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\refint\TravelExpertsGUI.dll
-C:\Users\mynam\Source\Repos\velveteen-rever\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.pdb
-C:\Users\Xavier\Documents\SAIT\CPRG 212\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.csproj.AssemblyReference.cache
-C:\Users\Xavier\Documents\SAIT\CPRG 212\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.frmAddEditPackages.resources
-C:\Users\Xavier\Documents\SAIT\CPRG 212\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.frmMain.resources
-C:\Users\Xavier\Documents\SAIT\CPRG 212\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.frmProducts.resources
-C:\Users\Xavier\Documents\SAIT\CPRG 212\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.frmProd_SuppAddModify.resources
-C:\Users\Xavier\Documents\SAIT\CPRG 212\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.csproj.GenerateResource.cache
-C:\Users\Xavier\Documents\SAIT\CPRG 212\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Xavier\Documents\SAIT\CPRG 212\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.AssemblyInfoInputs.cache
-C:\Users\Xavier\Documents\SAIT\CPRG 212\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.AssemblyInfo.cs
-C:\Users\Xavier\Documents\SAIT\CPRG 212\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.csproj.CoreCompileInputs.cache
-C:\Users\Xavier\Documents\SAIT\CPRG 212\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.dll
-C:\Users\Xavier\Documents\SAIT\CPRG 212\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\refint\TravelExpertsGUI.dll
-C:\Users\Xavier\Documents\SAIT\CPRG 212\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.pdb
 C:\Users\Xavier\Documents\SAIT\CPRG 212\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\bin\Debug\net6.0-windows\TravelExpertsGUI.exe
 C:\Users\Xavier\Documents\SAIT\CPRG 212\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\bin\Debug\net6.0-windows\TravelExpertsGUI.dll.config
 C:\Users\Xavier\Documents\SAIT\CPRG 212\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\bin\Debug\net6.0-windows\TravelExpertsGUI.deps.json
@@ -138,8 +46,21 @@ C:\Users\Xavier\Documents\SAIT\CPRG 212\Group6_TravelExperts_Term2\TravelExperts
 C:\Users\Xavier\Documents\SAIT\CPRG 212\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\bin\Debug\net6.0-windows\TravelExpertsData.dll
 C:\Users\Xavier\Documents\SAIT\CPRG 212\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\bin\Debug\net6.0-windows\TravelExpertsData.pdb
 C:\Users\Xavier\Documents\SAIT\CPRG 212\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\bin\Debug\net6.0-windows\TravelExpertsData.dll.config
+C:\Users\Xavier\Documents\SAIT\CPRG 212\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.csproj.AssemblyReference.cache
+C:\Users\Xavier\Documents\SAIT\CPRG 212\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.frmAddEditPackages.resources
+C:\Users\Xavier\Documents\SAIT\CPRG 212\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.frmMain.resources
+C:\Users\Xavier\Documents\SAIT\CPRG 212\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.frmPack_Prod_SuppAddDelete.resources
+C:\Users\Xavier\Documents\SAIT\CPRG 212\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.frmProducts.resources
+C:\Users\Xavier\Documents\SAIT\CPRG 212\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.frmProduct_Suppliers.resources
+C:\Users\Xavier\Documents\SAIT\CPRG 212\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.frmProd_SuppAddModify.resources
+C:\Users\Xavier\Documents\SAIT\CPRG 212\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.csproj.GenerateResource.cache
+C:\Users\Xavier\Documents\SAIT\CPRG 212\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Xavier\Documents\SAIT\CPRG 212\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.AssemblyInfoInputs.cache
+C:\Users\Xavier\Documents\SAIT\CPRG 212\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.AssemblyInfo.cs
+C:\Users\Xavier\Documents\SAIT\CPRG 212\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.csproj.CoreCompileInputs.cache
 C:\Users\Xavier\Documents\SAIT\CPRG 212\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.csproj.CopyComplete
+C:\Users\Xavier\Documents\SAIT\CPRG 212\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.dll
+C:\Users\Xavier\Documents\SAIT\CPRG 212\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\refint\TravelExpertsGUI.dll
+C:\Users\Xavier\Documents\SAIT\CPRG 212\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.pdb
 C:\Users\Xavier\Documents\SAIT\CPRG 212\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.genruntimeconfig.cache
 C:\Users\Xavier\Documents\SAIT\CPRG 212\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\ref\TravelExpertsGUI.dll
-C:\Users\Xavier\Documents\SAIT\CPRG 212\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.frmProduct_Suppliers.resources
-C:\Users\Xavier\Documents\SAIT\CPRG 212\Group6_TravelExperts_Term2\TravelExperts\TravelExpertsGUI\obj\Debug\net6.0-windows\TravelExpertsGUI.frmPack_Prod_SuppAddDelete.resources
