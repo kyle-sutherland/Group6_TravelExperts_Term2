@@ -14,6 +14,9 @@
     <Compile Update="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="frmPack_Prod_SuppAddDelete.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="frmProducts.cs">
       <SubType>Form</SubType>
     </Compile>
