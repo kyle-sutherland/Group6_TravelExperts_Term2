@@ -34,18 +34,7 @@ namespace TravelExpertsWebApp.Controllers
             //cst is not null
             // get session id of logged in customer
             HttpContext.Session.SetInt32("CurrentCustomer", cst.CustomerId);
-            //HttpContext.Session.SetString("CurrentFirstName", cst.CustFirstName);
-            //HttpContext.Session.SetString("CurrentLastName", cst.CustLastName);
-            //HttpContext.Session.SetString("CurrentAddress", cst.CustAddress);
-            //HttpContext.Session.SetString("CurrentCity", cst.CustCity);
-            //HttpContext.Session.SetString("CurrentProvince", cst.CustProv);
-            //HttpContext.Session.SetString("CurrentPostal", cst.CustPostal);
-            //HttpContext.Session.SetString("CurrentCountry", cst.CustCountry);
-            //HttpContext.Session.SetString("CurrentHomePhone", cst.CustHomePhone);
-            //HttpContext.Session.SetString("CurrentBusPhone", cst.CustBusPhone);
-            //HttpContext.Session.SetString("CurrentEmail", cst.CustEmail);
-            //HttpContext.Session.SetString("CurrentUsername", cst.Username);
-            //HttpContext.Session.SetString("CurrentPassword", cst.Password);
+
 
             // need using System.Security.Claims
             List<Claim> claims = new List<Claim>() 
@@ -148,18 +137,6 @@ namespace TravelExpertsWebApp.Controllers
                 return View(customer);
             }
         }
-
-        //public async Task<IActionResult> LogOutUpdateAsync()
-        //{
-        //    await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-        //    HttpContext.Session.Remove("CurrentCustomer");
-        //    return RedirectToAction("ThankYou", "Account");
-        //}
-
-        //public ActionResult ThankYou()
-        //{
-        //    return View();
-        //}
 
 
         // will uncomment when needed
