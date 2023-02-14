@@ -1,13 +1,44 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace TravelExpertsData
 {
-    public class ProductDB
+    public class DB_Utils
     {
+        //Function to get data for all Products. Returns object List of type Product
+        public static List<ProductInfo> GetSuppliersByProduct()
+        {
+            try
+            {
+                using (TravelExpertsContext db = new TravelExpertsContext())
+                {
+                    var query = (from product in db.Products
+                                 join productSupplier in db.ProductsSuppliers
+                                 on product.ProductId equals productSupplier.ProductId
+                                 join supplier in db.Suppliers
+                                 on productSupplier.SupplierId equals supplier.SupplierId
+                                 select new ProductInfo
+                                 {
+                                     ProductId = product.ProductId,
+                                     ProdName = product.ProdName,
+                                     SupName = supplier.SupName
+                                 }).Distinct();
+                    return query.ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error Querying Database" + ex.Message);
+                throw;
+            }
+        }
+
         //Function accessed database via dbcontext. Returns object List of type Product
         public static List<Product> GetAllProducts()
         {
@@ -31,11 +62,48 @@ namespace TravelExpertsData
                 throw;
             }
         }
-        //<summary>
-        //creates a connection to database and retrieves a product entry based on product id
-        //</summary>
-        //<param name = "productcode" > the product code taked from user input</param>
-        //<returns>Returns object of type Product</returns>
+
+        /// <summary>
+        /// Function to get data from joined table Product-Suppliers
+        /// </summary>
+        /// <returns> List of type ProductSupplierInfo. This is a custom type I made for the purpose of containing and passing
+        /// the LINQ query results which, since it is a joing statement with a bridge table would otherwise produce an anonymous type.
+        /// </returns>
+        public static List<ProductSupplierInfo> GetAllProductsSupplier()
+        {
+            //List<ProductSupplierInfo> productsSupplierList = new List<ProductSupplierInfo>();
+            try
+            {
+                using (TravelExpertsContext db = new TravelExpertsContext())
+                {
+                    // grab data from db
+                    var ps_query = (from ps in db.ProductsSuppliers
+                                   join p in db.Products on ps.ProductId equals p.ProductId
+                                   join s in db.Suppliers on ps.SupplierId equals s.SupplierId
+                                   orderby s.SupName
+                                   select new ProductSupplierInfo
+                                   {
+                                       ProductSupplierId = ps.ProductSupplierId,
+                                       ProductId = p.ProductId,
+                                       ProdName = p.ProdName,
+                                       SupplierId = s.SupplierId,
+                                       SupName = s.SupName
+                                   }).Distinct().ToList();
+                    return ps_query;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error Querying Database" + ex.Message);
+                throw;
+            }
+        }
+
+        ///<summary>
+        /// creates a connection to database and retrieves a product entry based on product id
+        /// </summary>
+        /// <param name = "productcode" > the product code taked from user input</param>
+        ///<returns>Returns object of type Product</returns>
         public static Product GetProduct(int productId)
         {
             try

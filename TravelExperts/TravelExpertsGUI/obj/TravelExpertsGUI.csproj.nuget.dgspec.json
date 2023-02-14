@@ -9,9 +9,15 @@
       "restore": {
         "projectUniqueName": "C:\\Users\\Xavier\\Documents\\SAIT\\CPRG 212\\Group6_TravelExperts_Term2\\TravelExperts\\TravelExpertsData\\TravelExpertsData.csproj",
         "projectName": "TravelExpertsData",
+<<<<<<< HEAD
+        "projectPath": "C:\\Users\\mynam\\source\\repos\\velveteen-rever\\Group6_TravelExperts_Term2\\TravelExperts\\TravelExpertsData\\TravelExpertsData.csproj",
+        "packagesPath": "C:\\Users\\mynam\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\mynam\\source\\repos\\velveteen-rever\\Group6_TravelExperts_Term2\\TravelExperts\\TravelExpertsData\\obj\\",
+=======
         "projectPath": "C:\\Users\\Xavier\\Documents\\SAIT\\CPRG 212\\Group6_TravelExperts_Term2\\TravelExperts\\TravelExpertsData\\TravelExpertsData.csproj",
         "packagesPath": "C:\\Users\\Xavier\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Xavier\\Documents\\SAIT\\CPRG 212\\Group6_TravelExperts_Term2\\TravelExperts\\TravelExpertsData\\obj\\",
+>>>>>>> ddd5d4a6b1c2947b25f9b06f00b0e6431de1c975
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -84,9 +90,15 @@
       "restore": {
         "projectUniqueName": "C:\\Users\\Xavier\\Documents\\SAIT\\CPRG 212\\Group6_TravelExperts_Term2\\TravelExperts\\TravelExpertsGUI\\TravelExpertsGUI.csproj",
         "projectName": "TravelExpertsGUI",
+<<<<<<< HEAD
+        "projectPath": "C:\\Users\\mynam\\source\\repos\\velveteen-rever\\Group6_TravelExperts_Term2\\TravelExperts\\TravelExpertsGUI\\TravelExpertsGUI.csproj",
+        "packagesPath": "C:\\Users\\mynam\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\mynam\\source\\repos\\velveteen-rever\\Group6_TravelExperts_Term2\\TravelExperts\\TravelExpertsGUI\\obj\\",
+=======
         "projectPath": "C:\\Users\\Xavier\\Documents\\SAIT\\CPRG 212\\Group6_TravelExperts_Term2\\TravelExperts\\TravelExpertsGUI\\TravelExpertsGUI.csproj",
         "packagesPath": "C:\\Users\\Xavier\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Xavier\\Documents\\SAIT\\CPRG 212\\Group6_TravelExperts_Term2\\TravelExperts\\TravelExpertsGUI\\obj\\",
+>>>>>>> ddd5d4a6b1c2947b25f9b06f00b0e6431de1c975
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

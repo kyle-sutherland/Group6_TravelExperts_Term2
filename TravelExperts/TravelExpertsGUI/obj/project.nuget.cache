@@ -1,6 +1,10 @@
 {
   "version": 2,
+<<<<<<< HEAD
+  "dgSpecHash": "DX9YA2fL6bFTqIvJXmH+3gECeyAMoPMi98s2hqgh2d0+qTqHNtHLEUicG8hbe64CeB950qxWELDuugBxkVepNQ==",
+=======
   "dgSpecHash": "LA6GDapEx/GWEVZQl0k5nwBCYOJ18w36D3YmzWJYCY0XKNmT3xCLHsUgv2gILHLWY76UrIgQTpk25gfqf3Os8Q==",
+>>>>>>> ddd5d4a6b1c2947b25f9b06f00b0e6431de1c975
   "success": true,
   "projectFilePath": "C:\\Users\\Xavier\\Documents\\SAIT\\CPRG 212\\Group6_TravelExperts_Term2\\TravelExperts\\TravelExpertsGUI\\TravelExpertsGUI.csproj",
   "expectedPackageFiles": [

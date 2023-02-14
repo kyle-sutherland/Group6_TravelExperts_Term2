@@ -13,10 +13,10 @@ namespace TravelExpertsGUI
 {
     public partial class frmProd_SuppAddModify : Form
     {
-        public bool isAdd; // to differientiate the second form to either add or modify
-        public ProductsSupplier? prodSupp;
-        public Product? product;
-        public Supplier? supplier;
+        public static bool isAdd; // to differientiate the second form to either add or modify
+        public static ProductsSupplier? prodSupp;
+        public static Product? product;
+        public static Supplier? supplier;
 
         public frmProd_SuppAddModify()
         {
@@ -28,7 +28,7 @@ namespace TravelExpertsGUI
             if (isAdd)
             {
                 // initialize the prodSupp property with new prodSupp object
-                this.prodSupp = new ProductsSupplier();
+                ProductsSupplier prodSupp = new ProductsSupplier();
             }
 
             prodSupp.SupplierId = Convert.ToInt32(cbSuppliers.SelectedValue);

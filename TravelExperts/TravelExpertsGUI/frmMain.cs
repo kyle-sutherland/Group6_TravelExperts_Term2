@@ -1,12 +1,17 @@
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using TravelExpertsData;
+using static TravelExpertsData.DB_Utils;
+using static TravelExpertsGUI.frmAddEditPackages;
+using static TravelExpertsGUI.frmProd_SuppAddModify;
 
 namespace TravelExpertsGUI
 {
     public partial class frmMain : Form
     {
         private Package? selectedPackage = null;
+        private string? selectedTable = null;
+        private int? selectedRecordID = null;
 
         public frmMain()
         {
@@ -16,15 +21,15 @@ namespace TravelExpertsGUI
         private void btnAdd_Click(object sender, EventArgs e)
         {
             frmAddEditPackages secondForm = new frmAddEditPackages();
-            secondForm.isAdd = true;
-            secondForm.package = null;
+            frmAddEditPackages.isAdd = true;
+            frmAddEditPackages.package = null;
 
             DialogResult result = secondForm.ShowDialog(); // display second form modal
 
             if (result == DialogResult.OK) // second form accepted new data
             {
                 // take customer from the second form and add to the database
-                selectedPackage = secondForm.package;
+                selectedPackage = frmAddEditPackages.package;
                 try
                 {
                     using (TravelExpertsContext db = new TravelExpertsContext())
@@ -64,31 +69,61 @@ namespace TravelExpertsGUI
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            ClearControls();
+            //ClearControls();
         }
 
-        private void ClearControls()
-        {
+        //private void ClearControls()
+        //{
 
-        }
+        //}
 
         private void cmbTables_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string selection = cmbTables.SelectedItem.ToString();
-            switch (selection)
+            while (cmbTables.SelectedItem.ToString()!=null)
             {
-                case "Products":
-                    Form _frmProducts = new frmProducts();
-                    _frmProducts.Show();
-                    break;
-                case "Packages":
-                    Form _frmAddEditPackages = new frmAddEditPackages();
-                    _frmAddEditPackages.Show();
-                    break;
-                case "Products-Suppliers":
-                    Form _frmProduct_Suppliers = new frmProduct_Suppliers();
-                    _frmProduct_Suppliers.Show();
-                    break;
+                selectedTable = cmbTables.SelectedItem.ToString();
+                string? selection = cmbTables.SelectedItem.ToString();
+                switch (selection)
+                {
+                    case "Products":
+                        dgvMain.DataSource = GetSuppliersByProduct();
+                        break;
+                    case "Packages":
+                        
+                        break;
+                    case "Products-Suppliers":
+                        dgvMain.DataSource = GetAllProductsSupplier();
+                        ProductsSupplierFormat();
+                        break;
+                }
+                break;
+            }
+            dgvMain.Refresh();
+        }
+
+        private void ProductsSupplierFormat()
+        {
+            dgvMain.AlternatingRowsDefaultCellStyle.BackColor = Color.PaleGoldenrod;
+
+            dgvMain.Columns[0].Width = 132; // format ProdSupID column
+            dgvMain.Columns[2].HeaderText = "Supplier Name";
+            dgvMain.Columns[2].Width = 255; // format Supname column
+            dgvMain.Columns[3].Width = 90; // format ProdID column
+            dgvMain.Columns[4].HeaderText = "Product Name";
+            dgvMain.Columns[4].Width = 140; // format the ProdName column
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            if (selectedTable == "Packages")
+            {
+                frmAddEditPackages.isAdd = false;
+                frmAddEditPackages form = new frmAddEditPackages();
+                form.ShowDialog();
+            } 
+            else if (selectedTable == "Products-Suppliers")
+            {
+               //
             }
         }
     }

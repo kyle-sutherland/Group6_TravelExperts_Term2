@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TravelExpertsData;
+using static TravelExpertsGUI.frmProd_SuppAddModify;
 
 namespace TravelExpertsGUI
 {
@@ -32,7 +33,6 @@ namespace TravelExpertsGUI
 
         private void DisplayData()
         {
-
             using (TravelExpertsContext db = new TravelExpertsContext())
             {
                 // grab data from db
@@ -86,18 +86,18 @@ namespace TravelExpertsGUI
         private void btnAdd_Click(object sender, EventArgs e)
         {
             frmProd_SuppAddModify secondForm = new frmProd_SuppAddModify();
-            secondForm.isAdd = true;
-            secondForm.prodSupp = selectedProdSupp;
-            secondForm.product = selectedProduct;
-            secondForm.supplier = selectedSupplier;
+            frmProd_SuppAddModify.isAdd = true;
+            frmProd_SuppAddModify.prodSupp = selectedProdSupp;
+            frmProd_SuppAddModify.product = selectedProduct;
+            frmProd_SuppAddModify.supplier = selectedSupplier;
 
             DialogResult result = secondForm.ShowDialog(); // display second form modal
             if (result == DialogResult.OK)
             {
                 // take data from second form
-                selectedProdSupp = secondForm.prodSupp;
-                selectedSupplier = secondForm.supplier;
-                selectedProduct = secondForm.product;
+                selectedProdSupp = frmProd_SuppAddModify.prodSupp;
+                selectedSupplier = frmProd_SuppAddModify.supplier;
+                selectedProduct = frmProd_SuppAddModify.product;
 
                 using (TravelExpertsContext db = new TravelExpertsContext())
                 {
@@ -144,25 +144,22 @@ namespace TravelExpertsGUI
 
         private void ModifyProdSupp(int prodSuppCode)
         {
-            var secondFrm = new frmProd_SuppAddModify()
-            {
-                isAdd = false,
-                prodSupp = selectedProdSupp,
-                product = selectedProduct,
-                supplier = selectedSupplier
-            };
+            frmProd_SuppAddModify.isAdd = false;
+            frmProd_SuppAddModify.prodSupp = selectedProdSupp;
+            frmProd_SuppAddModify.product = selectedProduct;
+            frmProd_SuppAddModify.supplier = selectedSupplier;
+            var secondFrm = new frmProd_SuppAddModify();
             DialogResult result = secondFrm.ShowDialog();
             if (result == DialogResult.OK)
             {
-
                 using (TravelExpertsContext db = new TravelExpertsContext())
                 {
                     selectedProdSupp = db.ProductsSuppliers.Find(prodSuppCode);
 
                     if (selectedProdSupp != null)
                     {
-                        selectedProdSupp.SupplierId = secondFrm.prodSupp.SupplierId;
-                        selectedProdSupp.ProductId = secondFrm.prodSupp.ProductId;
+                        selectedProdSupp.SupplierId = frmProd_SuppAddModify.prodSupp.SupplierId;
+                        selectedProdSupp.ProductId = frmProd_SuppAddModify.prodSupp.ProductId;
 
                         db.SaveChanges();
                         DisplayData();
