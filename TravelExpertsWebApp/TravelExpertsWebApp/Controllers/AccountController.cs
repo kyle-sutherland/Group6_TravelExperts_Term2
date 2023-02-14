@@ -184,12 +184,20 @@ namespace TravelExpertsWebApp.Controllers
             try
             {
                 CustomerManager.Update(_context, customer);
-                return RedirectToAction(nameof(ThankYou));
+                //return RedirectToAction("LogOutUpdateAsync", "Account");
+                return RedirectToAction("ThankYou", "Account");
             }
             catch
             {
                 return View();
             }
+        }
+
+        public async Task<IActionResult> LogOutUpdateAsync()
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            HttpContext.Session.Remove("CurrentCustomer");
+            return RedirectToAction("ThankYou", "Account");
         }
 
         public ActionResult ThankYou()
