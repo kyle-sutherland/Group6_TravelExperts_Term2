@@ -34,18 +34,18 @@ namespace TravelExpertsWebApp.Controllers
             //cst is not null
             // get session id of logged in customer
             HttpContext.Session.SetInt32("CurrentCustomer", cst.CustomerId);
-            HttpContext.Session.SetString("CurrentFirstName", cst.CustFirstName);
-            HttpContext.Session.SetString("CurrentLastName", cst.CustLastName);
-            HttpContext.Session.SetString("CurrentAddress", cst.CustAddress);
-            HttpContext.Session.SetString("CurrentCity", cst.CustCity);
-            HttpContext.Session.SetString("CurrentProvince", cst.CustProv);
-            HttpContext.Session.SetString("CurrentPostal", cst.CustPostal);
-            HttpContext.Session.SetString("CurrentCountry", cst.CustCountry);
-            HttpContext.Session.SetString("CurrentHomePhone", cst.CustHomePhone);
-            HttpContext.Session.SetString("CurrentBusPhone", cst.CustBusPhone);
-            HttpContext.Session.SetString("CurrentEmail", cst.CustEmail);
-            HttpContext.Session.SetString("CurrentUsername", cst.Username);
-            HttpContext.Session.SetString("CurrentPassword", cst.Password);
+            //HttpContext.Session.SetString("CurrentFirstName", cst.CustFirstName);
+            //HttpContext.Session.SetString("CurrentLastName", cst.CustLastName);
+            //HttpContext.Session.SetString("CurrentAddress", cst.CustAddress);
+            //HttpContext.Session.SetString("CurrentCity", cst.CustCity);
+            //HttpContext.Session.SetString("CurrentProvince", cst.CustProv);
+            //HttpContext.Session.SetString("CurrentPostal", cst.CustPostal);
+            //HttpContext.Session.SetString("CurrentCountry", cst.CustCountry);
+            //HttpContext.Session.SetString("CurrentHomePhone", cst.CustHomePhone);
+            //HttpContext.Session.SetString("CurrentBusPhone", cst.CustBusPhone);
+            //HttpContext.Session.SetString("CurrentEmail", cst.CustEmail);
+            //HttpContext.Session.SetString("CurrentUsername", cst.Username);
+            //HttpContext.Session.SetString("CurrentPassword", cst.Password);
 
             // need using System.Security.Claims
             List<Claim> claims = new List<Claim>() 
@@ -112,98 +112,54 @@ namespace TravelExpertsWebApp.Controllers
             int? customerId = HttpContext.Session.GetInt32("CurrentCustomer");
             if (customerId != null)
             {
-                ViewBag.CustomerId = (int)customerId;
+                Customer currentCustomer = CustomerManager.GetCustomerById(_context, (int)customerId);
+                if (currentCustomer != null)
+                {
+                    return View(currentCustomer);
+                }
+                else
+                {
+                    return View(new Customer());
+                } 
             }
-            string? customerFirstName = HttpContext.Session.GetString("CurrentFirstName");
-            if (customerFirstName != null)
+            else
             {
-                ViewBag.CustFirstName = (string)customerFirstName;
+                return View(new Customer());
             }
-            string? customerLastName = HttpContext.Session.GetString("CurrentLastName");
-            if (customerLastName != null)
-            {
-                ViewBag.CustLastName = (string)customerLastName;
-            }
-            string? customerAddress = HttpContext.Session.GetString("CurrentAddress");
-            if (customerAddress != null)
-            {
-                ViewBag.CustAddress = (string)customerAddress;
-            }
-            string? customerCity = HttpContext.Session.GetString("CurrentCity");
-            if (customerCity != null)
-            {
-                ViewBag.CustCity = (string)customerCity;
-            }
-            string? customerProv = HttpContext.Session.GetString("CurrentProvince");
-            if (customerProv != null)
-            {
-                ViewBag.CustProv = (string)customerProv;
-            }
-            string? customerPostal = HttpContext.Session.GetString("CurrentPostal");
-            if (customerPostal != null)
-            {
-                ViewBag.CustPostal = (string)customerPostal;
-            }
-            string? customerCountry = HttpContext.Session.GetString("CurrentCountry");
-            if (customerCountry != null)
-            {
-                ViewBag.CustCountry = (string)customerCountry;
-            }
-            string? customerHomePhone = HttpContext.Session.GetString("CurrentHomePhone");
-            if (customerHomePhone != null)
-            {
-                ViewBag.CustHomePhone = (string)customerHomePhone;
-            }
-            string? customerBusPhone = HttpContext.Session.GetString("CurrentBusPhone");
-            if (customerBusPhone != null)
-            {
-                ViewBag.CustBusPhone = (string)customerBusPhone;
-            }
-            string? customerEmail = HttpContext.Session.GetString("CurrentEmail");
-            if (customerEmail != null)
-            {
-                ViewBag.CustEmail = (string)customerEmail;
-            }
-            string? customerUsername = HttpContext.Session.GetString("CurrentUsername");
-            if (customerUsername != null)
-            {
-                ViewBag.CustUsername = (string)customerUsername;
-            }
-            string? customerPassword = HttpContext.Session.GetString("CurrentPassword");
-            if (customerPassword != null)
-            {
-                ViewBag.CustPassword = (string)customerPassword;
-            }
-            return View(new Customer());
+            
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Profile(Customer customer)
         {
+
             try
             {
+                
                 CustomerManager.Update(_context, customer);
+                ViewBag.Thanks = "Thanks for updating your information!";
                 //return RedirectToAction("LogOutUpdateAsync", "Account");
-                return RedirectToAction("ThankYou", "Account");
+                return View(customer);
+                //return RedirectToAction("ThankYou", "Account");
             }
             catch
             {
-                return View();
+                return View(customer);
             }
         }
 
-        public async Task<IActionResult> LogOutUpdateAsync()
-        {
-            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            HttpContext.Session.Remove("CurrentCustomer");
-            return RedirectToAction("ThankYou", "Account");
-        }
+        //public async Task<IActionResult> LogOutUpdateAsync()
+        //{
+        //    await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+        //    HttpContext.Session.Remove("CurrentCustomer");
+        //    return RedirectToAction("ThankYou", "Account");
+        //}
 
-        public ActionResult ThankYou()
-        {
-            return View();
-        }
+        //public ActionResult ThankYou()
+        //{
+        //    return View();
+        //}
 
 
         // will uncomment when needed

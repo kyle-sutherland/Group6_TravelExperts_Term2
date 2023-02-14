@@ -3,19 +3,6 @@
 
 @{
     ViewData["Title"] = "Profile";
-    Model.CustomerId = ViewBag.CustomerId;
-    Model.CustFirstName = ViewBag.CustFirstName;
-    Model.CustLastName = ViewBag.CustLastName;
-    Model.CustAddress = ViewBag.CustAddress;
-    Model.CustCity = ViewBag.CustCity;
-    Model.CustProv = ViewBag.CustProv;
-    Model.CustPostal = ViewBag.CustPostal;
-    Model.CustCountry = ViewBag.CustCountry;
-    Model.CustHomePhone = ViewBag.CustHomePhone;
-    Model.CustBusPhone = ViewBag.CustBusPhone;
-    Model.CustEmail = ViewBag.CustEmail;
-    Model.Username = ViewBag.CustUsername;
-    Model.Password = ViewBag.CustPassword;
 }
 
 <h1>Your Profile</h1>
@@ -24,6 +11,9 @@
     Customer
  <a asp-action="Packages">View your Purchases</a>
 </h4>
+<h2>
+    @ViewBag.Thanks
+</h2>
 <hr />
 <div class="row">
     <div class="col-md-4">

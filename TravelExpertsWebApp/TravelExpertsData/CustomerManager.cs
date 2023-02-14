@@ -29,16 +29,29 @@ namespace TravelExpertsData
             return customers;
         }
 
-        public static void Update(TravelExpertsContext db, Customer customer)
+        public static Customer GetCustomerById(TravelExpertsContext db, int customerId)
         {
-            db.Customers.Update(customer);
-            db.SaveChanges();
+            Customer customer = db.Customers.Find(customerId);
+            return customer;
         }
 
-        //public static Customer Find(int id)
-        //{
-        //    var customer = DbContext.Find(s => s.CustomerId == id);
-        //    return customer;
-        //}
+        public static void Update(TravelExpertsContext db, Customer newCustomer)
+        {
+            Customer oldCustomer = GetCustomerById(db, newCustomer.CustomerId);
+            oldCustomer.CustFirstName= newCustomer.CustFirstName;
+            oldCustomer.CustLastName= newCustomer.CustLastName;
+            oldCustomer.CustAddress= newCustomer.CustAddress;
+            oldCustomer.CustCity= newCustomer.CustCity;
+            oldCustomer.CustProv = newCustomer.CustProv;
+            oldCustomer.CustPostal= newCustomer.CustPostal;
+            oldCustomer.CustCountry= newCustomer.CustCountry;
+            oldCustomer.CustHomePhone= newCustomer.CustHomePhone;
+            oldCustomer.CustBusPhone= newCustomer.CustBusPhone;
+            oldCustomer.CustEmail= newCustomer.CustEmail;
+            oldCustomer.Username= newCustomer.Username;
+            oldCustomer.Password= newCustomer.Password;
+            //db.Customers.Update(customer);
+            db.SaveChanges();
+        }
     }
 }
