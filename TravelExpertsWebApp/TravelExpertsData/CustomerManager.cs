@@ -22,5 +22,23 @@ namespace TravelExpertsData
             db.Customers.Add(customer);
             db.SaveChanges();
         }
+
+        public static List<Customer> GetCustomers(TravelExpertsContext db)
+        {
+            List<Customer> customers = db.Customers.OrderBy(c => c.CustomerId).ToList();
+            return customers;
+        }
+
+        public static void Update(TravelExpertsContext db, Customer customer)
+        {
+            db.Customers.Update(customer);
+            db.SaveChanges();
+        }
+
+        //public static Customer Find(int id)
+        //{
+        //    var customer = DbContext.Find(s => s.CustomerId == id);
+        //    return customer;
+        //}
     }
 }
