@@ -35,7 +35,6 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
-            this.btnRefresh = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMain)).BeginInit();
             this.SuspendLayout();
             // 
@@ -120,23 +119,13 @@
             this.btnExit.TabIndex = 19;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = false;
-            // 
-            // btnRefresh
-            // 
-            this.btnRefresh.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.btnRefresh.Location = new System.Drawing.Point(12, 174);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(127, 37);
-            this.btnRefresh.TabIndex = 20;
-            this.btnRefresh.Text = "Refresh";
-            this.btnRefresh.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(897, 486);
-            this.Controls.Add(this.btnRefresh);
+            this.ClientSize = new System.Drawing.Size(950, 519);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnAdd);
@@ -165,6 +154,5 @@
         private Button btnAdd;
         private Button btnEdit;
         private Button btnExit;
-        private Button btnRefresh;
     }
 }

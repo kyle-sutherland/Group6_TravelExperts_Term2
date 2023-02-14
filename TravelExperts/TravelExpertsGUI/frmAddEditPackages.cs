@@ -22,7 +22,7 @@ namespace TravelExpertsGUI
     {
         // form variables
         public static bool isAdd;
-        public static TravelExpertsData.Package? package;
+        public static TravelExpertsData.Package? package = frmMain.selectedPackage;
         public TravelExpertsData.Product? selectedProduct;
         public TravelExpertsData.ProductsSupplier? selectedProdSupp;
         public TravelExpertsData.PackagesProductsSupplier? selectedPackProdSupp;
@@ -41,27 +41,23 @@ namespace TravelExpertsGUI
                 {
                     // list of products for the data grid view
                     List<Product> products = db.Products.OrderBy(p => p.ProdName).ToList();
-                    //List<Supplier> suppliers = db.Suppliers.OrderBy(s => s.SupName).ToList();
+                    
                     dgvProducts.DataSource = products;
-                    //cboProduct.DataSource = products;
-                    //cboSupplier.DataSource = suppliers;
+                    
                 }
 
                 if (isAdd) 
                 {
                     
                     this.Text = "Add Package";
-                    //DisplayProducts();
-                    //DisplayCBOProduct();
-                    //DisplayCBOSupplier();
+                    
                 }
                 else 
                 {
                     this.Text = "Edit Package";
                     DisplayPackage();
                     DisplayProducts();
-                    //DisplayCBOProduct();
-                    //DisplayCBOSupplier();
+                    
 
                 }
             }
@@ -126,8 +122,7 @@ namespace TravelExpertsGUI
                 Validator.IsValidDate(txtPkgEnd) &&
                 Validator.IsStartBeforeEndDate(txtPkgStart, txtPkgEnd) &&
                 Validator.IsLessThanOrEqual(txtPkgCommision, txtPkgPrice) //&&
-                //Validator.IsSelected(txtPkg) &&
-                //Validator.IsProvided(txtPkg)
+                
               )
             {
                 if (isAdd)

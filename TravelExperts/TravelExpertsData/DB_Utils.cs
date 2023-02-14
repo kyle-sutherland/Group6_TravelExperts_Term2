@@ -207,6 +207,23 @@ namespace TravelExpertsData
             }
         }
 
+        public static void DeleteRecord(Type type, int recordId)
+        {
+            try
+            {
+                using (TravelExpertsContext db = new TravelExpertsContext())
+                {
+                    var record = db.Find(type, recordId);
+                    Console.WriteLine(record);
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         /// <summary>
         /// Gets All Supplier records
         /// </summary>

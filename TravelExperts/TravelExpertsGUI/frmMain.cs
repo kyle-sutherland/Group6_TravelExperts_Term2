@@ -97,11 +97,6 @@ namespace TravelExpertsGUI
             //ClearControls();
         }
 
-        //private void ClearControls()
-        //{
-
-        //}
-
         private void cmbTables_SelectedIndexChanged(object sender, EventArgs e)
         {
             while (cmbTables.SelectedItem.ToString()!=null)
@@ -215,6 +210,10 @@ namespace TravelExpertsGUI
         {
             RecordSelector();
         }
-    }//class
 
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            
+        }
+    }//class
 }

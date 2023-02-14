@@ -33,7 +33,7 @@ namespace TravelExpertsGUI
 
         private void btnSaveChanges_Click(object sender, EventArgs e)
         {
-            if(isAdd)
+            if (isAdd)
             {
                 supplier.SupName = txtSupName.Text;
                 AddSupplier(supplier);
@@ -45,5 +45,9 @@ namespace TravelExpertsGUI
             }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
