@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static TravelExpertsData.ProductDB;
+using static TravelExpertsData.DB_Utils;
 
 namespace TravelExpertsGUI
 {

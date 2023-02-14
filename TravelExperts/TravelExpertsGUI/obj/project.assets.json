@@ -1935,23 +1935,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\timhu\\.nuget\\packages\\": {},
+    "C:\\Users\\mynam\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\timhu\\OneDrive\\Documents\\GitHub\\Group6_TravelExperts_Term2\\TravelExperts\\TravelExpertsGUI\\TravelExpertsGUI.csproj",
+      "projectUniqueName": "C:\\Users\\mynam\\source\\repos\\velveteen-rever\\Group6_TravelExperts_Term2\\TravelExperts\\TravelExpertsGUI\\TravelExpertsGUI.csproj",
       "projectName": "TravelExpertsGUI",
-      "projectPath": "C:\\Users\\timhu\\OneDrive\\Documents\\GitHub\\Group6_TravelExperts_Term2\\TravelExperts\\TravelExpertsGUI\\TravelExpertsGUI.csproj",
-      "packagesPath": "C:\\Users\\timhu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\timhu\\OneDrive\\Documents\\GitHub\\Group6_TravelExperts_Term2\\TravelExperts\\TravelExpertsGUI\\obj\\",
+      "projectPath": "C:\\Users\\mynam\\source\\repos\\velveteen-rever\\Group6_TravelExperts_Term2\\TravelExperts\\TravelExpertsGUI\\TravelExpertsGUI.csproj",
+      "packagesPath": "C:\\Users\\mynam\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\mynam\\source\\repos\\velveteen-rever\\Group6_TravelExperts_Term2\\TravelExperts\\TravelExpertsGUI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\timhu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\mynam\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -1960,14 +1960,15 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
-            "C:\\Users\\timhu\\OneDrive\\Documents\\GitHub\\Group6_TravelExperts_Term2\\TravelExperts\\TravelExpertsData\\TravelExpertsData.csproj": {
-              "projectPath": "C:\\Users\\timhu\\OneDrive\\Documents\\GitHub\\Group6_TravelExperts_Term2\\TravelExperts\\TravelExpertsData\\TravelExpertsData.csproj"
+            "C:\\Users\\mynam\\source\\repos\\velveteen-rever\\Group6_TravelExperts_Term2\\TravelExperts\\TravelExpertsData\\TravelExpertsData.csproj": {
+              "projectPath": "C:\\Users\\mynam\\source\\repos\\velveteen-rever\\Group6_TravelExperts_Term2\\TravelExperts\\TravelExpertsData\\TravelExpertsData.csproj"
             }
           }
         }
@@ -2003,5 +2004,13 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\mynam\\source\\repos\\velveteen-rever\\Group6_TravelExperts_Term2\\TravelExperts\\TravelExpertsGUI\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
