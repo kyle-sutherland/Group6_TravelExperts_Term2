@@ -15,7 +15,7 @@ namespace TravelExpertsGUI
     public partial class frmAddEditProduct : Form
     {
         public static bool isAdd;
-        public static Product? product;
+        public static Product? product = frmMain.selectedProduct;
         public frmAddEditProduct()
         {
             InitializeComponent();

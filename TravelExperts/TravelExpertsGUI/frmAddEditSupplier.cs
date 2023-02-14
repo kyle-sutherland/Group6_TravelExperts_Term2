@@ -9,13 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TravelExpertsData;
 using static TravelExpertsData.DB_Utils;
+using static TravelExpertsGUI.frmMain;
 
 namespace TravelExpertsGUI
 {
     public partial class frmAddEditSupplier : Form
     {
         public static bool isAdd;
-        public static Supplier? supplier;
+        public static Supplier? supplier = frmMain.selectedSupplier;
 
         public frmAddEditSupplier()
         {

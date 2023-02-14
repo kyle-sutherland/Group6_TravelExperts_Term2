@@ -1,5 +1,6 @@
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query.Internal;
 using TravelExpertsData;
 using static TravelExpertsData.DB_Utils;
 using static TravelExpertsGUI.frmAddEditPackages;
@@ -11,7 +12,10 @@ namespace TravelExpertsGUI
     {
         private string? selectedTable = null;
         private int? selectedRecordID = null;
-        private Package? selectedPackage = null;
+        public static Package? selectedPackage = null;
+        public static Product? selectedProduct = null;
+        public static Supplier? selectedSupplier = null;
+        public static ProductsSupplier? selectedProductsSupplier = null;
 
         public frmMain()
         {
@@ -165,31 +169,52 @@ namespace TravelExpertsGUI
             }
         }
 
-        private object RecordSelector()
+        
+        private void RecordSelector()
         {
             var selType = dgvMain.CurrentRow.DataBoundItem.GetType();
             if (selType == typeof(Product)) 
             {
-                Product currentObject = (Product)dgvMain.CurrentRow.DataBoundItem;
+                Product selectedObject = (Product)dgvMain.CurrentRow.DataBoundItem;
+                selectedProduct = selectedObject;
             }
             else if (selType == typeof(Supplier))
             {
-                Supplier currentObject = (Supplier)dgvMain.CurrentRow.DataBoundItem;
+                Supplier selectedObject = (Supplier)dgvMain.CurrentRow.DataBoundItem;
+                selectedSupplier = selectedObject;
             }
             else if (selType == typeof(Package)) {
-                Package currentObject = (Package)dgvMain.CurrentRow.DataBoundItem;
+                Package selectedObject = (Package)dgvMain.CurrentRow.DataBoundItem;
+                selectedPackage = selectedObject;
             }
             else if (selType == typeof(ProductSupplierInfo)) 
             {
+                ProductSupplierInfo selectedObject = (ProductSupplierInfo)dgvMain.CurrentRow.DataBoundItem;
+                Product currentProd = new Product();
+                Supplier currentSup = new Supplier();
+                ProductsSupplier currentProdSup = new ProductsSupplier();
+                
+                currentProd.ProductId = selectedObject.ProductId;
+                currentProd.ProdName = selectedObject.ProdName;
+
+                currentSup.SupplierId = selectedObject.SupplierId;
+                currentSup.SupName = selectedObject.SupName;
+
+                currentProdSup.ProductSupplierId = selectedObject.ProductSupplierId;
+                currentProdSup.SupplierId = selectedObject.SupplierId;
+                currentProdSup.ProductId = selectedObject.ProductId;
+
+                selectedProduct= currentProd;
+                selectedSupplier= currentSup;
+                selectedProductsSupplier= currentProdSup;
 
             }
         }
-    }//class
 
-    public class SelectedRecord
-    {
-        public Product? Product { get; set;}
-        public Supplier? Supplier { get; set; }
-        public Package? Package { get; set; }
+        private void dgvMain_SelectionChanged(object sender, EventArgs e)
+        {
+            RecordSelector();
+        }
+    }//class
 
 }
