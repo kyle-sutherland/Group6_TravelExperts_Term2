@@ -45,7 +45,13 @@ namespace TravelExpertsData
         [StringLength(30)]
         [Unicode(false)]
         public string Password { get; set; } = null!;
+        [Compare("Password")]
+        [StringLength(30)]
+        [NotMapped]
+        public string ConfirmPassword { get; set; } = null!;
 
+
+        // navigation properties
         [ForeignKey("AgentId")]
         [InverseProperty("Customers")]
         public virtual Agent? Agent { get; set; }

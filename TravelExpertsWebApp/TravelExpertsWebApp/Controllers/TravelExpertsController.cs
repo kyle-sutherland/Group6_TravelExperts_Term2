@@ -17,6 +17,31 @@ namespace TravelExpertsWebApp.Controllers
             return View();
         }
 
+        public ActionResult Contact()
+        {
+            return View();
+        }
+
+        public ActionResult Packages()
+        {
+            //List<Package> packages = PackageManager.GetPackages(_context);
+            //var list = new SelectList(packages, "ID" "Name").ToList();
+            //list.Insert(0, new SelectedItemList("All", "All"));
+            //ViewBag.Packages = list;
+
+            //List<Package> packages = PackageManager.GetPackages(_context);
+            //return View(packages);
+
+
+
+            return View();
+        }
+
+
+
+
+
+
         // GET: TravelExpertsController/Details/5
         public ActionResult Details(int id)
         {
