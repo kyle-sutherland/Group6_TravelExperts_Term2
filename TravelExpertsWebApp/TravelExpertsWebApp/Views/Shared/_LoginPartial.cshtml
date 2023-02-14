@@ -1,0 +1,27 @@
+﻿<ul class="navbar-nav ml-auto">
+    @if (User.Identity.IsAuthenticated)
+    {
+        <li class="nav-item">
+            <a class="nav-link text-dark" title="Welcome"
+           asp-controller="Account" asp-action="Profile">
+                Welcome @User.Claims.Single(c=>c.Type == "FirstName").Value
+                @User.Claims.Single(c=>c.Type == "LastName").Value 
+            </a>
+        </li>
+        <li class="nav-item">
+            <form class="form-inline" asp-controller="Account" asp-action="Logout"
+              asp-route-returnUrl=@Url.Action("Index", "Marina")>
+                <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+            </form>
+        </li>
+    }
+    else
+    {
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-controller="Account" asp-action="Login">Login</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-controller="Account" asp-action="Register">Register</a>
+        </li>
+    }
+</ul>

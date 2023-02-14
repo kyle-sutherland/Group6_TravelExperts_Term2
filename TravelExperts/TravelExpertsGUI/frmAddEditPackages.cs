@@ -14,6 +14,7 @@ using TravelExpertsData;
 using static System.Windows.Forms.AxHost;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
 
 namespace TravelExpertsGUI
 {
@@ -24,6 +25,8 @@ namespace TravelExpertsGUI
         public static TravelExpertsData.Package? package;
         public TravelExpertsData.Product? selectedProduct;
         public TravelExpertsData.ProductsSupplier? selectedProdSupp;
+        public TravelExpertsData.PackagesProductsSupplier? selectedPackProdSupp;
+        public TravelExpertsData.Supplier? selectedSupplier;
 
         public frmAddEditPackages()
         {
@@ -38,23 +41,27 @@ namespace TravelExpertsGUI
                 {
                     // list of products for the data grid view
                     List<Product> products = db.Products.OrderBy(p => p.ProdName).ToList();
+                    //List<Supplier> suppliers = db.Suppliers.OrderBy(s => s.SupName).ToList();
                     dgvProducts.DataSource = products;
-                    cboProduct.DataSource = products;
+                    //cboProduct.DataSource = products;
+                    //cboSupplier.DataSource = suppliers;
                 }
 
                 if (isAdd) 
                 {
                     
                     this.Text = "Add Package";
-                    DisplayProducts();
-                    DisplayCBOProduct();
+                    //DisplayProducts();
+                    //DisplayCBOProduct();
+                    //DisplayCBOSupplier();
                 }
                 else 
                 {
                     this.Text = "Edit Package";
                     DisplayPackage();
                     DisplayProducts();
-                    DisplayCBOProduct();
+                    //DisplayCBOProduct();
+                    //DisplayCBOSupplier();
 
                 }
             }
@@ -84,34 +91,32 @@ namespace TravelExpertsGUI
 
             using (TravelExpertsContext db = new TravelExpertsContext())
             {
-                dgvProducts.DataSource = db.Products.Select(p => new{ p.ProductId, p.ProdName }).ToList();
-                dgvProducts.Columns[0].HeaderText = "Product ID";
-                dgvProducts.Columns[0].Width = 50;
+                dgvProducts.Columns.Clear();
+
+                var data = (from packProdSupp in db.PackagesProductsSuppliers
+                            join prodSupp in db.ProductsSuppliers
+                            on packProdSupp.ProductSupplierId equals prodSupp.ProductSupplierId
+                            join product in db.Products
+                            on prodSupp.ProductId equals product.ProductId
+                            where packProdSupp.PackageId == package.PackageId
+                            select new
+                            {
+                                packProdSupp.ProductSupplierId,
+                                product.ProdName,
+                            }).ToList();
+
+
+                dgvProducts.DataSource = data;
+
+                //dgvProducts.DataSource = db.Products.Select(p => new{ p.ProductId, p.ProdName }).ToList();
+                dgvProducts.Columns[0].HeaderText = "Product Supplier ID";
+                dgvProducts.Columns[0].Width = 200;
                 dgvProducts.Columns[1].HeaderText = "Product Name";
                 dgvProducts.Columns[1].Width = 200;
             }
         }
 
-        private void DisplayCBOProduct()
-        {
-            try
-            {
-                using (TravelExpertsContext db = new TravelExpertsContext())
-                {
-
-                    List<Product> products = db.Products.ToList();
-                    cboProduct.DataSource = products;
-                    cboProduct.DisplayMember = "ProdName";
-                    cboProduct.ValueMember = "ProductId";
-                }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error when retrieving Product: " + ex.Message,
-                                ex.GetType().ToString());
-            }
-        }
+        
 
         private void btnAccept_Click(object sender, EventArgs e)
         {
@@ -144,82 +149,36 @@ namespace TravelExpertsGUI
             }
         }
 
-        private void cboProduct_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
-        }
 
         private void btnAddProduct_Click(object sender, EventArgs e)
         {
-            int productID = Convert.ToInt32(cboProduct.SelectedValue);
-            try
+            frmPack_Prod_SuppAddDelete secondForm = new frmPack_Prod_SuppAddDelete();
+            secondForm.isAddP = true;
+            secondForm.prodSupp = selectedProdSupp;
+            secondForm.product = selectedProduct;
+            secondForm.supplier = selectedSupplier;
+            secondForm.package = package;
+
+            DialogResult result = secondForm.ShowDialog(); // display second form modal
+            if (result == DialogResult.OK)
             {
+                // take data from second form
+                selectedProdSupp = secondForm.prodSupp;
+                selectedSupplier = secondForm.supplier;
+                selectedProduct = secondForm.product;
+
                 using (TravelExpertsContext db = new TravelExpertsContext())
                 {
-                    selectedProduct = db.Products.Find(productID);
-                    if (selectedProduct != null)
-                    {
-                        db.Products.Add(selectedProduct);
-                        db.SaveChanges();
-                    }
-                    DisplayCBOProduct();
-                    DisplayProducts();
+                    // add to the database
+                    db.PackagesProductsSuppliers.Add(selectedPackProdSupp);
+                    db.SaveChanges();
                 }
-            }
-            catch (DbUpdateException ex)
-            {
-                string errorMessage = "";
-                var sqlException = (SqlException)ex.InnerException;
-                foreach (SqlError error in sqlException.Errors)
-                {
-                    errorMessage += "ERROR CODE:  " + error.Number +
-                                    " " + error.Message + "\n";
-                }
-                MessageBox.Show(errorMessage);
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error while adding product:" + ex.Message,
-                    ex.GetType().ToString());
+                DisplayProducts();
             }
         }
 
-        private void btnRemoveProduct_Click(object sender, EventArgs e)
-        {
-            int productID = Convert.ToInt32(cboProduct.SelectedValue);
-            try
-            {
-                using (TravelExpertsContext db = new TravelExpertsContext())
-                {
-                    selectedProduct = db.Products.Find(productID);
-                    if (selectedProduct != null)
-                    {
-                        db.Products.Remove(selectedProduct);
-                        db.SaveChanges();
-                    }
-                    DisplayCBOProduct();
-                    DisplayProducts();
-                }
-            }
-            catch (DbUpdateException ex)
-            {
-                string errorMessage = "";
-                var sqlException = (SqlException)ex.InnerException;
-                foreach (SqlError error in sqlException.Errors)
-                {
-                    errorMessage += "ERROR CODE:  " + error.Number +
-                                    " " + error.Message + "\n";
-                }
-                MessageBox.Show(errorMessage);
-            }
 
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error while adding product:" + ex.Message,
-                    ex.GetType().ToString());
-            }
-        }
 
         // btnCancel is set as the Cancel button on this form and will close it automatically
     }

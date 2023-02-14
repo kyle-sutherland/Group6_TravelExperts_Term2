@@ -396,3 +396,7 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+*.vsidx
+TravelExpertsWebApp/.vs/ProjectEvaluation/travelexpertswebapp.metadata.v5.2
+TravelExpertsWebApp/.vs/ProjectEvaluation/travelexpertswebapp.projects.v5.2
+TravelExpertsWebApp/.vs/TravelExpertsWebApp/v17/.futdcache.v2
