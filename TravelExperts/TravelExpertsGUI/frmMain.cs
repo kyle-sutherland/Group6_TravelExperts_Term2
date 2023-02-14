@@ -9,9 +9,9 @@ namespace TravelExpertsGUI
 {
     public partial class frmMain : Form
     {
-        private Package? selectedPackage = null;
         private string? selectedTable = null;
         private int? selectedRecordID = null;
+        private Package? selectedPackage = null;
 
         public frmMain()
         {
@@ -77,7 +77,9 @@ namespace TravelExpertsGUI
             }
             else if (selectedTable == "Suppliers")
             {
-                //Do supplier stuff
+                frmAddEditSupplier.isAdd = true;
+                frmAddEditSupplier form = new frmAddEditSupplier();
+                form.ShowDialog();
             }
         }
 
@@ -157,8 +159,37 @@ namespace TravelExpertsGUI
             }
             else if (selectedTable == "Suppliers")
             {
-                
+                frmAddEditSupplier.isAdd = false;
+                frmAddEditSupplier form = new frmAddEditSupplier();
+                form.ShowDialog();
             }
         }
-    }
+
+        private object RecordSelector()
+        {
+            var selType = dgvMain.CurrentRow.DataBoundItem.GetType();
+            if (selType == typeof(Product)) 
+            {
+                Product currentObject = (Product)dgvMain.CurrentRow.DataBoundItem;
+            }
+            else if (selType == typeof(Supplier))
+            {
+                Supplier currentObject = (Supplier)dgvMain.CurrentRow.DataBoundItem;
+            }
+            else if (selType == typeof(Package)) {
+                Package currentObject = (Package)dgvMain.CurrentRow.DataBoundItem;
+            }
+            else if (selType == typeof(ProductSupplierInfo)) 
+            {
+
+            }
+        }
+    }//class
+
+    public class SelectedRecord
+    {
+        public Product? Product { get; set;}
+        public Supplier? Supplier { get; set; }
+        public Package? Package { get; set; }
+
 }

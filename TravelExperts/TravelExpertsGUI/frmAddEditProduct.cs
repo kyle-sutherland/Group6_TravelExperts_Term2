@@ -21,14 +21,6 @@ namespace TravelExpertsGUI
             InitializeComponent();
         }
 
-        private void frmAddEditProduct_Load()
-        {
-            if (!isAdd) 
-            {
-                txtProdName.Text = string.Empty;
-            }
-        }
-
         private void txtProdName_TextChanged(object sender, EventArgs e)
         {
 
@@ -45,6 +37,14 @@ namespace TravelExpertsGUI
             {
                 product.ProdName = txtProdName.Text.Trim();
                 ModifyProduct (product);
+            }
+        }
+
+        private void frmAddEditProduct_Load(object sender, EventArgs e)
+        {
+            if (!isAdd)
+            {
+                txtProdName.Text = product.ProdName;
             }
         }
     }

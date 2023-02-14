@@ -59,6 +59,7 @@
             this.Controls.Add(this.txtProdName);
             this.Name = "frmAddEditProduct";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.frmAddEditProduct_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

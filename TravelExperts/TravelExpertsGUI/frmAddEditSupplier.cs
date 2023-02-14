@@ -7,14 +7,42 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TravelExpertsData;
+using static TravelExpertsData.DB_Utils;
 
 namespace TravelExpertsGUI
 {
     public partial class frmAddEditSupplier : Form
     {
+        public static bool isAdd;
+        public static Supplier? supplier;
+
         public frmAddEditSupplier()
         {
             InitializeComponent();
         }
+
+        private void frmAddEditSupplier_Load(object sender, EventArgs e)
+        {
+            if(!isAdd)
+            {
+                txtSupName.Text = supplier.SupName;
+            }
+        }
+
+        private void btnSaveChanges_Click(object sender, EventArgs e)
+        {
+            if(isAdd)
+            {
+                supplier.SupName = txtSupName.Text;
+                AddSupplier(supplier);
+            }
+            else
+            {
+                supplier.SupName = txtSupName.Text;
+                ModifySupplier(supplier);
+            }
+        }
+
     }
 }
