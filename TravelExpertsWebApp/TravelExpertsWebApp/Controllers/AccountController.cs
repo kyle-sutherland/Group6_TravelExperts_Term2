@@ -125,7 +125,6 @@ namespace TravelExpertsWebApp.Controllers
 
             try
             {
-                
                 CustomerManager.Update(_context, customer);
                 ViewBag.Thanks = "Thanks for updating your information!";
                 //return RedirectToAction("LogOutUpdateAsync", "Account");
