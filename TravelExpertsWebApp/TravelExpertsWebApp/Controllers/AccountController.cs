@@ -142,6 +142,13 @@ namespace TravelExpertsWebApp.Controllers
         {
             int? customerId = HttpContext.Session.GetInt32("CurrentCustomer");
             List<MyBookingsDTO> list = MyBookingsManager.GetMyBookingsByID(_context, (int)customerId);
+
+            decimal sum = 0;
+            foreach (MyBookingsDTO item in list)
+            {
+                sum += item.PackagePrice;
+            }
+            ViewBag.TotalSum = sum.ToString("c");
             return View(list);
         }
 
