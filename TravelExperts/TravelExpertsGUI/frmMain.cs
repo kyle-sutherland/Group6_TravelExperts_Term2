@@ -1,5 +1,6 @@
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query.Internal;
 using TravelExpertsData;
 using static TravelExpertsData.DB_Utils;
 using static TravelExpertsGUI.frmAddEditPackages;
@@ -9,9 +10,12 @@ namespace TravelExpertsGUI
 {
     public partial class frmMain : Form
     {
-        private Package? selectedPackage = null;
         private string? selectedTable = null;
         private int? selectedRecordID = null;
+        public static Package? selectedPackage = null;
+        public static Product? selectedProduct = null;
+        public static Supplier? selectedSupplier = null;
+        public static ProductsSupplier? selectedProductsSupplier = null;
 
         public frmMain()
         {
@@ -20,45 +24,66 @@ namespace TravelExpertsGUI
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            frmAddEditPackages secondForm = new frmAddEditPackages();
-            frmAddEditPackages.isAdd = true;
-            frmAddEditPackages.package = null;
-
-            DialogResult result = secondForm.ShowDialog(); // display second form modal
-
-            if (result == DialogResult.OK) // second form accepted new data
+            if (selectedTable == "Packages")
             {
-                // take customer from the second form and add to the database
-                selectedPackage = frmAddEditPackages.package;
-                try
-                {
-                    using (TravelExpertsContext db = new TravelExpertsContext())
-                    {
-                        if (selectedPackage != null)
-                        {
-                            db.Packages.Add(selectedPackage);
-                            db.SaveChanges();
-                        }
-                        DisplayPackage(); // display added package
-                    }
-                }
-                catch (DbUpdateException ex)
-                {
-                    string errorMessage = "";
-                    var sqlException = (SqlException)ex.InnerException;
-                    foreach (SqlError error in sqlException.Errors)
-                    {
-                        errorMessage += "ERROR CODE:  " + error.Number +
-                                        " " + error.Message + "\n";
-                    }
-                    MessageBox.Show(errorMessage);
-                }
+                frmAddEditPackages secondForm = new frmAddEditPackages();
+                frmAddEditPackages.isAdd = true;
+                frmAddEditPackages.package = null;
 
-                catch (Exception ex)
+                DialogResult result = secondForm.ShowDialog(); // display second form modal
+
+                if (result == DialogResult.OK) // second form accepted new data
                 {
-                    MessageBox.Show("Error while adding package" + ex.Message,
-                        ex.GetType().ToString());
-                }
+                    // take customer from the second form and add to the database
+                    selectedPackage = frmAddEditPackages.package;
+                    try
+                    {
+                        using (TravelExpertsContext db = new TravelExpertsContext())
+                        {
+                            if (selectedPackage != null)
+                            {
+                                db.Packages.Add(selectedPackage);
+                                db.SaveChanges();
+                            }
+                            DisplayPackage(); // display added package
+                        }
+                    }
+                    catch (DbUpdateException ex)
+                    {
+                        string errorMessage = "";
+                        var sqlException = (SqlException)ex.InnerException;
+                        foreach (SqlError error in sqlException.Errors)
+                        {
+                            errorMessage += "ERROR CODE:  " + error.Number +
+                                            " " + error.Message + "\n";
+                        }
+                        MessageBox.Show(errorMessage);
+                    }
+
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error while adding package" + ex.Message,
+                            ex.GetType().ToString());
+                    }
+                } 
+            }
+            else if (selectedTable == "Products-Suppliers")
+            {
+                frmProd_SuppAddModify.isAdd = true;
+                frmProd_SuppAddModify form = new frmProd_SuppAddModify();
+                form.ShowDialog();
+            }
+            else if (selectedTable == "Products")
+            {
+                frmAddEditProduct.isAdd = true;
+                frmAddEditProduct form = new frmAddEditProduct();
+                form.ShowDialog();
+            }
+            else if (selectedTable == "Suppliers")
+            {
+                frmAddEditSupplier.isAdd = true;
+                frmAddEditSupplier form = new frmAddEditSupplier();
+                form.ShowDialog();
             }
         }
 
@@ -72,11 +97,6 @@ namespace TravelExpertsGUI
             //ClearControls();
         }
 
-        //private void ClearControls()
-        //{
-
-        //}
-
         private void cmbTables_SelectedIndexChanged(object sender, EventArgs e)
         {
             while (cmbTables.SelectedItem.ToString()!=null)
@@ -86,14 +106,17 @@ namespace TravelExpertsGUI
                 switch (selection)
                 {
                     case "Products":
-                        dgvMain.DataSource = GetSuppliersByProduct();
+                        dgvMain.DataSource = GetAllProducts();
                         break;
                     case "Packages":
-                        
+                        dgvMain.DataSource = GetAllPackages();
                         break;
                     case "Products-Suppliers":
                         dgvMain.DataSource = GetAllProductsSupplier();
                         ProductsSupplierFormat();
+                        break;
+                    case "Suppliers":
+                        dgvMain.DataSource = GetAllSuppliers();
                         break;
                 }
                 break;
@@ -120,11 +143,77 @@ namespace TravelExpertsGUI
                 frmAddEditPackages.isAdd = false;
                 frmAddEditPackages form = new frmAddEditPackages();
                 form.ShowDialog();
-            } 
+            }
             else if (selectedTable == "Products-Suppliers")
             {
-               //
+                frmProd_SuppAddModify.isAdd = false;
+                frmProd_SuppAddModify form = new frmProd_SuppAddModify();
+                form.ShowDialog();
+            }
+            else if (selectedTable == "Products")
+            {
+                frmAddEditProduct.isAdd = false;
+                frmAddEditProduct form = new frmAddEditProduct();
+                form.ShowDialog();
+            }
+            else if (selectedTable == "Suppliers")
+            {
+                frmAddEditSupplier.isAdd = false;
+                frmAddEditSupplier form = new frmAddEditSupplier();
+                form.ShowDialog();
             }
         }
-    }
+
+        
+        private void RecordSelector()
+        {
+            var selType = dgvMain.CurrentRow.DataBoundItem.GetType();
+            if (selType == typeof(Product)) 
+            {
+                Product selectedObject = (Product)dgvMain.CurrentRow.DataBoundItem;
+                selectedProduct = selectedObject;
+            }
+            else if (selType == typeof(Supplier))
+            {
+                Supplier selectedObject = (Supplier)dgvMain.CurrentRow.DataBoundItem;
+                selectedSupplier = selectedObject;
+            }
+            else if (selType == typeof(Package)) {
+                Package selectedObject = (Package)dgvMain.CurrentRow.DataBoundItem;
+                selectedPackage = selectedObject;
+            }
+            else if (selType == typeof(ProductSupplierInfo)) 
+            {
+                ProductSupplierInfo selectedObject = (ProductSupplierInfo)dgvMain.CurrentRow.DataBoundItem;
+                Product currentProd = new Product();
+                Supplier currentSup = new Supplier();
+                ProductsSupplier currentProdSup = new ProductsSupplier();
+                
+                currentProd.ProductId = selectedObject.ProductId;
+                currentProd.ProdName = selectedObject.ProdName;
+
+                currentSup.SupplierId = selectedObject.SupplierId;
+                currentSup.SupName = selectedObject.SupName;
+
+                currentProdSup.ProductSupplierId = selectedObject.ProductSupplierId;
+                currentProdSup.SupplierId = selectedObject.SupplierId;
+                currentProdSup.ProductId = selectedObject.ProductId;
+
+                selectedProduct= currentProd;
+                selectedSupplier= currentSup;
+                selectedProductsSupplier= currentProdSup;
+
+            }
+        }
+
+        private void dgvMain_SelectionChanged(object sender, EventArgs e)
+        {
+            RecordSelector();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            
+        }
+    }//class
 }

@@ -2,7 +2,13 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
+    <Compile Update="frmAddEditSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="frmAddEditPackages.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmAddEditProduct.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="frmMain.cs">

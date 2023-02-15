@@ -13,8 +13,6 @@ namespace TravelExpertsGUI
             ApplicationConfiguration.Initialize();
 
             Application.Run(new frmMain());
-            //Application.Run(new frmAddEditPackages());
-
         }
     }
 }

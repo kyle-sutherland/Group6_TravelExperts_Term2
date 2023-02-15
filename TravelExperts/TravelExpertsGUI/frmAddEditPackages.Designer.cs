@@ -215,7 +215,7 @@
             this.dgvProducts.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvProducts.Name = "dgvProducts";
             this.dgvProducts.RowTemplate.Height = 25;
-            this.dgvProducts.Size = new System.Drawing.Size(516, 260);
+            this.dgvProducts.Size = new System.Drawing.Size(439, 260);
             this.dgvProducts.TabIndex = 23;
             // 
             // frmAddEditPackages
