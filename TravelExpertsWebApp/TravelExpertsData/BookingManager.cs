@@ -1,6 +1,6 @@
 ﻿namespace TravelExpertsData
 {
-    public class BookingManager
+    public static class BookingManager
     {
         public static List<Booking> GetBookings(TravelExpertsContext db)
         {
@@ -19,5 +19,7 @@
             db.Bookings.Add(booking);
             db.SaveChanges();
         }
+
+
     }
 }

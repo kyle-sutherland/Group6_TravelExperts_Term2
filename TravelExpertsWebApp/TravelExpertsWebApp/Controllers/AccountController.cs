@@ -2,6 +2,7 @@
 
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
@@ -138,6 +139,20 @@ namespace TravelExpertsWebApp.Controllers
             }
         }
 
+        [Authorize]
+        public ActionResult MyBookings()
+        {
+            int? customerId = HttpContext.Session.GetInt32("CurrentCustomer");
+            List<MyBookingsDTO> list = MyBookingsManager.GetMyBookingsByID(_context, (int)customerId);
+            return View(list);
+        }
+
+        [Authorize]
+        public ActionResult MyBookingsDetails(int id)
+        {
+            MyBookingsDTO details = MyBookingsManager.GetMyBookingDetailsByBookingID(_context, id);
+            return View(details);
+        }
 
         // will uncomment when needed
         //// GET: AccountController/Details/5

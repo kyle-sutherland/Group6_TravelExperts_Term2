@@ -1,6 +1,6 @@
 ﻿namespace TravelExpertsData
 {
-    internal class BookingDetailManager
+    public static class BookingDetailManager
     {
         public static List<BookingDetail> GetAllBookingDetail(TravelExpertsContext db)
         {

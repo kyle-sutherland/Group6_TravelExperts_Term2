@@ -1,0 +1,59 @@
+﻿@model IEnumerable<TravelExpertsData.MyBookingsDTO>
+
+@{
+    ViewData["Title"] = "MyBookings";
+}
+
+<h1>MyBookings</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BookingNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TravelerCount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Destination)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PackageName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PackagePrice)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookingNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TravelerCount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Destination)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PackageName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PackagePrice)
+            </td>
+            <td>
+@*                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |*@
+                @Html.ActionLink("Details", "MyBookingsDetails", new { id= item.BookingId})
+@*                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
