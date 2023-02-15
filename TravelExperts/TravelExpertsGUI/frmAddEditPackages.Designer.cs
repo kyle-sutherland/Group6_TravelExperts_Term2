@@ -117,6 +117,7 @@
             this.txtPkgID.Name = "txtPkgID";
             this.txtPkgID.Size = new System.Drawing.Size(417, 29);
             this.txtPkgID.TabIndex = 6;
+            this.txtPkgID.Tag = "Package ID";
             // 
             // label7
             // 
@@ -144,6 +145,7 @@
             this.txtPkgName.Name = "txtPkgName";
             this.txtPkgName.Size = new System.Drawing.Size(417, 29);
             this.txtPkgName.TabIndex = 10;
+            this.txtPkgName.Tag = "Package Name";
             // 
             // txtPkgStart
             // 
@@ -151,6 +153,7 @@
             this.txtPkgStart.Name = "txtPkgStart";
             this.txtPkgStart.Size = new System.Drawing.Size(417, 29);
             this.txtPkgStart.TabIndex = 11;
+            this.txtPkgStart.Tag = "Start Date";
             // 
             // txtPkgCommision
             // 
@@ -158,6 +161,7 @@
             this.txtPkgCommision.Name = "txtPkgCommision";
             this.txtPkgCommision.Size = new System.Drawing.Size(417, 29);
             this.txtPkgCommision.TabIndex = 12;
+            this.txtPkgCommision.Tag = "Agency commision";
             // 
             // txtPkgPrice
             // 
@@ -165,6 +169,7 @@
             this.txtPkgPrice.Name = "txtPkgPrice";
             this.txtPkgPrice.Size = new System.Drawing.Size(417, 29);
             this.txtPkgPrice.TabIndex = 13;
+            this.txtPkgPrice.Tag = "Base price";
             // 
             // txtPkgDesc
             // 
@@ -172,6 +177,7 @@
             this.txtPkgDesc.Name = "txtPkgDesc";
             this.txtPkgDesc.Size = new System.Drawing.Size(417, 29);
             this.txtPkgDesc.TabIndex = 14;
+            this.txtPkgDesc.Tag = "Package description";
             // 
             // txtPkgEnd
             // 
@@ -179,6 +185,7 @@
             this.txtPkgEnd.Name = "txtPkgEnd";
             this.txtPkgEnd.Size = new System.Drawing.Size(417, 29);
             this.txtPkgEnd.TabIndex = 15;
+            this.txtPkgEnd.Tag = "End Date";
             // 
             // btnCancel
             // 

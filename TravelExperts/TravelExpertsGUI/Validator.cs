@@ -84,7 +84,7 @@ namespace TravelExpertsGUI
             if (!validDate)
             {
                 isValid = false;
-                //MessageBox.Show(inputBox.Tag.ToString() + " must be a valid date");
+                MessageBox.Show(inputBox.Tag.ToString() + " must be a valid date");
                 inputBox.Focus();
             }
             return isValid;
