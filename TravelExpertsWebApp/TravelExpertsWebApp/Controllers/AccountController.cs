@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Security.Claims;
 using TravelExpertsData;
 
@@ -154,6 +155,8 @@ namespace TravelExpertsWebApp.Controllers
             return View(details);
         }
 
+
+
         // will uncomment when needed
         //// GET: AccountController/Details/5
         //public ActionResult Details(int id)
@@ -161,11 +164,7 @@ namespace TravelExpertsWebApp.Controllers
         //    return View();
         //}
 
-        //// GET: AccountController/Create
-        //public ActionResult Create()
-        //{
-        //    return View();
-        //}
+
 
         //// POST: AccountController/Create
         //[HttpPost]

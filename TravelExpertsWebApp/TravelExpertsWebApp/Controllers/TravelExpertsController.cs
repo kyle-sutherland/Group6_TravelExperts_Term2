@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using TravelExpertsData;
@@ -32,10 +33,33 @@ namespace TravelExpertsWebApp.Controllers
             //List<Package> packages = PackageManager.GetPackages(_context);
             //return View(packages);
 
+            List<Package> packages = PackageManager.GetPackages(_context);
+            return View(packages);
+        }
 
+        [Authorize]
+        // GET: AccountController/Create
+        public ActionResult CreateBooking(int id)
+        {
+            int? custid = HttpContext.Session.GetInt32("CurrentCustomer");
+            ViewBag.SelectedPackageId = id;
+            ViewBag.MyCustID = custid;
+
+            ViewData["CustomerId"] = new SelectList(_context.Bookings, "CustomerId");
+            ViewData["PackageId"] = new SelectList(_context.Bookings, "PackageId");
+            ViewData["TravelerCount"] = new SelectList(_context.Bookings, "Traveler Count");
 
             return View();
         }
+
+        [HttpPost]
+        public async Task<ActionResult> CreateBooking([Bind("CustomerId, PackageId, TravelerCount")] Booking newBooking)
+        {
+            _context.Add(newBooking);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("MyBookings", "Account");
+        }
+
 
 
 
