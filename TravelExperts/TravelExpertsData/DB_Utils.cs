@@ -166,8 +166,7 @@ namespace TravelExpertsData
                         var p = db.Products.Where(x => x.ProductId == product.ProductId).FirstOrDefault();
                         if (p != null)
                         {
-                            p.ProductId = product.ProductId;
-
+                            p.ProdName = product.ProdName;
                             db.SaveChanges();
                         }
                     }
@@ -204,6 +203,145 @@ namespace TravelExpertsData
             catch (Exception ex)
             {
                 Console.WriteLine("Error querying database: " + ex.Message);
+                throw;
+            }
+        }
+
+        public static void DeleteRecord(Type type, int recordId)
+        {
+            try
+            {
+                using (TravelExpertsContext db = new TravelExpertsContext())
+                {
+                    var record = db.Find(type, recordId);
+                    Console.WriteLine(record);
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Gets All Supplier records
+        /// </summary>
+        /// <returns>List of type Supplier populated with all suppplier records</returns>
+        public static List<Supplier> GetAllSuppliers()
+        {
+            try
+            {
+                using (TravelExpertsContext db = new TravelExpertsContext())
+                {
+                    var s = db.Suppliers.ToList();
+                    return s;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error querying database: " + ex.Message);
+                throw;
+            }
+        }
+
+        public static List<Package> GetAllPackages()
+        {
+            try
+            {
+                using (TravelExpertsContext db = new TravelExpertsContext())
+                {
+                    var packages = db.Packages.ToList();
+                    return packages;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error querying database: " + ex.Message);
+                throw;
+            }
+
+            
+        }
+
+        public static Supplier GetSupplier(int supplierId)
+        {
+            try
+            {
+                using (TravelExpertsContext db = new TravelExpertsContext())
+                {
+                    var supplier = db.Suppliers.Where(x => x.SupplierId == supplierId).FirstOrDefault();
+                    return supplier;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error querying database: " + ex.Message);
+                throw;
+            }
+        }
+
+        public static Package GetPackage(int packageId)
+        {
+            try
+            {
+                using (TravelExpertsContext db = new TravelExpertsContext())
+                {
+                    var package = db.Packages.Where(x => x.PackageId == packageId).FirstOrDefault();
+                    return package;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public static void AddSupplier(Supplier supplier)
+        {
+            try
+            {
+                using (TravelExpertsContext db = new TravelExpertsContext())
+                {
+                    if (supplier != null)
+                    {
+                        db.Suppliers.Add(supplier);
+                        db.SaveChanges();
+                    }
+                    else
+                    {
+                        throw new ArgumentNullException(nameof(supplier));
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public static void ModifySupplier(Supplier supplier)
+        {
+            try
+            {
+                using (TravelExpertsContext db = new TravelExpertsContext())
+                {
+                    if (supplier != null)
+                    {
+                        var p = db.Suppliers.Where(x => x.SupplierId == supplier.SupplierId).FirstOrDefault();
+                        if (p != null)
+                        {
+                            p.SupName = supplier.SupName;
+                            db.SaveChanges();
+                        }
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
                 throw;
             }
         }

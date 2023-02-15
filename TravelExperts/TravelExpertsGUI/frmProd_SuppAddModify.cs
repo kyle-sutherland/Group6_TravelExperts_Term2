@@ -14,9 +14,9 @@ namespace TravelExpertsGUI
     public partial class frmProd_SuppAddModify : Form
     {
         public static bool isAdd; // to differientiate the second form to either add or modify
-        public static ProductsSupplier? prodSupp;
-        public static Product? product;
-        public static Supplier? supplier;
+        public static ProductsSupplier? prodSupp = frmMain.selectedProductsSupplier;
+        public static Product? product = frmMain.selectedProduct;
+        public static Supplier? supplier = frmMain.selectedSupplier;
 
         public frmProd_SuppAddModify()
         {
