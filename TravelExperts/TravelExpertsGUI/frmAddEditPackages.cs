@@ -155,13 +155,14 @@ namespace TravelExpertsGUI
             secondForm.supplier = selectedSupplier;
             secondForm.package = package;
 
-            DialogResult result = secondForm.ShowDialog(); // display second form modal
+            DialogResult result = secondForm.ShowDialog(); // display second form model
             if (result == DialogResult.OK)
             {
                 // take data from second form
-                selectedProdSupp = secondForm.prodSupp;
-                selectedSupplier = secondForm.supplier;
-                selectedProduct = secondForm.product;
+                //selectedProdSupp = secondForm.prodSupp;
+                //selectedSupplier = secondForm.supplier;
+                //selectedProduct = secondForm.product;
+                selectedPackProdSupp = secondForm.packProdSupp;
 
                 using (TravelExpertsContext db = new TravelExpertsContext())
                 {

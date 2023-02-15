@@ -56,7 +56,7 @@
             this.dgvMain.Name = "dgvMain";
             this.dgvMain.RowHeadersWidth = 51;
             this.dgvMain.RowTemplate.Height = 25;
-            this.dgvMain.Size = new System.Drawing.Size(663, 405);
+            this.dgvMain.Size = new System.Drawing.Size(940, 405);
             this.dgvMain.TabIndex = 3;
             this.dgvMain.SelectionChanged += new System.EventHandler(this.dgvMain_SelectionChanged);
             // 
@@ -125,7 +125,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(950, 519);
+            this.ClientSize = new System.Drawing.Size(1243, 519);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnAdd);
