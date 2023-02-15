@@ -31,7 +31,7 @@ namespace TravelExpertsData
 
         public static Customer GetCustomerById(TravelExpertsContext db, int customerId)
         {
-            Customer customer = db.Customers.Find(customerId);
+            Customer? customer = db.Customers.Find(customerId);
             return customer;
         }
 

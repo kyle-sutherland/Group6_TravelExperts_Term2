@@ -1,5 +1,57 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model IEnumerable<TravelExpertsData.Package>
+
 @{
+    ViewData["Title"] = "Packages";
 }
+
+<h1>Packages</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PkgName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PkgStartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PkgEndDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PkgDesc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PkgBasePrice)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PkgName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PkgStartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PkgEndDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PkgDesc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PkgBasePrice)
+            </td>
+            <td>
+                @Html.ActionLink("Booking this package!", "CreateBooking", new { id=item.PackageId })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
