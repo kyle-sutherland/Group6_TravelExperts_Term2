@@ -59,6 +59,7 @@
             this.dgvMain.Size = new System.Drawing.Size(940, 405);
             this.dgvMain.TabIndex = 3;
             this.dgvMain.SelectionChanged += new System.EventHandler(this.dgvMain_SelectionChanged);
+            this.dgvMain.Resize += new System.EventHandler(this.Form1_Load);
             // 
             // cmbTables
             // 
