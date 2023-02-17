@@ -39,7 +39,7 @@
             this.dgvProdSupData.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvProdSupData.Name = "dgvProdSupData";
             this.dgvProdSupData.RowTemplate.Height = 25;
-            this.dgvProdSupData.Size = new System.Drawing.Size(878, 425);
+            this.dgvProdSupData.Size = new System.Drawing.Size(559, 425);
             this.dgvProdSupData.TabIndex = 1;
             this.dgvProdSupData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProdSupData_CellClick);
             // 
@@ -47,7 +47,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(950, 483);
+            this.ClientSize = new System.Drawing.Size(625, 483);
             this.Controls.Add(this.dgvProdSupData);
             this.Name = "frmPack_Prod_SuppAddDelete";
             this.Text = "frmPack_Prod_SuppAddDelete";

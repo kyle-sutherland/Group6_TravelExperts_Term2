@@ -50,39 +50,36 @@ namespace TravelExpertsGUI
                             on products.ProductId equals prodSupp.ProductId
                             join suppliers in db.Suppliers
                             on prodSupp.SupplierId equals suppliers.SupplierId
-                            orderby suppliers.SupName
+                            orderby products.ProdName
                             select new
                             {
-                                prodSupp.ProductSupplierId,
                                 suppliers.SupName,
                                 products.ProdName
                             }).ToList();
 
-                dgvProdSupData.DataSource = data; // display
+                dgvProdSupData.DataSource = data;
 
                 
                 var AddColumn = new DataGridViewButtonColumn()
-                { // object initializer
+                {
                     UseColumnTextForButtonValue = true,
                     HeaderText = "",
                     Text = "Add"
                 };
                 dgvProdSupData.Columns.Add(AddColumn);
                
-                var RemoveColumn = new DataGridViewButtonColumn()
-                {
-                    UseColumnTextForButtonValue = true,
-                    HeaderText = "",
-                    Text = "Remove"
-                };
-                dgvProdSupData.Columns.Add(RemoveColumn);
+                //var RemoveColumn = new DataGridViewButtonColumn()
+                //{
+                //    UseColumnTextForButtonValue = true,
+                //    HeaderText = "",
+                //    Text = "Remove"
+                //};
+                //dgvProdSupData.Columns.Add(RemoveColumn);
 
-
-                dgvProdSupData.Columns[0].Width = 150; 
-                dgvProdSupData.Columns[1].HeaderText = "Supplier Name";
-                dgvProdSupData.Columns[1].Width = 255; 
-                dgvProdSupData.Columns[2].HeaderText = "Product Name";
-                dgvProdSupData.Columns[2].Width = 140; 
+                dgvProdSupData.Columns[0].HeaderText = "Supplier Name";
+                dgvProdSupData.Columns[0].Width = 255; 
+                dgvProdSupData.Columns[1].HeaderText = "Product Name";
+                dgvProdSupData.Columns[1].Width = 140; 
             }
         }
 
@@ -90,10 +87,11 @@ namespace TravelExpertsGUI
         {
             // store index values for Add and Delete button columns
             const int AddIndex = 3;
-            const int DeleteIndex = 4;
+            //const int DeleteIndex = 4;
 
             //grab prodSuppID, prodID, and suppID
-            if (e.ColumnIndex == AddIndex || e.ColumnIndex == DeleteIndex)
+            if (e.ColumnIndex == AddIndex)
+            //if (e.ColumnIndex == AddIndex || e.ColumnIndex == DeleteIndex)
             {
                 int prodSuppCode = 0;
                 using (TravelExpertsContext db = new TravelExpertsContext())
@@ -103,7 +101,7 @@ namespace TravelExpertsGUI
                 }
 
                 if (e.ColumnIndex == AddIndex) AddPackProdSupp(prodSuppCode);
-                if (e.ColumnIndex == DeleteIndex) DeletePackProdSupp();
+                //if (e.ColumnIndex == DeleteIndex) DeletePackProdSupp();
             }
         }
         private void AddPackProdSupp(int prodSuppCode)
@@ -115,10 +113,10 @@ namespace TravelExpertsGUI
             this.DialogResult= DialogResult.OK;
         }
 
-        private void DeletePackProdSupp()
-        {
-            throw new NotImplementedException();
-        }
+        //private void DeletePackProdSupp()
+        //{
+        //    throw new NotImplementedException();
+        //}
 
 
     }

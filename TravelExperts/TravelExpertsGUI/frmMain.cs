@@ -110,6 +110,7 @@ namespace TravelExpertsGUI
                         break;
                     case "Packages":
                         dgvMain.DataSource = GetAllPackages();
+                        PackagesFormat();
                         break;
                     case "Products-Suppliers":
                         dgvMain.DataSource = GetAllProductsSupplier();
@@ -134,6 +135,34 @@ namespace TravelExpertsGUI
             dgvMain.Columns[3].Width = 90; // format ProdID column
             dgvMain.Columns[4].HeaderText = "Product Name";
             dgvMain.Columns[4].Width = 140; // format the ProdName column
+        }
+
+        private void PackagesFormat()
+        {
+            dgvMain.AlternatingRowsDefaultCellStyle.BackColor = Color.PaleGoldenrod;
+
+            dgvMain.Columns[0].HeaderText = "Package ID";
+            dgvMain.Columns[0].Width = 100;
+
+            dgvMain.Columns[1].HeaderText = "Package Name";
+            dgvMain.Columns[1].Width = 175;
+
+            dgvMain.Columns[2].HeaderText = "Start Date";
+            dgvMain.Columns[2].Width = 100;
+            dgvMain.Columns[2].DefaultCellStyle.Format = "d";
+
+            dgvMain.Columns[3].HeaderText ="End Date";
+            dgvMain.Columns[3].Width = 100;
+            dgvMain.Columns[3].DefaultCellStyle.Format = "d";
+
+            dgvMain.Columns[4].HeaderText = "Package Description";
+            dgvMain.Columns[4].Width = 350; 
+
+            dgvMain.Columns[5].HeaderText = "Base Price";
+            dgvMain.Columns[5].DefaultCellStyle.Format = "c";
+
+            dgvMain.Columns[6].HeaderText = "Commission";
+            dgvMain.Columns[6].DefaultCellStyle.Format = "c";
         }
 
         private void btnEdit_Click(object sender, EventArgs e)

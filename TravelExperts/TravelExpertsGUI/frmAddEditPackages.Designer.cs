@@ -39,7 +39,7 @@
             this.btnAccept = new System.Windows.Forms.Button();
             this.txtPkgName = new System.Windows.Forms.TextBox();
             this.txtPkgStart = new System.Windows.Forms.TextBox();
-            this.txtPkgCommision = new System.Windows.Forms.TextBox();
+            this.txtPkgCommission = new System.Windows.Forms.TextBox();
             this.txtPkgPrice = new System.Windows.Forms.TextBox();
             this.txtPkgDesc = new System.Windows.Forms.TextBox();
             this.txtPkgEnd = new System.Windows.Forms.TextBox();
@@ -125,9 +125,9 @@
             this.label7.Location = new System.Drawing.Point(92, 315);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(208, 21);
+            this.label7.Size = new System.Drawing.Size(215, 21);
             this.label7.TabIndex = 7;
-            this.label7.Text = "Package Agency Commision:";
+            this.label7.Text = "Package Agency Commission:";
             // 
             // btnAccept
             // 
@@ -155,13 +155,13 @@
             this.txtPkgStart.TabIndex = 11;
             this.txtPkgStart.Tag = "Start Date";
             // 
-            // txtPkgCommision
+            // txtPkgCommission
             // 
-            this.txtPkgCommision.Location = new System.Drawing.Point(342, 307);
-            this.txtPkgCommision.Name = "txtPkgCommision";
-            this.txtPkgCommision.Size = new System.Drawing.Size(417, 29);
-            this.txtPkgCommision.TabIndex = 12;
-            this.txtPkgCommision.Tag = "Agency commision";
+            this.txtPkgCommission.Location = new System.Drawing.Point(342, 307);
+            this.txtPkgCommission.Name = "txtPkgCommission";
+            this.txtPkgCommission.Size = new System.Drawing.Size(417, 29);
+            this.txtPkgCommission.TabIndex = 12;
+            this.txtPkgCommission.Tag = "Agency commision";
             // 
             // txtPkgPrice
             // 
@@ -201,9 +201,9 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(830, 39);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(74, 21);
+            this.label9.Size = new System.Drawing.Size(181, 21);
             this.label9.TabIndex = 19;
-            this.label9.Text = "Products:";
+            this.label9.Text = "Products in this package:";
             // 
             // btnAddRemoveProduct
             // 
@@ -211,7 +211,7 @@
             this.btnAddRemoveProduct.Name = "btnAddRemoveProduct";
             this.btnAddRemoveProduct.Size = new System.Drawing.Size(192, 35);
             this.btnAddRemoveProduct.TabIndex = 21;
-            this.btnAddRemoveProduct.Text = "Add/Remove Product";
+            this.btnAddRemoveProduct.Text = "Add Product";
             this.btnAddRemoveProduct.UseVisualStyleBackColor = true;
             this.btnAddRemoveProduct.Click += new System.EventHandler(this.btnAddProduct_Click);
             // 
@@ -239,7 +239,7 @@
             this.Controls.Add(this.txtPkgEnd);
             this.Controls.Add(this.txtPkgDesc);
             this.Controls.Add(this.txtPkgPrice);
-            this.Controls.Add(this.txtPkgCommision);
+            this.Controls.Add(this.txtPkgCommission);
             this.Controls.Add(this.txtPkgStart);
             this.Controls.Add(this.txtPkgName);
             this.Controls.Add(this.btnAccept);
@@ -276,7 +276,7 @@
         private Button btnAccept;
         private TextBox txtPkgName;
         private TextBox txtPkgStart;
-        private TextBox txtPkgCommision;
+        private TextBox txtPkgCommission;
         private TextBox txtPkgPrice;
         private TextBox txtPkgDesc;
         private TextBox txtPkgEnd;

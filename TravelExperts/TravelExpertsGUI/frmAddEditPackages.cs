@@ -15,6 +15,7 @@ using static System.Windows.Forms.AxHost;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using static System.ComponentModel.Design.ObjectSelectorEditor;
+using System.Globalization;
 
 namespace TravelExpertsGUI
 {
@@ -74,11 +75,20 @@ namespace TravelExpertsGUI
             {
                 txtPkgID.Text = Convert.ToString(package.PackageId);
                 txtPkgName.Text = package.PkgName;
-                txtPkgStart.Text = Convert.ToString(package.PkgStartDate);
-                txtPkgEnd.Text = Convert.ToString(package.PkgEndDate);
+
+                DateTime pkgStartDate = Convert.ToDateTime(package.PkgStartDate);
+                txtPkgStart.Text = pkgStartDate.Date.ToString("d");
+
+                DateTime pkgEndDate = Convert.ToDateTime(package.PkgEndDate);
+                txtPkgEnd.Text = pkgEndDate.Date.ToString("d");
+
                 txtPkgDesc.Text = package.PkgDesc;
-                txtPkgPrice.Text = Convert.ToString(package.PkgBasePrice);
-                txtPkgCommision.Text = Convert.ToString(package.PkgAgencyCommission);
+
+                decimal Price = Convert.ToDecimal(package.PkgBasePrice);
+                txtPkgPrice.Text = Price.ToString("c");
+
+                decimal Commission = Convert.ToDecimal(package.PkgAgencyCommission);
+                txtPkgCommission.Text = Commission.ToString("c");
             }
         }
 
@@ -94,18 +104,20 @@ namespace TravelExpertsGUI
                             on packProdSupp.ProductSupplierId equals prodSupp.ProductSupplierId
                             join product in db.Products
                             on prodSupp.ProductId equals product.ProductId
+                            join supplier in db.Suppliers
+                            on prodSupp.SupplierId equals supplier.SupplierId
                             where packProdSupp.PackageId == package.PackageId
                             select new
                             {
-                                packProdSupp.ProductSupplierId,
-                                product.ProdName,
+                                supplier.SupName,
+                                product.ProdName
                             }).ToList();
 
 
                 dgvProducts.DataSource = data;
 
                 //dgvProducts.DataSource = db.Products.Select(p => new{ p.ProductId, p.ProdName }).ToList();
-                dgvProducts.Columns[0].HeaderText = "Product Supplier ID";
+                dgvProducts.Columns[0].HeaderText = "Supplier Name";
                 dgvProducts.Columns[0].Width = 200;
                 dgvProducts.Columns[1].HeaderText = "Product Name";
                 dgvProducts.Columns[1].Width = 200;
@@ -121,7 +133,7 @@ namespace TravelExpertsGUI
                 Validator.IsValidDate(txtPkgStart) &&
                 Validator.IsValidDate(txtPkgEnd) &&
                 Validator.IsStartBeforeEndDate(txtPkgStart, txtPkgEnd) &&
-                Validator.IsLessThanOrEqual(txtPkgCommision, txtPkgPrice) //&&
+                Validator.IsLessThanOrEqual(txtPkgCommission, txtPkgPrice) //&&
                 
               )
             {
@@ -137,8 +149,16 @@ namespace TravelExpertsGUI
                     package.PkgStartDate = Convert.ToDateTime(txtPkgStart.Text);
                     package.PkgEndDate = Convert.ToDateTime(txtPkgEnd.Text);
                     package.PkgDesc = txtPkgDesc.Text;
-                    package.PkgBasePrice = Convert.ToDecimal(txtPkgPrice.Text);
-                    package.PkgAgencyCommission = Convert.ToDecimal(txtPkgCommision.Text);
+                    decimal Price = decimal.Parse(txtPkgPrice.Text,
+                        NumberStyles.AllowCurrencySymbol |
+                        NumberStyles.AllowThousands |
+                        NumberStyles.AllowDecimalPoint);
+                    package.PkgBasePrice = Convert.ToDecimal(Price);
+                    decimal Commission = decimal.Parse(txtPkgCommission.Text,
+                        NumberStyles.AllowCurrencySymbol |
+                        NumberStyles.AllowThousands |
+                        NumberStyles.AllowDecimalPoint);
+                    package.PkgAgencyCommission = Convert.ToDecimal(Commission);
                 }
                 this.DialogResult = DialogResult.OK;
             }
@@ -158,10 +178,6 @@ namespace TravelExpertsGUI
             DialogResult result = secondForm.ShowDialog(); // display second form model
             if (result == DialogResult.OK)
             {
-                // take data from second form
-                //selectedProdSupp = secondForm.prodSupp;
-                //selectedSupplier = secondForm.supplier;
-                //selectedProduct = secondForm.product;
                 selectedPackProdSupp = secondForm.packProdSupp;
 
                 using (TravelExpertsContext db = new TravelExpertsContext())
