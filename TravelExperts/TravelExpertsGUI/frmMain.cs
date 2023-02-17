@@ -171,7 +171,43 @@ namespace TravelExpertsGUI
             {
                 frmAddEditPackages.isAdd = false;
                 frmAddEditPackages form = new frmAddEditPackages();
-                form.ShowDialog();
+                //form.ShowDialog();
+
+                DialogResult result = form.ShowDialog();
+                if (result == DialogResult.OK) // second form accepted new data
+                {
+                    // take customer from the second form and add to the database
+                    selectedPackage = frmAddEditPackages.package;
+                    try
+                    {
+                        using (TravelExpertsContext db = new TravelExpertsContext())
+                        {
+                            if (selectedPackage != null)
+                            {
+                                db.Packages.Update(selectedPackage);
+                                db.SaveChanges();
+                            }
+                            DisplayPackage(); // display added package
+                        }
+                    }
+                    catch (DbUpdateException ex)
+                    {
+                        string errorMessage = "";
+                        var sqlException = (SqlException)ex.InnerException;
+                        foreach (SqlError error in sqlException.Errors)
+                        {
+                            errorMessage += "ERROR CODE:  " + error.Number +
+                                            " " + error.Message + "\n";
+                        }
+                        MessageBox.Show(errorMessage);
+                    }
+
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error while adding package" + ex.Message,
+                            ex.GetType().ToString());
+                    }
+                }
             }
             else if (selectedTable == "Products-Suppliers")
             {

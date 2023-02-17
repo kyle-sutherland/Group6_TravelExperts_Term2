@@ -108,7 +108,7 @@ namespace TravelExpertsGUI
             if (!validDate)
             {
                 isValid = false;
-                MessageBox.Show(inputBox.Tag.ToString() + " must be a valid date of fromat yyyy-mm-dd");
+                MessageBox.Show(inputBox.Tag.ToString() + " must be a valid date of format yyyy-mm-dd");
                 inputBox.Focus();
             }
             return isValid;

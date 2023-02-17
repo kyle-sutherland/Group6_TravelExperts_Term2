@@ -51,11 +51,13 @@ namespace TravelExpertsGUI
                 {
                     
                     this.Text = "Add Package";
+                    txtPkgID.Enabled = false;
                     
                 }
                 else 
                 {
                     this.Text = "Edit Package";
+                    txtPkgID.ReadOnly = true;
                     DisplayPackage();
                     DisplayProducts();
                     
