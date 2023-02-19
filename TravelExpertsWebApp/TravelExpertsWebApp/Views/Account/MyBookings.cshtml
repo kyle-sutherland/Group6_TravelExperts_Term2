@@ -1,4 +1,4 @@
-﻿@model IEnumerable<TravelExpertsData.MyBookingsDTO>
+﻿@model IEnumerable<TravelExpertsData.Package>
 
 @{
     ViewData["Title"] = "MyBookings";
@@ -13,19 +13,22 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.BookingNo)
+                @Html.DisplayNameFor(model => model.PkgName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TravelerCount)
+                @Html.DisplayNameFor(model => model.PkgStartDate)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Destination)
+                @Html.DisplayNameFor(model => model.PkgEndDate)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PackageName)
+                @Html.DisplayNameFor(model => model.PkgDesc)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PackagePrice)
+                @Html.DisplayNameFor(model => model.PkgBasePrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PkgAgencyCommission)
             </th>
             <th></th>
         </tr>
@@ -34,26 +37,31 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.BookingNo)
+                @Html.DisplayFor(modelItem => item.PkgName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.TravelerCount)
+                @Html.DisplayFor(modelItem => item.PkgStartDate)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Destination)
+                @Html.DisplayFor(modelItem => item.PkgEndDate)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.PackageName)
+                @Html.DisplayFor(modelItem => item.PkgDesc)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.PackagePrice)
+                @Html.DisplayFor(modelItem => item.PkgBasePrice)
             </td>
             <td>
-@*                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |*@
-                @Html.ActionLink("Details", "MyBookingsDetails", new { id= item.BookingId})
-@*                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+                @Html.DisplayFor(modelItem => item.PkgAgencyCommission)
+            </td>
+            <td>
+@*              @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+              @Html.ActionLink("Details", "MyBookingsDetails", new { id= item.BookingId})
+              @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
             </td>
         </tr>
 }
     </tbody>
 </table>
+
+<p>Total Amount of Package Owed: @ViewBag.TotalSum</p>

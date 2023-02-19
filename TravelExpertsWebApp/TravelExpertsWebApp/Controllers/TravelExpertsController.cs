@@ -18,10 +18,31 @@ namespace TravelExpertsWebApp.Controllers
             return View();
         }
 
+        public ActionResult AboutUs()
+        {
+            return View();
+        }
+
         public ActionResult Contact()
         {
             return View();
         }
+
+        public ActionResult Employees()
+        {
+            List<Employee> employees = null;
+            try
+            {
+                employees = EmployeeManager.GetEmployees(_context);
+            }
+            catch (Exception)
+            {
+                TempData["Message"] = "Database connection error. Try again later.";
+                TempData["IsError"] = true;
+            }
+            return View(employees);
+        }
+
 
         public ActionResult Packages()
         {
@@ -36,6 +57,7 @@ namespace TravelExpertsWebApp.Controllers
             List<Package> packages = PackageManager.GetPackages(_context);
             return View(packages);
         }
+
 
         [Authorize]
         // GET: AccountController/Create
@@ -59,10 +81,6 @@ namespace TravelExpertsWebApp.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction("MyBookings", "Account");
         }
-
-
-
-
 
 
 

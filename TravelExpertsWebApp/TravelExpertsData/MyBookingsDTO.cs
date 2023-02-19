@@ -44,6 +44,7 @@ namespace TravelExpertsData
         [Display(Name ="Product's Supplier")]
         public string SupName { get; set; }
 
+        public int? PackageId { get; set; }
 
     }
 }

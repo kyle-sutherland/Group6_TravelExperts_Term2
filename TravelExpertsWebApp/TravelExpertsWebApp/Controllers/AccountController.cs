@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Security.Claims;
 using TravelExpertsData;
 
@@ -127,7 +126,6 @@ namespace TravelExpertsWebApp.Controllers
 
             try
             {
-                
                 CustomerManager.Update(_context, customer);
                 ViewBag.Thanks = "Thanks for updating your information!";
                 //return RedirectToAction("LogOutUpdateAsync", "Account");
@@ -139,12 +137,19 @@ namespace TravelExpertsWebApp.Controllers
                 return View(customer);
             }
         }
-
         [Authorize]
         public ActionResult MyBookings()
         {
             int? customerId = HttpContext.Session.GetInt32("CurrentCustomer");
-            List<MyBookingsDTO> list = MyBookingsManager.GetMyBookingsByID(_context, (int)customerId);
+            //List<MyBookingsDTO> list = MyBookingsManager.GetMyBookingsByID(_context, (int)customerId);
+            List<Package> list = MyBookingsManager.GetCustomersPackage(_context, (int)customerId);
+
+            decimal sum = 0;
+            foreach (Package item in list)
+            {
+                sum += item.PkgBasePrice;
+            }
+            ViewBag.TotalSum = sum.ToString("c");
             return View(list);
         }
 
@@ -155,8 +160,6 @@ namespace TravelExpertsWebApp.Controllers
             return View(details);
         }
 
-
-
         // will uncomment when needed
         //// GET: AccountController/Details/5
         //public ActionResult Details(int id)
@@ -164,7 +167,11 @@ namespace TravelExpertsWebApp.Controllers
         //    return View();
         //}
 
-
+        //// GET: AccountController/Create
+        //public ActionResult Create()
+        //{
+        //    return View();
+        //}
 
         //// POST: AccountController/Create
         //[HttpPost]

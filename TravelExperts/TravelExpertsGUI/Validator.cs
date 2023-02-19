@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Windows.Forms;
 
 namespace TravelExpertsGUI
@@ -34,9 +35,28 @@ namespace TravelExpertsGUI
         /// <returns>true is valid and false if not</returns>
         public static bool IsLessThanOrEqual(TextBox inputBox1, TextBox inputBox2)
         {
-            bool isValid = true; 
-            decimal input1 = Convert.ToDecimal(inputBox1);
-            decimal input2 = Convert.ToDecimal(inputBox2);
+            bool isValid = true;
+            
+
+            decimal input1 = decimal.Parse(inputBox1.Text,
+                NumberStyles.AllowCurrencySymbol |
+                NumberStyles.AllowThousands |
+                NumberStyles.AllowDecimalPoint);
+
+
+            decimal input2 = decimal.Parse(inputBox2.Text,
+                NumberStyles.AllowCurrencySymbol |
+                NumberStyles.AllowThousands |
+                NumberStyles.AllowDecimalPoint);
+
+            //string box1 = inputBox1.Text.ToString();
+            //decimal input1 = Convert.ToDecimal(box1);
+
+            //string box2 = inputBox2.Text.ToString();
+            //decimal input2 = Convert.ToDecimal(box2);
+
+            //decimal input1 = Convert.ToDecimal(inputBox1.Text);
+            //decimal input2 = Convert.ToDecimal(inputBox2.Text);
 
             if (input1 > input2)
             {
@@ -77,14 +97,18 @@ namespace TravelExpertsGUI
         {
             bool isValid = true;
             DateTime date;
-            string DateText = Convert.ToString(inputBox);
 
-            bool validDate = DateTime.TryParse(DateText, out date);
+            bool validDate = DateTime.TryParse(inputBox.Text, out date);
+
+            //DateTime input = Convert.ToDateTime(inputBox.Text);
+            //string DateText = Convert.ToString(input);
+
+            //bool validDate = DateTime.TryParse(DateText, out date);
 
             if (!validDate)
             {
                 isValid = false;
-                MessageBox.Show(inputBox.Tag.ToString() + " must be a valid date");
+                MessageBox.Show(inputBox.Tag.ToString() + " must be a valid date of format yyyy-mm-dd");
                 inputBox.Focus();
             }
             return isValid;

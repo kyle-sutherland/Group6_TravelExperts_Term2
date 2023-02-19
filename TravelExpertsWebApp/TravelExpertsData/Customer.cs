@@ -72,7 +72,6 @@ namespace TravelExpertsData
         [StringLength(20)]
         public string CustBusPhone { get; set; } //= null!;
 
-        [Required(ErrorMessage ="Please add your email")]
         [EmailAddress(ErrorMessage = "Invalid email address")]
         [StringLength(50)]
         [Display(Name ="Email")]
@@ -91,7 +90,7 @@ namespace TravelExpertsData
         public string Password { get; set; } = null!;
 
         [Required(ErrorMessage ="Please add the same password from the password field")]
-        [Compare("Password")]
+        [Compare("Password",ErrorMessage ="Password does not match the other password entry")]
         [StringLength(30)]
         [NotMapped]
         public string ConfirmPassword { get; set; } = null!;
