@@ -77,8 +77,8 @@ namespace TravelExpertsWebApp.Controllers
         [HttpPost]
         public async Task<ActionResult> CreateBooking([Bind("CustomerId, PackageId, TravelerCount")] Booking newBooking)
         {
-            _context.Add(newBooking);
-            await _context.SaveChangesAsync();
+            BookingManager.CreateNewBooking(_context, newBooking);
+            BookingDetailManager.CreateNewBookingDetail(_context, newBooking.BookingId);
             return RedirectToAction("MyBookings", "Account");
         }
 

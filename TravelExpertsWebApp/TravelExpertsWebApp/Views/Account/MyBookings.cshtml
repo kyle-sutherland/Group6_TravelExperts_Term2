@@ -1,4 +1,4 @@
-﻿@model IEnumerable<TravelExpertsData.Package>
+﻿@model IEnumerable<TravelExpertsData.PackageDTO>
 
 @{
     ViewData["Title"] = "MyBookings";
@@ -6,9 +6,6 @@
 
 <h1>MyBookings</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
@@ -26,9 +23,6 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.PkgBasePrice)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PkgAgencyCommission)
             </th>
             <th></th>
         </tr>
@@ -52,12 +46,7 @@
                 @Html.DisplayFor(modelItem => item.PkgBasePrice)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.PkgAgencyCommission)
-            </td>
-            <td>
-@*              @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-              @Html.ActionLink("Details", "MyBookingsDetails", new { id= item.BookingId})
-              @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+                @Html.ActionLink("Details", "MyBookingsDetails", new { id= item.BookingId})
             </td>
         </tr>
 }

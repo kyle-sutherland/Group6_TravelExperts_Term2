@@ -142,10 +142,10 @@ namespace TravelExpertsWebApp.Controllers
         {
             int? customerId = HttpContext.Session.GetInt32("CurrentCustomer");
             //List<MyBookingsDTO> list = MyBookingsManager.GetMyBookingsByID(_context, (int)customerId);
-            List<Package> list = MyBookingsManager.GetCustomersPackage(_context, (int)customerId);
+            List<PackageDTO> list = MyBookingsManager.GetCustomersPackage(_context, (int)customerId);
 
             decimal sum = 0;
-            foreach (Package item in list)
+            foreach (PackageDTO item in list)
             {
                 sum += item.PkgBasePrice;
             }
@@ -154,7 +154,7 @@ namespace TravelExpertsWebApp.Controllers
         }
 
         [Authorize]
-        public ActionResult MyBookingsDetails(int id)
+        public IActionResult MyBookingsDetails(int id)
         {
             MyBookingsDTO details = MyBookingsManager.GetMyBookingDetailsByBookingID(_context, id);
             return View(details);

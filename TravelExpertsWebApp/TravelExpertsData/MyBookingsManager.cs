@@ -47,7 +47,7 @@ namespace TravelExpertsData
         //    return list;
         //}
 
-        public static MyBookingsDTO GetMyBookingDetailsByBookingID(TravelExpertsContext db, int bookingId)
+        public static MyBookingsDTO GetMyBookingDetailsByBookingID(TravelExpertsContext db, int bId)
         {
             var details = (from b in db.Bookings
                            join p in db.Packages on b.PackageId equals p.PackageId
@@ -57,7 +57,7 @@ namespace TravelExpertsData
                            join ps in db.ProductsSuppliers on bd.ProductSupplierId equals ps.ProductSupplierId
                            join prod in db.Products on ps.ProductId equals prod.ProductId
                            join s in db.Suppliers on ps.SupplierId equals s.SupplierId
-                           where b.BookingId == bookingId
+                           where b.BookingId == bId
                            select new MyBookingsDTO
                            {
                                BookingId = b.BookingId,
@@ -77,19 +77,21 @@ namespace TravelExpertsData
                                PackageName = p.PkgName,
                                PackagePrice = p.PkgBasePrice,
                                ProductName = prod.ProdName,
-                               SupName = s.SupName
+                               SupName = s.SupName,
+                               PackageId = p.PackageId
                            }).FirstOrDefault();
             return details;
         }
 
-        public static List<Package> GetCustomersPackage(TravelExpertsContext db, int id = 0)
+        public static List<PackageDTO> GetCustomersPackage(TravelExpertsContext db, int id = 0)
         {
-            List<Package> packages = (from c in db.Customers
+            List<PackageDTO> packages = (from c in db.Customers
                                       join b in db.Bookings on c.CustomerId equals b.CustomerId
                                       join p in db.Packages on b.PackageId equals p.PackageId
                                       where b.CustomerId == id
-                                      select new Package
-                                      {
+                                      select new PackageDTO
+                                      {                                         
+                                          BookingId = b.BookingId,
                                           PkgName = p.PkgName,
                                           PkgStartDate = Convert.ToDateTime(p.PkgStartDate),
                                           PkgEndDate = Convert.ToDateTime(p.PkgEndDate),

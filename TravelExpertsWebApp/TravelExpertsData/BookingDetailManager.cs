@@ -14,11 +14,26 @@
             return bookingDetail;
         }
 
-        public static void CreateNewBookingDetail(TravelExpertsContext db, BookingDetail bookingDetail)
+        /// <summary>
+        /// Create a new Booking Detail, usually created with the Bookings table
+        /// </summary>
+        /// <param name="db">databa context</param>
+        /// <param name="newBookingId">new booking ID</param>
+        public static void CreateNewBookingDetail(TravelExpertsContext db, int newBookingId)
         {
-            db.BookingDetails.Add(bookingDetail);
+            BookingDetail newbd = new BookingDetail();
+            // booking id is needed for query
+            newbd.BookingId = newBookingId;
+
+            //FKs needed but just testing sample
+            //since its technically not required for the workshop
+            newbd.RegionId = "NA";
+            newbd.ClassId = "BSN";
+            newbd.FeeId = "BK";
+            newbd.ProductSupplierId = 44;
+
+            db.BookingDetails.Add(newbd);
             db.SaveChanges();
         }
-
     }
 }

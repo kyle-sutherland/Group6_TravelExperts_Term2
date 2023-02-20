@@ -1,4 +1,6 @@
-﻿namespace TravelExpertsData
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace TravelExpertsData
 {
     public static class BookingManager
     {
@@ -14,12 +16,15 @@
             return booking;
         }
 
-        public static void CreateNewBooking(TravelExpertsContext db, Booking booking)
+        /// <summary>
+        /// Create a new booking when customer is booking a package
+        /// </summary>
+        /// <param name="db">database context</param>
+        /// <param name="newBooking">the new booking object</param>
+        public static async void CreateNewBooking(TravelExpertsContext db, Booking newBooking)
         {
-            db.Bookings.Add(booking);
-            db.SaveChanges();
+            db.Add(newBooking);
+            await db.SaveChangesAsync();
         }
-
-
     }
 }
