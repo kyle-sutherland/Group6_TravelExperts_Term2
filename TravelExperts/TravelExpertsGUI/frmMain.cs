@@ -130,11 +130,11 @@ namespace TravelExpertsGUI
             dgvMain.AlternatingRowsDefaultCellStyle.BackColor = Color.PaleGoldenrod;
 
             dgvMain.Columns[0].Width = 132; // format ProdSupID column
-            dgvMain.Columns[2].HeaderText = "Supplier Name";
-            dgvMain.Columns[2].Width = 255; // format Supname column
-            dgvMain.Columns[3].Width = 90; // format ProdID column
-            dgvMain.Columns[4].HeaderText = "Product Name";
-            dgvMain.Columns[4].Width = 140; // format the ProdName column
+            dgvMain.Columns[2].Width = 100; // format SupID column
+            dgvMain.Columns[3].Width = 160; // format ProdName column
+            dgvMain.Columns[3].HeaderText = "Product Name";
+            dgvMain.Columns[4].HeaderText = "Supplier Name";
+            dgvMain.Columns[4].Width = 270; // format the SupplierName column
         }
 
         private void PackagesFormat()

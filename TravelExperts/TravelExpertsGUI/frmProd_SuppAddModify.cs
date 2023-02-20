@@ -23,6 +23,11 @@ namespace TravelExpertsGUI
             InitializeComponent();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAccept_Click(object sender, EventArgs e)
         {
             if (isAdd)
@@ -30,9 +35,15 @@ namespace TravelExpertsGUI
                 // initialize the prodSupp property with new prodSupp object
                 ProductsSupplier prodSupp = new ProductsSupplier();
             }
-
             prodSupp.SupplierId = Convert.ToInt32(cbSuppliers.SelectedValue);
             prodSupp.ProductId = Convert.ToInt32(cbProducts.SelectedValue);
+
+            // Validation to make sure there are no duplicates with the database
+            bool isDuplicate = Validator.IsProductSupplierDuplicate
+                ((int)prodSupp.SupplierId, (int)prodSupp.ProductId);
+            if (isDuplicate) return;
+
+            //confirm and go back to main form
             this.DialogResult= DialogResult.OK;
         }
 

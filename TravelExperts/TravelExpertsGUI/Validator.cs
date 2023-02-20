@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.Windows.Forms;
+using TravelExpertsData;
 
 namespace TravelExpertsGUI
 {
@@ -111,6 +112,22 @@ namespace TravelExpertsGUI
                 MessageBox.Show(inputBox.Tag.ToString() + " must be a valid date of format yyyy-mm-dd");
                 inputBox.Focus();
             }
+            return isValid;
+        }
+
+        public static bool IsProductSupplierDuplicate( int supplierId, int productId)
+        {
+            bool isValid = true;
+            using (TravelExpertsContext db = new TravelExpertsContext())
+            {
+                if(db.ProductsSuppliers.Any(ps => ps.SupplierId == supplierId && ps.ProductId == productId))
+                {
+                    isValid = false;
+                    MessageBox.Show
+                        ("The selected Supplier and Product combination already exists in the database.");
+                }
+            }
+
             return isValid;
         }
 
@@ -265,6 +282,5 @@ namespace TravelExpertsGUI
 
             return isValid;
         }
-
     } // class
 }// namespace
