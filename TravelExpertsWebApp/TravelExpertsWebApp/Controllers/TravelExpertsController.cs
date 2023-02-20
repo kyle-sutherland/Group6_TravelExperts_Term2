@@ -66,6 +66,7 @@ namespace TravelExpertsWebApp.Controllers
             int? custid = HttpContext.Session.GetInt32("CurrentCustomer");
             ViewBag.SelectedPackageId = id;
             ViewBag.MyCustID = custid;
+            ViewBag.SelectedPackage = PackageManager.GetPackageById(_context, id);
 
             ViewData["CustomerId"] = new SelectList(_context.Bookings, "CustomerId");
             ViewData["PackageId"] = new SelectList(_context.Bookings, "PackageId");

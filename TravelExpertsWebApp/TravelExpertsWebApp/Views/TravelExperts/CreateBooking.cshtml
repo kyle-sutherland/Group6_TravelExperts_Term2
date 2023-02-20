@@ -4,10 +4,51 @@
     ViewData["Title"] = "CreateBooking";
 }
 
+
 <h1>CreateBooking</h1>
 
 <h4>Booking</h4>
 <hr />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Package
+            </th>
+            <th>
+                Start Date
+            </th>
+            <th>
+                End Date
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Base Price
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                @ViewBag.SelectedPackage.PkgName
+            </td>
+            <td>
+                @ViewBag.SelectedPackage.PkgStartDate
+            </td>
+            <td>
+                @ViewBag.SelectedPackage.PkgEndDate
+            </td>
+            <td>
+                @ViewBag.SelectedPackage.PkgDesc
+            </td>
+            <td>
+                @ViewBag.SelectedPackage.PkgBasePrice
+            </td>
+        </tr>
+    </tbody>
+</table>
 <div class="row">
     <div class="col-md-4">
         <form asp-action="CreateBooking" method="post">
@@ -23,10 +64,11 @@
                 <span asp-validation-for="CustomerId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="PackageId" class="control-label"></label>
+                <label asp-for="PackageId" class="control-label visually-hidden"></label>
                 <input type="hidden" asp-for="PackageId" value="@ViewBag.SelectedPackageId" class="form-control" readonly/>
                 <span asp-validation-for="PackageId" class="text-danger"></span>
             </div>
+            
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
