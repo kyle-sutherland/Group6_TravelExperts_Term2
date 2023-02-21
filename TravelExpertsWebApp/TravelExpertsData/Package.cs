@@ -19,8 +19,10 @@ namespace TravelExpertsData
         [StringLength(50)]
         public string PkgName { get; set; } = null!;
         [Column(TypeName = "datetime")]
+        [DataType(DataType.Date)]
         public DateTime? PkgStartDate { get; set; }
         [Column(TypeName = "datetime")]
+        [DataType(DataType.Date)]
         public DateTime? PkgEndDate { get; set; }
         [StringLength(50)]
         public string? PkgDesc { get; set; }
