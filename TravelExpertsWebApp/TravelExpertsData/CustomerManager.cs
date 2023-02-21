@@ -1,4 +1,5 @@
-﻿//author tim
+﻿//Created by: Tim and Xavier
+
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ namespace TravelExpertsData
 {
     public static class CustomerManager
     {
+        //Authenticates to make sure the inputed username and password match an existing customer record
         public static Customer Authenticate(TravelExpertsContext db, string username, string password)
         {
             var customer = db.Customers.SingleOrDefault(cst => cst.Username == username
@@ -17,24 +19,28 @@ namespace TravelExpertsData
             return customer;
         }
 
+        //add a new customer to database
         public static void RegisterNewCustomer(TravelExpertsContext db, Customer customer)
         {
             db.Customers.Add(customer);
             db.SaveChanges();
         }
 
+        //get a list of customers
         public static List<Customer> GetCustomers(TravelExpertsContext db)
         {
             List<Customer> customers = db.Customers.OrderBy(c => c.CustomerId).ToList();
             return customers;
         }
 
+        //get a specific customer by id
         public static Customer GetCustomerById(TravelExpertsContext db, int customerId)
         {
             Customer? customer = db.Customers.Find(customerId);
             return customer;
         }
 
+        //saves the changes made to a customer profile
         public static void Update(TravelExpertsContext db, Customer newCustomer)
         {
             Customer oldCustomer = GetCustomerById(db, newCustomer.CustomerId);

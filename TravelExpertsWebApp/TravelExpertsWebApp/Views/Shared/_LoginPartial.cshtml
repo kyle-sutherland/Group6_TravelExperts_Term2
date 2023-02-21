@@ -1,4 +1,10 @@
-﻿<ul class="navbar-nav ml-auto">
+﻿@*
+Created By: Tim and Xavier
+Purpose: Partial view that provides the navigation links for the registration and login when 
+there isn't an authorized user and profile and logout when a user is logged in'
+*@
+
+<ul class="navbar-nav ml-auto">
     @if (User.Identity.IsAuthenticated)
     {
         <li class="nav-item">

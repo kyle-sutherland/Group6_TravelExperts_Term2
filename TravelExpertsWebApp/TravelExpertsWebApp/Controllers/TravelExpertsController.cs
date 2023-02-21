@@ -1,4 +1,9 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿
+//Created By: Tim and Xavier
+//Purpose: Controls the Home, Contact, Employees Contact, About, Packages, and Create Booking actions.
+
+
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -9,7 +14,7 @@ namespace TravelExpertsWebApp.Controllers
     public class TravelExpertsController : Controller
     {
         private TravelExpertsContext _context { get; set; }
-        // context inject ot the contructor
+        // context inject to the contructor
         public TravelExpertsController (TravelExpertsContext context) { _context = context; }
 
         // GET: TravelExpertsController Homepage

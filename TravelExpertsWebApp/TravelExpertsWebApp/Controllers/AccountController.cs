@@ -1,4 +1,5 @@
-﻿//authors tim and arjun
+﻿//Created By: Tim, Xavier and Arjun
+//Purpose: Controls the Registration, Login, Logout, Profile, and Booking actions. 
 
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -153,81 +154,11 @@ namespace TravelExpertsWebApp.Controllers
             return View(list);
         }
 
-        [Authorize]
-        public ActionResult MyBookingsDetails(int id)
-        {
-            MyBookingsDTO details = MyBookingsManager.GetMyBookingDetailsByBookingID(_context, id);
-            return View(details);
-        }
-
-        // will uncomment when needed
-        //// GET: AccountController/Details/5
-        //public ActionResult Details(int id)
+        //[Authorize]
+        //public ActionResult MyBookingsDetails(int id)
         //{
-        //    return View();
-        //}
-
-        //// GET: AccountController/Create
-        //public ActionResult Create()
-        //{
-        //    return View();
-        //}
-
-        //// POST: AccountController/Create
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Create(IFormCollection collection)
-        //{
-        //    try
-        //    {
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
-
-        //// GET: AccountController/Edit/5
-        //public ActionResult Edit(int id)
-        //{
-        //    return View();
-        //}
-
-        //// POST: AccountController/Edit/5
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Edit(int id, IFormCollection collection)
-        //{
-        //    try
-        //    {
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
-
-        //// GET: AccountController/Delete/5
-        //public ActionResult Delete(int id)
-        //{
-        //    return View();
-        //}
-
-        //// POST: AccountController/Delete/5
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Delete(int id, IFormCollection collection)
-        //{
-        //    try
-        //    {
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
+        //    MyBookingsDTO details = MyBookingsManager.GetMyBookingDetailsByBookingID(_context, id);
+        //    return View(details);
         //}
     }
 }
