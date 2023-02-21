@@ -36,27 +36,34 @@ namespace TravelExpertsGUI
         public static bool IsLessThanOrEqual(TextBox inputBox1, TextBox inputBox2)
         {
             bool isValid = true;
-            
-
-            decimal input1 = decimal.Parse(inputBox1.Text,
+            decimal input1;
+            if (decimal.TryParse(inputBox1.Text,
                 NumberStyles.AllowCurrencySymbol |
                 NumberStyles.AllowThousands |
-                NumberStyles.AllowDecimalPoint);
-
-
-            decimal input2 = decimal.Parse(inputBox2.Text,
+                NumberStyles.AllowDecimalPoint,
+                CultureInfo.InvariantCulture, out input1))
+            {
+                //convesion good
+            }
+            else
+            {
+                MessageBox.Show("Base price must contain valid money value");
+                isValid = false;
+            }
+            decimal input2;
+            if (decimal.TryParse(inputBox2.Text,
                 NumberStyles.AllowCurrencySymbol |
                 NumberStyles.AllowThousands |
-                NumberStyles.AllowDecimalPoint);
-
-            //string box1 = inputBox1.Text.ToString();
-            //decimal input1 = Convert.ToDecimal(box1);
-
-            //string box2 = inputBox2.Text.ToString();
-            //decimal input2 = Convert.ToDecimal(box2);
-
-            //decimal input1 = Convert.ToDecimal(inputBox1.Text);
-            //decimal input2 = Convert.ToDecimal(inputBox2.Text);
+                NumberStyles.AllowDecimalPoint,
+                CultureInfo.InvariantCulture, out input2))
+            {
+                // conversion good
+            }
+            else
+            {
+                MessageBox.Show("Base price must contain valid money value");
+                isValid = false;
+            }
 
             if (input1 > input2)
             {

@@ -112,7 +112,7 @@ namespace TravelExpertsGUI
         private void btnClose_Click(object sender, EventArgs e)
         {
             //for now exit app
-            Application.Exit();
+            this.Close();
         }
 
         private void dgvProdSupData_CellClick(object sender, DataGridViewCellEventArgs e)

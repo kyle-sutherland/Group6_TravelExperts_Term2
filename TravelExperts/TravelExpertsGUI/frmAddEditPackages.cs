@@ -130,40 +130,46 @@ namespace TravelExpertsGUI
 
         private void btnAccept_Click(object sender, EventArgs e)
         {
-            if (Validator.IsProvided(txtPkgName) &&
-                Validator.IsProvided(txtPkgDesc) &&
-                Validator.IsValidDate(txtPkgStart) &&
-                Validator.IsValidDate(txtPkgEnd) &&
-                Validator.IsStartBeforeEndDate(txtPkgStart, txtPkgEnd) &&
-                Validator.IsLessThanOrEqual(txtPkgCommission, txtPkgPrice) //&&
-                
-              )
-            {
-                if (isAdd)
+            
+                if (Validator.IsProvided(txtPkgName) &&
+                       Validator.IsProvided(txtPkgDesc) &&
+                       Validator.IsValidDate(txtPkgStart) &&
+                       Validator.IsValidDate(txtPkgEnd) &&
+                       Validator.IsStartBeforeEndDate(txtPkgStart, txtPkgEnd) &&
+                       Validator.IsLessThanOrEqual(txtPkgCommission, txtPkgPrice) //&&
+
+                   )
                 {
-                    package = new TravelExpertsData.Package();
+                    if (isAdd)
+                    {
+                        package = new TravelExpertsData.Package();
+                    }
+
+                    if (package != null)
+                    {
+                    if (!isAdd)
+                    {
+                        package.PackageId = Convert.ToInt32(txtPkgID.Text);
+                    }
+                        package.PkgName = txtPkgName.Text;
+                        package.PkgStartDate = Convert.ToDateTime(txtPkgStart.Text);
+                        package.PkgEndDate = Convert.ToDateTime(txtPkgEnd.Text);
+                        package.PkgDesc = txtPkgDesc.Text;
+                        //decimal Price = decimal.Parse(txtPkgPrice.Text,
+                        //    NumberStyles.AllowCurrencySymbol |
+                        //    NumberStyles.AllowThousands |
+                        //    NumberStyles.AllowDecimalPoint);
+                        package.PkgBasePrice = Convert.ToDecimal(txtPkgPrice.Text);
+                        //decimal Commission = decimal.Parse(txtPkgCommission.Text,
+                        //    NumberStyles.AllowCurrencySymbol |
+                        //    NumberStyles.AllowThousands |
+                        //    NumberStyles.AllowDecimalPoint);
+                        package.PkgAgencyCommission = Convert.ToDecimal(txtPkgCommission.Text);
+                    }
+                    this.DialogResult = DialogResult.OK;
                 }
-                
-                if (package != null)
-                {
-                    package.PackageId =  Convert.ToInt32(txtPkgID.Text);
-                    package.PkgName = txtPkgName.Text;
-                    package.PkgStartDate = Convert.ToDateTime(txtPkgStart.Text);
-                    package.PkgEndDate = Convert.ToDateTime(txtPkgEnd.Text);
-                    package.PkgDesc = txtPkgDesc.Text;
-                    decimal Price = decimal.Parse(txtPkgPrice.Text,
-                        NumberStyles.AllowCurrencySymbol |
-                        NumberStyles.AllowThousands |
-                        NumberStyles.AllowDecimalPoint);
-                    package.PkgBasePrice = Convert.ToDecimal(Price);
-                    decimal Commission = decimal.Parse(txtPkgCommission.Text,
-                        NumberStyles.AllowCurrencySymbol |
-                        NumberStyles.AllowThousands |
-                        NumberStyles.AllowDecimalPoint);
-                    package.PkgAgencyCommission = Convert.ToDecimal(Commission);
-                }
-                this.DialogResult = DialogResult.OK;
-            }
+            
+            
         }
 
 

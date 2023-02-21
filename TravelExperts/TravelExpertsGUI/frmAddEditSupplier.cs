@@ -25,29 +25,57 @@ namespace TravelExpertsGUI
 
         private void frmAddEditSupplier_Load(object sender, EventArgs e)
         {
-            if(!isAdd)
+            if (isAdd)
             {
+                this.Text = "Add Supplier";
+                txtSuppId.Enabled = true;
+            }
+            else
+            {
+                this.Text = "Modify Supplier";
+                txtSuppId.Enabled = false;
+                DisplaySupplier();
+            }
+        }
+
+        private void DisplaySupplier()
+        {
+            if (supplier != null)
+            {
+                txtSuppId.Text = Convert.ToString(supplier.SupplierId);
                 txtSupName.Text = supplier.SupName;
             }
         }
 
         private void btnSaveChanges_Click(object sender, EventArgs e)
         {
-            if (isAdd)
+            if (Validator.IsProvided(txtSuppId) &&
+                Validator.IsProvided(txtSupName))
             {
-                supplier.SupName = txtSupName.Text;
-                AddSupplier(supplier);
-            }
-            else
-            {
-                supplier.SupName = txtSupName.Text;
-                ModifySupplier(supplier);
-            }
-        }
+                if (isAdd)
+                {
+                    supplier = new Supplier();
+                    if (supplier != null)
+                    {
+                        supplier.SupplierId = Convert.ToInt32(txtSuppId.Text);
+                        supplier.SupName = txtSupName.Text;
+                        AddSupplier(supplier);
+                    }
+                }
+                else
+                {
+                    if (supplier != null)
+                    {
+                        supplier.SupplierId = Convert.ToInt32(txtSuppId.Text);
+                        supplier.SupName = txtSupName.Text;
+                        ModifySupplier(supplier);
+                    }
+                }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
 
+                this.DialogResult = DialogResult.OK;
+            }
+            this.Close();
         }
     }
 }
