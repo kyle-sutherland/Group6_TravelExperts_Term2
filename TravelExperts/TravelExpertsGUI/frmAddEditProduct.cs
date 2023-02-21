@@ -30,6 +30,7 @@ namespace TravelExpertsGUI
         {
             if (isAdd)
             {
+                product = new Product();
                 product.ProdName = txtProdName.Text.Trim();
                 AddProduct(product);
             }
@@ -38,6 +39,7 @@ namespace TravelExpertsGUI
                 product.ProdName = txtProdName.Text.Trim();
                 ModifyProduct (product);
             }
+            this.Close();
         }
 
         private void frmAddEditProduct_Load(object sender, EventArgs e)

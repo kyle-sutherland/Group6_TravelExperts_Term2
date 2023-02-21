@@ -25,10 +25,11 @@ namespace TravelExpertsGUI
 
         private void btnAccept_Click(object sender, EventArgs e)
         {
+
             if (isAdd)
             {
                 // initialize the prodSupp property with new prodSupp object
-                ProductsSupplier prodSupp = new ProductsSupplier();
+                prodSupp = new ProductsSupplier();
             }
 
             prodSupp.SupplierId = Convert.ToInt32(cbSuppliers.SelectedValue);

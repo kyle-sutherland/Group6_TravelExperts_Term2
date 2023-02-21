@@ -114,6 +114,8 @@ namespace TravelExpertsGUI
                         break;
                     case "Products-Suppliers":
                         dgvMain.DataSource = GetAllProductsSupplier();
+                        frmProduct_Suppliers form = new frmProduct_Suppliers();
+                        form.ShowDialog();
                         ProductsSupplierFormat();
                         break;
                     case "Suppliers":
@@ -278,7 +280,7 @@ namespace TravelExpertsGUI
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            
+            Application.Exit();
         }
     }//class
 }
