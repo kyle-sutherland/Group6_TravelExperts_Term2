@@ -49,7 +49,7 @@ namespace TravelExpertsWebApp.Controllers
                 CookieAuthenticationDefaults.AuthenticationScheme); //"Cookies"
             ClaimsPrincipal principal = new ClaimsPrincipal(identity);
 
-            // et the authenticatino ticket
+            // get the authenticatino ticket
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
 
             if (string.IsNullOrEmpty(TempData["ReturnUrl"].ToString()))
@@ -64,9 +64,6 @@ namespace TravelExpertsWebApp.Controllers
             HttpContext.Session.Remove("CurrentCustomer");
             return RedirectToAction("Index", "TravelExperts"); // by default go to main page
         }
-
-        // go to 
-
 
         public ActionResult Register() { return View(); }
 
